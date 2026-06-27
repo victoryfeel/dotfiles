@@ -1,0 +1,192 @@
+# ==================== XDG & Cache Setup ====================
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export ZSH_CACHE_DIR="${XDG_CACHE_HOME}/zsh"
+
+# 确保缓存目录存在
+[[ -d "$ZSH_CACHE_DIR" ]] || mkdir -p "$ZSH_CACHE_DIR"
+# 历史文件路径
+export HISTFILE="${ZSH_CACHE_DIR}/history"
+export HISTSIZE=10000
+export SAVEHIST=1000
+# 补全缓存路径
+export ZSH_COMPDUMP="${ZSH_CACHE_DIR}/zcompdump-${HOST/.*/}-${ZSH_VERSION}"
+
+
+#==================== Environment & PATH ====================
+export LANG=en_US.UTF-8
+export EDITOR="nvim"
+export VISUAL="nvim"
+#export CONAN_HOME="${XDG_CONFIG_HOME}/conan2"
+
+
+# 使用typeset -U 自动去重
+typeset -U path
+path=(
+    $HOME/bin
+    $HOME/.local/bin
+    $HOME/.cargo/bin
+    /usr/local/bin
+    $path
+)
+export PATH
+
+
+# ==================== Zim Setup ====================
+ZIM_HOME="${XDG_CACHE_HOME}/zim"
+ZIM_CONFIG_FILE="${ZDOTDIR:-${HOME}}/.zimrc"
+
+# 告诉Zim把dump文件放到cache目录
+zstyle ':zim:completion' dump-file "$ZSH_COMPDUMP"
+
+#--Auto Download Modules/Plugins
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+    curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+fi
+# --Auto Install Modules/Plugins
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE} ]]; then
+    source ${ZIM_HOME}/zimfw.zsh init
+fi
+#--Initialize Zim
+source ${ZIM_HOME}/init.zsh
+
+
+
+# ==================== Alias ====================
+# pacman & yay
+alias xu='sudo pacman -Syu'
+
+alias xs='pacman -Ss'
+alias ys='yay -Ss'
+
+alias xi='sudo pacman -S --needed'
+alias yi='yay -S --needed'
+
+alias xr='sudo pacman -Rns'
+alias xc='sudo pacman -Sc'
+alias xca='sudo pacman -Rns $(pacman -Qdtq)'
+
+alias qs='pacman -Qs'
+alias qi='pacman -Qi'
+alias qu='pacman -Qu'
+
+
+# file system
+alias ll='ls -lah'
+alias md='mkdir -p'
+alias rm='echo "Use tp (trash-put) instead."; false'
+alias tp="trash-put"
+alias cdw="cd ~/files/work/"
+alias man='tldr'
+
+# devbox
+#monitor
+alias lpm="lsipc -m" #查看共享内存
+alias lps="lsipc -s" #查看信号量
+#查看进程
+function psg {
+    local pat=$1
+    [[ -z $pat ]] && {
+        echo "usage: psg <process-name-or-pattern>"
+        return 1
+    }
+
+    local -a pids
+    pids=($(pgrep -f "$pat")) || {
+        echo "no process matched: $pat"
+        return 1
+    }
+
+    ps -fp $pids
+}
+
+# podman
+alias pd="podman"
+alias pds="podman search"
+alias pdp="podman pull"
+alias pdr="podman run"
+alias pdri="podman run -it"
+alias pde="podman exec -it"
+alias pdc="podman system prune"
+
+# zsh
+alias mz="nvim ~/.config/zsh/.zshrc"
+alias az="chezmoi add ~/.config/zsh/.zshrc"
+alias sz="exec zsh"
+alias mzm="nvim ~/.config/zsh/.zimrc"
+alias azm="chezmoi add ~/.config/zsh/.zimrc"
+# tmux
+alias mt="nvim ~/.config/tmux/tmux.conf"
+alias at="chezmoi add ~/.config/tmux/tmux.conf"
+alias tls="tmux ls"
+# neovim
+alias mn="nvim ~/.config/nvim/init.lua"
+alias an="chezmoi add ~/.config/nvim/init.lua"
+# yazi
+alias my="nvim ~/.config/yazi/yazi.toml"
+alias ay="chezmoi add ~/.config/yazi"
+# lazygit
+alias mg="nvim ~/.config/lazygit/config.yml"
+alias ag="chezmoi add ~/.config/lazygit/config.yml"
+
+
+# tools
+alias f='fastfetch'
+alias cz='chezmoi'
+alias czl='chezmoi managed'
+alias czd='chezmoi diff'
+
+
+
+# ==================== Functions ====================
+
+# 使用tm创建tmuxsession
+function tm {
+    if [ -z "$1" ]; then
+        tmux attach || tmux new-session
+    else
+        tmux attach -t "$1" || tmux new-session -s "$1"
+    fi
+}
+
+
+
+# vim and automatically tmux
+function v {
+    if [ -n "$TMUX" ]; then
+        nvim "$@"
+    else
+        tmux new-session -A -s edit nvim "$@"
+    fi
+}
+
+
+# ctrl+g打开lazygit
+function lazygit_widget {
+    lazygit
+    zle reset-prompt
+}
+zle -N lazygit_widget
+bindkey '^g' lazygit_widget
+
+
+
+# ==================== Vim Mode ===================
+bindkey -v
+bindkey -M viins 'jk' vi-cmd-mode
+
+function zle-keymap-select {
+    if [[ $KEYMAP == vicmd ]]; then
+        echo -ne '\e[1 q'  # Block
+    else
+        echo -ne '\e[5 q'  # Beam
+    fi
+}
+zle -N zle-keymap-select
+echo -ne '\e[5 q' # Init cursor
+
+KEYTIMEOUT=20
+
+# opencode
+export PATH=/home/alex/.opencode/bin:$PATH

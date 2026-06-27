@@ -1,0 +1,26 @@
+gui:
+  theme:
+    activeBorderColor:
+      - green
+      - bold
+    inactiveBorderColor:
+      - default
+    selectedLineBgColor:
+      - reverse
+    nerdFontsVersion: 3
+    mouseEvents: false
+    border: rounded
+git:
+  autoFetch: true
+  log:
+    showGraph: always
+  pagers:
+    - colorArg: always
+      pager: delta --paging=never
+keybinding:
+  universal:
+    quit: 'q'
+    nextTab: ']'
+    prevTab: '['
+  files:
+    commitChanges: 'c'
