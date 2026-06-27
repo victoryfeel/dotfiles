@@ -79,6 +79,11 @@ alias rm='echo "Use tp (trash-put) instead."; false'
 alias tp="trash-put"
 alias cdw="cd ~/files/work/"
 alias man='tldr'
+alias f='fastfetch'
+alias cdd="cd ~/dotfiles"
+alias cdo="cd ~/ongo"
+alias cdl="cd ~/learn"
+alias cdt="cd ~/tmp"
 
 # devbox
 #monitor
