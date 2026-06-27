@@ -77,8 +77,9 @@ alias ll='ls -lah'
 alias md='mkdir -p'
 alias rm='echo "Use tp (trash-put) instead."; false'
 alias tp="trash-put"
-alias cdw="cd ~/files/work/"
 alias man='tldr'
+alias f='fastfetch'
+alias cdd="cd ~/dotfiles"
 
 # devbox
 #monitor
@@ -111,36 +112,25 @@ alias pde="podman exec -it"
 alias pdc="podman system prune"
 
 # zsh
-alias mz="nvim ~/.config/zsh/.zshrc"
-alias az="chezmoi add ~/.config/zsh/.zshrc"
+alias mz="nvim ~/dotfiles/zsh/zshrc"
+alias mzm="nvim ~/dotfiles/zsh/zimrc"
 alias sz="exec zsh"
-alias mzm="nvim ~/.config/zsh/.zimrc"
-alias azm="chezmoi add ~/.config/zsh/.zimrc"
 # tmux
-alias mt="nvim ~/.config/tmux/tmux.conf"
-alias at="chezmoi add ~/.config/tmux/tmux.conf"
+alias mt="nvim ~/dotfiles/tmux/tmux.conf"
 alias tls="tmux ls"
 # neovim
-alias mn="nvim ~/.config/nvim/init.lua"
-alias an="chezmoi add ~/.config/nvim/init.lua"
+alias mni="nvim ~/dotfiles/nvim/init.lua"
+alias mnc="cd ~/dotfiles/nvim/lua/alexmak/core"
 # yazi
-alias my="nvim ~/.config/yazi/yazi.toml"
-alias ay="chezmoi add ~/.config/yazi"
+alias myy="nvim ~/dotfiles/yazi/yazi.toml"
+alias myk="nvim ~/dotfiles/yazi/keymap.toml"
+alias myt="nvim ~/dotfiles/yazi/theme.toml"
+alias myv="nvim ~/dotfiles/yazi/vfs.toml"
 # lazygit
-alias mg="nvim ~/.config/lazygit/config.yml"
-alias ag="chezmoi add ~/.config/lazygit/config.yml"
-
-
-# tools
-alias f='fastfetch'
-alias cz='chezmoi'
-alias czl='chezmoi managed'
-alias czd='chezmoi diff'
-
+alias mlg="nvim ~/dotfiles/lazygit/config.yml"
 
 
 # ==================== Functions ====================
-
 # 使用tm创建tmuxsession
 function tm {
     if [ -z "$1" ]; then
@@ -149,9 +139,6 @@ function tm {
         tmux attach -t "$1" || tmux new-session -s "$1"
     fi
 }
-
-
-
 # vim and automatically tmux
 function v {
     if [ -n "$TMUX" ]; then
@@ -160,8 +147,6 @@ function v {
         tmux new-session -A -s edit nvim "$@"
     fi
 }
-
-
 # ctrl+g打开lazygit
 function lazygit_widget {
     lazygit
