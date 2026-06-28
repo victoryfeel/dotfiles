@@ -73,17 +73,18 @@ alias qu='pacman -Qu'
 
 
 # file system
-alias ll='ls -lah'
+alias ll='ls -alh'
 alias md='mkdir -p'
 alias rm='echo "Use tp (trash-put) instead."; false'
 alias tp="trash-put"
 alias man='tldr'
 alias f='fastfetch'
 alias gg="git clone"
-alias cdd="cd ~/dotfiles"
-alias cdo="cd ~/ongo"
-alias cdl="cd ~/learn"
-alias cdt="cd ~/tmp"
+alias cdd="cd ~/dotfiles && ls -alh ~/dotfiles"
+alias cdo="cd ~/ongo && ls -alh ~/ongo"
+alias cdl="cd ~/learn && ls -alh ~/learn"
+alias cdt="cd ~/tmp && ls -alh ~/tmp"
+alias cds="cd ~/tmp/share/serversync && ls -alh ~/tmp/share/serversync"
 
 # devbox
 #monitor
