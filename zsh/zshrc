@@ -77,7 +77,6 @@ alias ll='ls -alh'
 alias md='mkdir -p'
 alias rm='echo "Use tp (trash-put) instead."; false'
 alias tp="trash-put"
-alias man='tldr'
 alias f='fastfetch'
 alias gg="git clone"
 alias cdd="cd ~/dotfiles && ls -alh ~/dotfiles"
