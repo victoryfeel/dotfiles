@@ -7,6 +7,7 @@ echo "creating directories..."
 
 mkdir -p "$HOME/.config/alacritty"
 mkdir -p "$HOME/.config/lazygit"
+mkdir -p "$HOME/.config/nvim"
 mkdir -p "$HOME/.config/nvim/lua/alexmak/core"
 mkdir -p "$HOME/.config/nvim/lua/alexmak/plugins"
 mkdir -p "$HOME/.config/scripts"
@@ -32,7 +33,7 @@ ln -sf "$DOTFILES/scripts/executable_tmux_session_switch.sh" "$HOME/.config/scri
 ln -sf "$DOTFILES/lazygit/config.yml" "$HOME/.config/lazygit/config.yml"
 # nvim
 ln -sf "$DOTFILES/nvim/init.lua" "$HOME/.config/nvim/init.lua"
-ln -sf "$DOTFILES/nvim-pack-lock.json" "$HOME/.config/nvim/nvim-pack-lock.json"
+ln -sf "$DOTFILES/nvim/nvim-pack-lock.json" "$HOME/.config/nvim/nvim-pack-lock.json"
 ln -sf "$DOTFILES/nvim/lua/alexmak/core/colorscheme.lua" "$HOME/.config/nvim/lua/alexmak/core/colorscheme.lua"
 ln -sf "$DOTFILES/nvim/lua/alexmak/core/keymaps.lua" "$HOME/.config/nvim/lua/alexmak/core/keymaps.lua"
 ln -sf "$DOTFILES/nvim/lua/alexmak/core/options.lua" "$HOME/.config/nvim/lua/alexmak/core/options.lua"
