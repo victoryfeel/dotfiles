@@ -123,15 +123,12 @@ alias sz="exec zsh"
 alias mt="nvim ~/dotfiles/tmux/tmux.conf"
 alias tls="tmux ls"
 # neovim
-alias mni="nvim ~/dotfiles/nvim/init.lua"
-alias mnc="cd ~/dotfiles/nvim/lua/alexmak/core"
+alias mn="nvim ~/dotfiles/nvim/init.lua"
 # yazi
-alias myy="nvim ~/dotfiles/yazi/yazi.toml"
-alias myk="nvim ~/dotfiles/yazi/keymap.toml"
-alias myt="nvim ~/dotfiles/yazi/theme.toml"
-alias myv="nvim ~/dotfiles/yazi/vfs.toml"
+alias y="yazi"
+alias my="nvim ~/dotfiles/yazi/yazi.toml"
 # lazygit
-alias mlg="nvim ~/dotfiles/lazygit/config.yml"
+alias mg="nvim ~/dotfiles/lazygit/config.yml"
 
 
 # ==================== Functions ====================
