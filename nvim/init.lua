@@ -10,11 +10,11 @@ require("alexmak.core.keymaps")
 
 -- 3. plugins
 require("alexmak.plugins.web-devicons")
+require("alexmak.plugins.mini")
 require("alexmak.plugins.lualine")
 require("alexmak.plugins.treesitter")
 require("alexmak.plugins.nvim-tree")
 require("alexmak.plugins.fzf-lua")
-require("alexmak.plugins.mini")
 require("alexmak.plugins.gitsigns")
 require("alexmak.plugins.mason")
 require("alexmak.plugins.lsp")
