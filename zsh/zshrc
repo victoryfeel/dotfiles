@@ -73,12 +73,17 @@ alias qu='pacman -Qu'
 
 
 # file system
-alias ll='ls -lah'
+alias ll='ls -alh'
 alias md='mkdir -p'
 alias rm='echo "Use tp (trash-put) instead."; false'
 alias tp="trash-put"
-alias cdw="cd ~/files/work/"
-alias man='tldr'
+alias f='fastfetch'
+alias gg="git clone"
+alias cdd="cd ~/dotfiles && ls -alh ~/dotfiles"
+alias cdo="cd ~/ongo && ls -alh ~/ongo"
+alias cdl="cd ~/learn && ls -alh ~/learn"
+alias cdt="cd ~/tmp && ls -alh ~/tmp"
+alias cds="cd ~/tmp/share/serversync && ls -alh ~/tmp/share/serversync"
 
 # devbox
 #monitor
@@ -111,36 +116,22 @@ alias pde="podman exec -it"
 alias pdc="podman system prune"
 
 # zsh
-alias mz="nvim ~/.config/zsh/.zshrc"
-alias az="chezmoi add ~/.config/zsh/.zshrc"
+alias mz="nvim ~/dotfiles/zsh/zshrc"
+alias mzm="nvim ~/dotfiles/zsh/zimrc"
 alias sz="exec zsh"
-alias mzm="nvim ~/.config/zsh/.zimrc"
-alias azm="chezmoi add ~/.config/zsh/.zimrc"
 # tmux
-alias mt="nvim ~/.config/tmux/tmux.conf"
-alias at="chezmoi add ~/.config/tmux/tmux.conf"
+alias mt="nvim ~/dotfiles/tmux/tmux.conf"
 alias tls="tmux ls"
 # neovim
-alias mn="nvim ~/.config/nvim/init.lua"
-alias an="chezmoi add ~/.config/nvim/init.lua"
+alias mn="nvim ~/dotfiles/nvim/init.lua"
 # yazi
-alias my="nvim ~/.config/yazi/yazi.toml"
-alias ay="chezmoi add ~/.config/yazi"
+alias y="yazi"
+alias my="nvim ~/dotfiles/yazi/yazi.toml"
 # lazygit
-alias mg="nvim ~/.config/lazygit/config.yml"
-alias ag="chezmoi add ~/.config/lazygit/config.yml"
-
-
-# tools
-alias f='fastfetch'
-alias cz='chezmoi'
-alias czl='chezmoi managed'
-alias czd='chezmoi diff'
-
+alias mg="nvim ~/dotfiles/lazygit/config.yml"
 
 
 # ==================== Functions ====================
-
 # 使用tm创建tmuxsession
 function tm {
     if [ -z "$1" ]; then
@@ -149,9 +140,6 @@ function tm {
         tmux attach -t "$1" || tmux new-session -s "$1"
     fi
 }
-
-
-
 # vim and automatically tmux
 function v {
     if [ -n "$TMUX" ]; then
@@ -160,8 +148,6 @@ function v {
         tmux new-session -A -s edit nvim "$@"
     fi
 }
-
-
 # ctrl+g打开lazygit
 function lazygit_widget {
     lazygit
