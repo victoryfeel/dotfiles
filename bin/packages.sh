@@ -15,9 +15,11 @@ if [ "$(uname -s)" = "Darwin" ]; then
 	brew install --cask netnewswire
 	brew install --cask cryptomator
 	brew install --cask freefilesync
-	brew install --cask alfred
+	#brew install --cask alfred
 	brew install --cask anki
 	brew install --cask calibre
+	brew install --cask obsidian
+	brew install --cask google-drive
 	brew install --cask brave-browser
 	#brew install --cask helium-browser
 	#brew install --cask pdf-expert
@@ -27,6 +29,9 @@ if [ "$(uname -s)" = "Darwin" ]; then
 	echo "mpv player: https://github.com/mpv-player/mpv/releases"
 	echo "v2rayn: https://github.com/2dust/v2rayN/releases"
 	echo "qBittorent: https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases"
+	echo "cracked app links:"
+	echo "alfred: https://www.minorpatch.com/apps/alfred-powerpack.html"
+	echo "pdf expert: https://www.minorpatch.com/apps/pdf-expert.html"
 
 else
 	#==========================
