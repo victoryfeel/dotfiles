@@ -32,20 +32,16 @@ command -v yay >/dev/null || (
 #========================
 if [ "$(uname -s)" = "Darwin" ]; then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	brew install --cask orbstack
-	brew install --cask visual-studio-code
-	brew install --cask dbeaver-community
-	brew install --cask netnewswire
-	brew install --cask cryptomator
-	brew install --cask freefilesync
-	#brew install --cask alfred
-	brew install --cask anki
-	brew install --cask calibre
-	brew install --cask obsidian
-	brew install --cask google-drive
+
+	brew install zimfw git git-delta fzf fd ripgrep
+	brew install mandoc fastfetch htop
+	brew install lazygit neovim yazi tmux
+
+	brew install --cask orbstack visual-studio-code dbeaver-community
+	brew install --cask freefilesync google-drive cryptomator
+	brew install --cask anki calibre obsidian netnewswire
 	brew install --cask brave-browser
 	#brew install --cask helium-browser
-	#brew install --cask pdf-expert
 
 	echo "Manual install with following links:"
 	echo "alacritty: https://alacritty.org/"
