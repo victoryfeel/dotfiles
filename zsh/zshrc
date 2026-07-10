@@ -3,13 +3,10 @@ export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
 export ZSH_CACHE_DIR="${XDG_CACHE_HOME}/zsh"
 
-# 确保缓存目录存在
 [[ -d "$ZSH_CACHE_DIR" ]] || mkdir -p "$ZSH_CACHE_DIR"
-# 历史文件路径
 export HISTFILE="${ZSH_CACHE_DIR}/history"
 export HISTSIZE=10000
 export SAVEHIST=1000
-# 补全缓存路径
 export ZSH_COMPDUMP="${ZSH_CACHE_DIR}/zcompdump-${HOST/.*/}-${ZSH_VERSION}"
 
 
@@ -20,7 +17,6 @@ export VISUAL="nvim"
 #export CONAN_HOME="${XDG_CONFIG_HOME}/conan2"
 
 
-# 使用typeset -U 自动去重
 typeset -U path
 path=(
     $HOME/bin
@@ -35,8 +31,6 @@ export PATH
 # ==================== Zim Setup ====================
 ZIM_HOME="${XDG_CACHE_HOME}/zim"
 ZIM_CONFIG_FILE="${ZDOTDIR:-${HOME}}/.zimrc"
-
-# 告诉Zim把dump文件放到cache目录
 zstyle ':zim:completion' dump-file "$ZSH_COMPDUMP"
 
 #--Auto Download Modules/Plugins
@@ -77,19 +71,19 @@ alias ll='ls -alh'
 alias md='mkdir -p'
 alias rm='echo "Use tp (trash-put) instead."; false'
 alias tp="trash-put"
-alias f='fastfetch'
+alias s='fastfetch'
+alias f='fzf'
 alias gg="git clone"
-alias cdd="cd ~/dotfiles && ls -alh ~/dotfiles"
-alias cdo="cd ~/ongo && ls -alh ~/ongo"
-alias cdl="cd ~/learn && ls -alh ~/learn"
+alias cdd="cd ~/alexmak/dotfiles && ls -alh ~/alexmak/dotfiles"
+alias cdo="cd ~/alexmak/ongo && ls -alh ~/alexmak/ongo"
+alias cdl="cd ~/alexmak/learn && ls -alh ~/alexmak/learn"
 alias cdt="cd ~/tmp && ls -alh ~/tmp"
-alias cds="cd ~/tmp/share/serversync && ls -alh ~/tmp/share/serversync"
 
 # devbox
 #monitor
-alias lpm="lsipc -m" #查看共享内存
-alias lps="lsipc -s" #查看信号量
-#查看进程
+alias lpm="lsipc -m"
+alias lps="lsipc -s"
+# search process
 function psg {
     local pat=$1
     [[ -z $pat ]] && {
@@ -116,23 +110,23 @@ alias pde="podman exec -it"
 alias pdc="podman system prune"
 
 # zsh
-alias mz="nvim ~/dotfiles/zsh/zshrc"
-alias mzm="nvim ~/dotfiles/zsh/zimrc"
+alias mz="nvim ~/alexmak/dotfiles/zsh/zshrc"
+alias mzm="nvim ~/alexmak/dotfiles/zsh/zimrc"
 alias sz="exec zsh"
 # tmux
-alias mt="nvim ~/dotfiles/tmux/tmux.conf"
+alias mt="nvim ~/alexmak/dotfiles/tmux/tmux.conf"
 alias tls="tmux ls"
 # neovim
-alias mn="nvim ~/dotfiles/nvim/init.lua"
+alias mn="nvim ~/alexmak/dotfiles/nvim/init.lua"
 # yazi
 alias y="yazi"
-alias my="nvim ~/dotfiles/yazi/yazi.toml"
+alias my="nvim ~/alexmak/dotfiles/yazi/yazi.toml"
 # lazygit
-alias mg="nvim ~/dotfiles/lazygit/config.yml"
+alias mg="nvim ~/alexmak/dotfiles/lazygit/config.yml"
 
 
 # ==================== Functions ====================
-# 使用tm创建tmuxsession
+# tm to start a tmuxsession
 function tm {
     if [ -z "$1" ]; then
         tmux attach || tmux new-session
@@ -148,14 +142,25 @@ function v {
         tmux new-session -A -s edit nvim "$@"
     fi
 }
-# ctrl+g打开lazygit
+# ctrl+g to open lazygit
 function lazygit_widget {
     lazygit
     zle reset-prompt
 }
 zle -N lazygit_widget
 bindkey '^g' lazygit_widget
-
+# ctrl+f to search
+fzf-work-edit() {
+  local file=$(fd --type f --hidden --exclude .git . ~/alexmak/ | fzf --height 40% --reverse)
+    if [ -n "$file" ]; then
+      zle -I
+      cd "$(dirname "$file")"
+      nvim "$file"
+    fi
+    zle reset-prompt
+}
+zle -N fzf-work-edit
+bindkey '^k' fzf-work-edit
 
 
 # ==================== Vim Mode ===================
