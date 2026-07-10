@@ -37,10 +37,11 @@ ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/lsp.lua" "$HOME/.config/nvim/lua/alex
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/lualine.lua" "$HOME/.config/nvim/lua/alexmak/plugins/lualine.lua"
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/mason.lua" "$HOME/.config/nvim/lua/alexmak/plugins/mason.lua"
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/mini.lua" "$HOME/.config/nvim/lua/alexmak/plugins/mini.lua"
-ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/nvim-tree.lua" "$HOME/.config/nvim/lua/alexmak/plugins/nvim-tree.lua"
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/treesitter.lua" "$HOME/.config/nvim/lua/alexmak/plugins/treesitter.lua"
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/web-devicons.lua" "$HOME/.config/nvim/lua/alexmak/plugins/web-devicons.lua"
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/lazygit.lua" "$HOME/.config/nvim/lua/alexmak/plugins/lazygit.lua"
+ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/yazi.lua" "$HOME/.config/nvim/lua/alexmak/plugins/yazi.lua"
+ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/markdown.lua" "$HOME/.config/nvim/lua/alexmak/plugins/markdown.lua"
 # tmux
 mkdir -p "$HOME/.config/tmux"
 ln -sf "$DOTFILES/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
@@ -58,11 +59,11 @@ ln -sf "$DOTFILES/lazygit/config.yml" "$HOME/.config/lazygit/config.yml"
 #=====  gui tools config for mac  ======
 #======================================
 if [ "$(uname -s)" = "Darwin" ]; then
-	# alacritty
-	mkdir -p "$HOME/.config/alacritty"
-	ln -sf "$DOTFILES/alacritty/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
-	# mpv
-	ln -sfn "$DOTFILES/mpv/portable_config" "$HOME/.config/mpv"
+  # alacritty
+  mkdir -p "$HOME/.config/alacritty"
+  ln -sf "$DOTFILES/alacritty/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
+  # mpv
+  ln -sfn "$DOTFILES/mpv/portable_config" "$HOME/.config/mpv"
 fi
 
 echo "done!"
