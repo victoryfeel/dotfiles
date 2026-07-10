@@ -40,8 +40,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
 	brew install --cask orbstack visual-studio-code dbeaver-community
 	brew install --cask freefilesync google-drive cryptomator
 	brew install --cask anki calibre obsidian netnewswire
-	brew install --cask brave-browser
-	#brew install --cask helium-browser
+	brew install --cask helium-browser
 
 	echo "Manual install with following links:"
 	echo "alacritty: https://alacritty.org/"

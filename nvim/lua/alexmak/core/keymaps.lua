@@ -102,6 +102,9 @@ local function open_float_terminal()
     return
   end
 
+  -- AI 编辑: 在创建新窗口前获取路径，否则 % 会指向新 buffer
+  local buf_dir = vim.fn.expand("%:p:h")
+
   -- create new buffer and terminal
   float_term_state.buf = vim.api.nvim_create_buf(false, true)
   float_term_state.win = vim.api.nvim_open_win(float_term_state.buf, true, {
@@ -114,6 +117,7 @@ local function open_float_terminal()
     border = "rounded",
   })
   vim.fn.termopen(vim.o.shell, {
+    cwd = buf_dir,
     on_exit = function()
       float_term_state.buf = nil
       float_term_state.win = nil

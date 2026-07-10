@@ -4,8 +4,8 @@ set -e
 echo "config system..."
 
 chsh -s "$(which zsh)"
-mkdir -p "$HOME/learn"
-mkdir -p "$HOME/ongo"
+mkdir -p "$HOME/alexmak/learn"
+mkdir -p "$HOME/alexmak/ongo"
 mkdir -p "$HOME/tmp"
 
 git config --global user.name "alex"
