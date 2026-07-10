@@ -72,7 +72,6 @@ alias md='mkdir -p'
 alias rm='echo "Use tp (trash-put) instead."; false'
 alias tp="trash-put"
 alias s='fastfetch'
-alias f='fzf'
 alias gg="git clone"
 alias cdd="cd ~/alexmak/dotfiles && ls -alh ~/alexmak/dotfiles"
 alias cdo="cd ~/alexmak/ongo && ls -alh ~/alexmak/ongo"

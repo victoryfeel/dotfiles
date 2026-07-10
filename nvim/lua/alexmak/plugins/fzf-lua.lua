@@ -1,6 +1,10 @@
 vim.pack.add({ "https://www.github.com/ibhagwan/fzf-lua" })
 
-require("fzf-lua").setup({})
+require("fzf-lua").setup({
+  defaults = {
+    file_icons = "mini",
+  },
+})
 
 vim.keymap.set("n", "<leader>ff", function()
   local buf_dir = vim.fn.expand("%:p:h")

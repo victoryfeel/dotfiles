@@ -9,7 +9,6 @@ require("alexmak.core.options")
 require("alexmak.core.keymaps")
 
 -- 3. plugins
-require("alexmak.plugins.web-devicons")
 require("alexmak.plugins.mini")
 require("alexmak.plugins.lualine")
 require("alexmak.plugins.treesitter")

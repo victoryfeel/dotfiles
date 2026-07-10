@@ -1,13 +1,46 @@
 vim.pack.add({
   "https://github.com/Mofiqul/dracula.nvim",
-  "https://github.com/nvim-mini/mini.icons",
-  "https://github.com/lukas-reineke/indent-blankline.nvim",
-  "https://github.com/nvim-mini/mini.indentscope",
+  "https://github.com/folke/snacks.nvim",
 })
 
 require("dracula").setup({
   transparent_bg = true,
   italic_comment = true,
 })
-
 vim.cmd.colorscheme("dracula")
+
+----------------------------
+------ indent-rainbow ------
+----------------------------
+vim.opt.list = true
+vim.opt.listchars = {
+  lead = "·",
+  trail = "·",
+  nbsp = "␣",
+  tab = "» ",
+}
+
+vim.api.nvim_set_hl(0, "SnacksIndent1", { fg = "#5e5738" })
+vim.api.nvim_set_hl(0, "SnacksIndent2", { fg = "#3c5f4e" })
+vim.api.nvim_set_hl(0, "SnacksIndent3", { fg = "#5e4568" })
+vim.api.nvim_set_hl(0, "SnacksIndent4", { fg = "#375768" })
+
+require("snacks").setup({
+  indent = {
+    indent = {
+      char = "▏",
+      hl = {
+        "SnacksIndent1",
+        "SnacksIndent2",
+        "SnacksIndent3",
+        "SnacksIndent4",
+      },
+    },
+    scope = {
+      enabled = false,
+    },
+    animate = {
+      enabled = false,
+    },
+  },
+})

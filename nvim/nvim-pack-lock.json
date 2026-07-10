@@ -53,6 +53,22 @@
       "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/mason-org/mason.nvim"
     },
+    "mini.ai": {
+      "rev": "6d43e74cae75771b780a7270fec1f160613ed873",
+      "src": "https://www.github.com/echasnovski/mini.ai"
+    },
+    "mini.bufremove": {
+      "rev": "281bb1a2c60c3618c854bef2c0933276eb2362c2",
+      "src": "https://www.github.com/echasnovski/mini.bufremove"
+    },
+    "mini.comment": {
+      "rev": "27a29d6b949b9497f80a0a03421e89fed71d8c37",
+      "src": "https://www.github.com/echasnovski/mini.comment"
+    },
+    "mini.cursorword": {
+      "rev": "d06a70d2779851b2119459943312a4215039b153",
+      "src": "https://www.github.com/echasnovski/mini.cursorword"
+    },
     "mini.icons": {
       "rev": "e56797f90192d81f1fda02e662fc3e8e3d775027",
       "src": "https://github.com/nvim-mini/mini.icons"
@@ -61,9 +77,25 @@
       "rev": "942bc13ccc624c825b086373b8bd6787b98245c8",
       "src": "https://github.com/nvim-mini/mini.indentscope"
     },
+    "mini.move": {
+      "rev": "48fcaac289a19b8eff2fd5fe203267d478a8abdc",
+      "src": "https://www.github.com/echasnovski/mini.move"
+    },
     "mini.nvim": {
       "rev": "dbb073bd2ed4a7bb35daafc7989567f0ff1426ee",
       "src": "https://www.github.com/echasnovski/mini.nvim"
+    },
+    "mini.pairs": {
+      "rev": "b1fd9df3bb4a41c8f45778a3859ee80ef6b367e3",
+      "src": "https://www.github.com/echasnovski/mini.pairs"
+    },
+    "mini.surround": {
+      "rev": "5c2a99e43b959055311a4557875985142b672af0",
+      "src": "https://www.github.com/echasnovski/mini.surround"
+    },
+    "mini.trailspace": {
+      "rev": "82c4fb7d4336f8824ca6c97068932886b56326d0",
+      "src": "https://www.github.com/echasnovski/mini.trailspace"
     },
     "nvim-lspconfig": {
       "rev": "5a855bcfec7973767a1a472335684bbd71d2fa2b",
@@ -92,6 +124,10 @@
     "render-markdown.nvim": {
       "rev": "f422cb5c6855f150e2ddcfaf44e7157b98b34f6a",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
+    "snacks.nvim": {
+      "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
+      "src": "https://github.com/folke/snacks.nvim"
     },
     "yazi.nvim": {
       "rev": "7514be498c56f2a57e5a72faf55c517b9576665b",

@@ -9,7 +9,7 @@ echo "creating symbolic links..."
 #============================
 # fonts
 mkdir -p "$HOME/.local/share/fonts"
-ln -sf "$DOTFILES/local/share/fonts/"* "$HOME/.local/share/fonts/"
+ln -sf "$DOTFILES/local/share/fonts/HackNerdFontMono-Regular.ttf" "$HOME/.local/share/fonts/HackNerdFontMono-Regular.ttf"
 # scripts
 mkdir -p "$HOME/.config/scripts"
 ln -sf "$DOTFILES/scripts/executable_tmux_session_switch.sh" "$HOME/.config/scripts/executable_tmux_session_switch.sh"
@@ -38,7 +38,6 @@ ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/lualine.lua" "$HOME/.config/nvim/lua/
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/mason.lua" "$HOME/.config/nvim/lua/alexmak/plugins/mason.lua"
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/mini.lua" "$HOME/.config/nvim/lua/alexmak/plugins/mini.lua"
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/treesitter.lua" "$HOME/.config/nvim/lua/alexmak/plugins/treesitter.lua"
-ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/web-devicons.lua" "$HOME/.config/nvim/lua/alexmak/plugins/web-devicons.lua"
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/lazygit.lua" "$HOME/.config/nvim/lua/alexmak/plugins/lazygit.lua"
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/yazi.lua" "$HOME/.config/nvim/lua/alexmak/plugins/yazi.lua"
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/markdown.lua" "$HOME/.config/nvim/lua/alexmak/plugins/markdown.lua"
@@ -59,11 +58,11 @@ ln -sf "$DOTFILES/lazygit/config.yml" "$HOME/.config/lazygit/config.yml"
 #=====  gui tools config for mac  ======
 #======================================
 if [ "$(uname -s)" = "Darwin" ]; then
-  # alacritty
-  mkdir -p "$HOME/.config/alacritty"
-  ln -sf "$DOTFILES/alacritty/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
-  # mpv
-  ln -sfn "$DOTFILES/mpv/portable_config" "$HOME/.config/mpv"
+	# alacritty
+	mkdir -p "$HOME/.config/alacritty"
+	ln -sf "$DOTFILES/alacritty/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
+	# mpv
+	ln -sfn "$DOTFILES/mpv/portable_config" "$HOME/.config/mpv"
 fi
 
 echo "done!"
