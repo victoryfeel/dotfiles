@@ -168,13 +168,13 @@ bindkey -M viins 'jk' vi-cmd-mode
 
 function zle-keymap-select {
     if [[ $KEYMAP == vicmd ]]; then
-        echo -ne '\e[1 q'  # Block
+        echo -ne '\e[2 q'  # Block
     else
-        echo -ne '\e[5 q'  # Beam
+        echo -ne '\e[6 q'  # Beam
     fi
 }
 zle -N zle-keymap-select
-[[ -z "$NVIM" ]] && echo -ne '\e[5 q' # Init cursor (skip inside Neovim terminal)
+[[ -z "$NVIM" ]] && echo -ne '\e[6 q' # Init cursor (skip inside Neovim terminal)
 
 KEYTIMEOUT=20
 
