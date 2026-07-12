@@ -9,7 +9,8 @@ echo "creating symbolic links..."
 #============================
 # fonts
 mkdir -p "$HOME/.local/share/fonts"
-ln -sf "$DOTFILES/local/share/fonts/"* "$HOME/.local/share/fonts/"
+ln -sf "$DOTFILES/local/share/fonts/JetBrainsMonoNerdFontMono-Regular.ttf" "$HOME/.local/share/fonts/JetBrainsMonoNerdFontMono-Regular.ttf"
+ln -sf "$DOTFILES/local/share/fonts/JetBrainsMonoNerdFont-Regular.ttf" "$HOME/.local/share/fonts/JetBrainsMonoNerdFont-Regular.ttf"
 # scripts
 mkdir -p "$HOME/.config/scripts"
 ln -sf "$DOTFILES/scripts/executable_tmux_session_switch.sh" "$HOME/.config/scripts/executable_tmux_session_switch.sh"
@@ -35,12 +36,14 @@ ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/fzf-lua.lua" "$HOME/.config/nvim/lua/
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/gitsigns.lua" "$HOME/.config/nvim/lua/alexmak/plugins/gitsigns.lua"
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/lsp.lua" "$HOME/.config/nvim/lua/alexmak/plugins/lsp.lua"
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/lualine.lua" "$HOME/.config/nvim/lua/alexmak/plugins/lualine.lua"
+ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/nvim-web-devicons.lua" "$HOME/.config/nvim/lua/alexmak/plugins/nvim-web-devicons.lua"
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/mason.lua" "$HOME/.config/nvim/lua/alexmak/plugins/mason.lua"
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/mini.lua" "$HOME/.config/nvim/lua/alexmak/plugins/mini.lua"
-ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/nvim-tree.lua" "$HOME/.config/nvim/lua/alexmak/plugins/nvim-tree.lua"
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/treesitter.lua" "$HOME/.config/nvim/lua/alexmak/plugins/treesitter.lua"
-ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/web-devicons.lua" "$HOME/.config/nvim/lua/alexmak/plugins/web-devicons.lua"
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/lazygit.lua" "$HOME/.config/nvim/lua/alexmak/plugins/lazygit.lua"
+ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/yazi.lua" "$HOME/.config/nvim/lua/alexmak/plugins/yazi.lua"
+ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/markdown.lua" "$HOME/.config/nvim/lua/alexmak/plugins/markdown.lua"
+ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/outline.lua" "$HOME/.config/nvim/lua/alexmak/plugins/outline.lua"
 # tmux
 mkdir -p "$HOME/.config/tmux"
 ln -sf "$DOTFILES/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"

@@ -72,7 +72,6 @@ alias md='mkdir -p'
 alias rm='echo "Use tp (trash-put) instead."; false'
 alias tp="trash-put"
 alias s='fastfetch'
-alias f='fzf'
 alias gg="git clone"
 alias cdd="cd ~/alexmak/dotfiles && ls -alh ~/alexmak/dotfiles"
 alias cdo="cd ~/alexmak/ongo && ls -alh ~/alexmak/ongo"
@@ -169,13 +168,13 @@ bindkey -M viins 'jk' vi-cmd-mode
 
 function zle-keymap-select {
     if [[ $KEYMAP == vicmd ]]; then
-        echo -ne '\e[1 q'  # Block
+        echo -ne '\e[2 q'  # Block
     else
-        echo -ne '\e[5 q'  # Beam
+        echo -ne '\e[6 q'  # Beam
     fi
 }
 zle -N zle-keymap-select
-echo -ne '\e[5 q' # Init cursor
+[[ -z "$NVIM" ]] && echo -ne '\e[6 q' # Init cursor (skip inside Neovim terminal)
 
 KEYTIMEOUT=20
 
