@@ -174,7 +174,7 @@ function zle-keymap-select {
     fi
 }
 zle -N zle-keymap-select
-echo -ne '\e[5 q' # Init cursor
+[[ -z "$NVIM" ]] && echo -ne '\e[5 q' # Init cursor (skip inside Neovim terminal)
 
 KEYTIMEOUT=20
 

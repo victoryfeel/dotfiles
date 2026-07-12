@@ -9,7 +9,8 @@ echo "creating symbolic links..."
 #============================
 # fonts
 mkdir -p "$HOME/.local/share/fonts"
-ln -sf "$DOTFILES/local/share/fonts/HackNerdFontMono-Regular.ttf" "$HOME/.local/share/fonts/HackNerdFontMono-Regular.ttf"
+ln -sf "$DOTFILES/local/share/fonts/JetBrainsMonoNerdFontMono-Regular.ttf" "$HOME/.local/share/fonts/JetBrainsMonoNerdFontMono-Regular.ttf"
+ln -sf "$DOTFILES/local/share/fonts/JetBrainsMonoNerdFont-Regular.ttf" "$HOME/.local/share/fonts/JetBrainsMonoNerdFont-Regular.ttf"
 # scripts
 mkdir -p "$HOME/.config/scripts"
 ln -sf "$DOTFILES/scripts/executable_tmux_session_switch.sh" "$HOME/.config/scripts/executable_tmux_session_switch.sh"
@@ -42,6 +43,7 @@ ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/treesitter.lua" "$HOME/.config/nvim/l
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/lazygit.lua" "$HOME/.config/nvim/lua/alexmak/plugins/lazygit.lua"
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/yazi.lua" "$HOME/.config/nvim/lua/alexmak/plugins/yazi.lua"
 ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/markdown.lua" "$HOME/.config/nvim/lua/alexmak/plugins/markdown.lua"
+ln -sf "$DOTFILES/nvim/lua/alexmak/plugins/outline.lua" "$HOME/.config/nvim/lua/alexmak/plugins/outline.lua"
 # tmux
 mkdir -p "$HOME/.config/tmux"
 ln -sf "$DOTFILES/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"

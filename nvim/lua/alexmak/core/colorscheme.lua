@@ -17,7 +17,7 @@ vim.opt.listchars = {
   lead = "·",
   trail = "·",
   nbsp = "␣",
-  tab = "» ",
+  tab = "→ ",
 }
 
 vim.api.nvim_set_hl(0, "SnacksIndent1", { fg = "#5e5738" })
@@ -28,7 +28,7 @@ vim.api.nvim_set_hl(0, "SnacksIndent4", { fg = "#375768" })
 require("snacks").setup({
   indent = {
     indent = {
-      char = "▏",
+      char = "│",
       hl = {
         "SnacksIndent1",
         "SnacksIndent2",
