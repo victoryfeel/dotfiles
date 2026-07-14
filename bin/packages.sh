@@ -37,13 +37,12 @@ if [ "$(uname -s)" = "Darwin" ]; then
 	brew install mandoc fastfetch htop
 	brew install lazygit neovim yazi tmux
 
-	brew install --cask orbstack visual-studio-code dbeaver-community
+	brew install --cask ghostty orbstack dbeaver-community
 	brew install --cask freefilesync google-drive cryptomator
 	brew install --cask anki calibre obsidian netnewswire
 	brew install --cask helium-browser
 
 	echo "Manual install with following links:"
-	echo "alacritty: https://alacritty.org/"
 	echo "mpv player: https://github.com/mpv-player/mpv/releases"
 	echo "v2rayn: https://github.com/2dust/v2rayN/releases"
 	echo "qBittorent: https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases"

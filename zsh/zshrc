@@ -15,6 +15,7 @@ export LANG=en_US.UTF-8
 export EDITOR="nvim"
 export VISUAL="nvim"
 #export CONAN_HOME="${XDG_CONFIG_HOME}/conan2"
+export VCPKG_ROOT=$HOME/.local/share/vcpkg
 
 
 typeset -U path
@@ -76,6 +77,7 @@ alias gg="git clone"
 alias cdd="cd ~/alexmak/dotfiles && ls -alh ~/alexmak/dotfiles"
 alias cdo="cd ~/alexmak/ongo && ls -alh ~/alexmak/ongo"
 alias cdl="cd ~/alexmak/learn && ls -alh ~/alexmak/learn"
+alias cdn="cd ~/alexmak/notes && ls -alh ~/alexmak/notes"
 alias cdt="cd ~/tmp && ls -alh ~/tmp"
 
 # devbox
