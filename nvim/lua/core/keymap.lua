@@ -148,19 +148,19 @@ vim.keymap.set({ "n", "t" }, "<leader>t", toggle_float_terminal, { desc = "Toggl
 -- 下面的函数给外部文件调用的
 local map = {}
 function map:key(mode, lhs, rhs)
-	vim.keymap.set(mode, lhs, rhs, { silent = true })
+  vim.keymap.set(mode, lhs, rhs, { silent = true })
 end
 
 function map:cmd(key, cmd)
-	vim.keymap.set("n", key, "<Cmd>" .. cmd .. "<CR>", { silent = true })
+  vim.keymap.set("n", key, "<Cmd>" .. cmd .. "<CR>", { silent = true })
 end
 
 function map:lua(key, txt_or_func)
-	if type(txt_or_func) == "string" then
-		vim.keymap.set("n", key, "<cmd>lua " .. txt_or_func .. "<cr>", { silent = true })
-	else
-		vim.keymap.set("n", key, txt_or_func, { silent = true })
-	end
+  if type(txt_or_func) == "string" then
+    vim.keymap.set("n", key, "<cmd>lua " .. txt_or_func .. "<cr>", { silent = true })
+  else
+    vim.keymap.set("n", key, txt_or_func, { silent = true })
+  end
 end
 
 return map
