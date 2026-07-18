@@ -4,14 +4,15 @@ local servers = {
   "rust_analyzer",
   "pylsp",
   "vtsls", -- javascript
+  "clangd"
 }
-if not IS_ARM then
-  vim.list_extend(servers, {
-    "marksman",
-    "svelte",
-    "cssls",
-    "html" })
-end
+--if not IS_ARM then
+--  vim.list_extend(servers, {
+--    "marksman",
+--    "svelte",
+--    "cssls",
+--    "html" })
+--end
 
 -- 插件配置清单
 local P = {
@@ -47,6 +48,10 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 
       -- === 全局诊断设置 ===
       vim.diagnostic.config({
+        virtual_text = { prefix = "●", spacing = 4 },
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
         signs = {
           text = {
             [vim.diagnostic.severity.ERROR] = "✘", --""

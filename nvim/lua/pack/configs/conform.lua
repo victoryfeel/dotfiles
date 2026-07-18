@@ -10,8 +10,7 @@ local P = {
 
 -- 提取出统一的配置变量
 local formatters_by_ft = {
-  --c = {"clang-format"},
-  --cpp = {"clang-format"},
+  -- AI Edit: 优先使用 LSP (clangd) 服务端进行格式化，以自动应用项目中的 .clang-format 配置文件
   c = { lsp_format = "prefer" },
   cpp = { lsp_format = "prefer" },
   python = { "isort", "black" },
