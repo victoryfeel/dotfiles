@@ -19,7 +19,7 @@ PackUtils.load(P, function()
   vim.api.nvim_set_hl(0, "SnacksIndent3", { fg = "#5e4568" })
   vim.api.nvim_set_hl(0, "SnacksIndent4", { fg = "#375768" })
   -- AI Edit: 定义 lazygit 聚焦面板边框的高亮组（颜色需用组名，snacks 会读取其颜色写入 YAML）
-  vim.api.nvim_set_hl(0, "LazyGitActiveBorder", { fg = "#00ff00", bold = true }) -- lazygit 默认绿：当前聚焦 panel
+  vim.api.nvim_set_hl(0, "LazyGitActiveBorder", { fg = "#50fa7b", bold = true }) -- lazygit 默认绿：当前聚焦 panel #00ff00
   require("snacks").setup({
     image = {},
     -- AI Edit: 仅覆盖 activeBorderColor，其余保持 snacks 默认；fg 必须是高亮组名
