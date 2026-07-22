@@ -19,13 +19,13 @@ local specs = {
   -- ==============================================================
   -- Category 3: UI & Appearance (界面美化与基础增强)
   -- ==============================================================
-  "https://github.com/Mofiqul/dracula.nvim",              -- 主题配色
-  "https://github.com/nvim-lualine/lualine.nvim",         -- 底部状态栏
-  "https://github.com/akinsho/bufferline.nvim",           -- 顶部 Buffer 标签栏
-  "https://github.com/folke/noice.nvim",                  -- 重构 Neovim 消息与命令行 UI
-  "https://github.com/folke/which-key.nvim",              -- 快捷键可视化导航帮助
-  "https://github.com/3rd/image.nvim",                    -- 终端图片显示/预览支持
-  "https://github.com/folke/snacks.nvim",                 -- Snacks.nvim 实用工具箱
+  "https://github.com/Mofiqul/dracula.nvim",      -- 主题配色
+  "https://github.com/nvim-lualine/lualine.nvim", -- 底部状态栏
+  "https://github.com/akinsho/bufferline.nvim",   -- 顶部 Buffer 标签栏
+  "https://github.com/folke/noice.nvim",          -- 重构 Neovim 消息与命令行 UI
+  "https://github.com/folke/which-key.nvim",      -- 快捷键可视化导航帮助
+  -- "https://github.com/3rd/image.nvim",                    -- 终端图片显示/预览支持
+  "https://github.com/folke/snacks.nvim",         -- Snacks.nvim 实用工具箱
 
 
   -- ==============================================================
@@ -39,8 +39,8 @@ local specs = {
   -- Category 5: Autocompletion & Snippets (自动补全与代码片段)
   -- ==============================================================
   { src = "https://github.com/saghen/blink.cmp", version = "v1" },
-  "https://github.com/L3MON4D3/LuaSnip",                  -- blink.cmp 依赖的代码片段引擎
-  "https://github.com/rafamadriz/friendly-snippets",      -- 预置代码片段集合
+  "https://github.com/L3MON4D3/LuaSnip",             -- blink.cmp 依赖的代码片段引擎
+  "https://github.com/rafamadriz/friendly-snippets", -- 预置代码片段集合
 
   -- ==============================================================
   -- Category 6: Tree-sitter & Syntax Enhancements (代码语法分析)
@@ -51,36 +51,36 @@ local specs = {
   -- ==============================================================
   -- Category 7: Formatting & Linting (代码格式化与规范)
   -- ==============================================================
-  "https://github.com/stevearc/conform.nvim",             -- 轻量级格式化管理器
+  "https://github.com/stevearc/conform.nvim", -- 轻量级格式化管理器
 
   -- ==============================================================
   -- Category 8: Search & Navigation (模糊查找与大纲浏览)
   -- ==============================================================
-  "https://www.github.com/ibhagwan/fzf-lua",              -- 极速模糊查找器
-  "https://github.com/mikavilpas/yazi.nvim",              -- yazi 终端文件管理器
-  "https://github.com/hedyhli/outline.nvim",              -- 代码结构大纲侧边栏
+  "https://www.github.com/ibhagwan/fzf-lua", -- 极速模糊查找器
+  "https://github.com/mikavilpas/yazi.nvim", -- yazi 终端文件管理器
+  "https://github.com/hedyhli/outline.nvim", -- 代码结构大纲侧边栏
 
   -- ==============================================================
   -- Category 9: Git Integration (Git 关联与辅助)
   -- ==============================================================
-  "https://www.github.com/lewis6991/gitsigns.nvim",        -- Git 状态指示与 Diff
+  "https://www.github.com/lewis6991/gitsigns.nvim", -- Git 状态指示与 Diff
 
   -- ==============================================================
   -- Category 10: Coding Helpers (通用编写辅助工具)
   -- ==============================================================
-  "https://github.com/windwp/nvim-autopairs",             -- 自动匹配/闭合括号
-  "https://github.com/echasnovski/mini.nvim",             -- mini.surround 包裹操作集
-  "https://github.com/RRethy/vim-illuminate",             -- 同词/同引用高亮与跳转
-  "https://github.com/kevinhwang91/nvim-ufo",             -- 高性能折叠引擎
-  "https://github.com/jiaoshijie/undotree",               -- 时光穿梭图形撤销树
-  "https://github.com/CRAG666/code_runner.nvim",          -- 快捷运行代码
-  "https://github.com/lambdalisue/vim-suda",              -- 提权保存只读文件
+  "https://github.com/windwp/nvim-autopairs",    -- 自动匹配/闭合括号
+  "https://github.com/echasnovski/mini.nvim",    -- mini.surround 包裹操作集
+  "https://github.com/RRethy/vim-illuminate",    -- 同词/同引用高亮与跳转
+  "https://github.com/kevinhwang91/nvim-ufo",    -- 高性能折叠引擎
+  "https://github.com/jiaoshijie/undotree",      -- 时光穿梭图形撤销树
+  "https://github.com/CRAG666/code_runner.nvim", -- 快捷运行代码
+  "https://github.com/lambdalisue/vim-suda",     -- 提权保存只读文件
 
   -- ==============================================================
   -- Category 11: Filetype Specific (特定文件格式增强)
   -- ==============================================================
-  "https://github.com/MeanderingProgrammer/render-markdown.nvim", -- Markdown 美化渲染
-  "https://github.com/cap153/peek.nvim",                  -- Markdown 网页实时同步预览
+  --  "https://github.com/MeanderingProgrammer/render-markdown.nvim", -- Markdown 美化渲染
+  --  "https://github.com/cap153/peek.nvim",                          -- Markdown 网页实时同步预览
 
   -- ==============================================================
   -- Category 12: Disabled / Optional Specs (禁用/备用插件参考)
@@ -145,9 +145,9 @@ end, {
 -- 插件管理引擎 (PackUtils) (暴露给全局，供 configs/*.lua 调用)
 -- ==============================================================
 _G.PackUtils = {
-  is_building = {},     -- 记录各插件的构建状态，防止重复构建
-  is_initialized = {},  -- 记录具体的配置代码块是否已执行
-  plugin_loaded = {},   -- 记录插件是否已挂载 (避免重复 packadd)
+  is_building = {},      -- 记录各插件的构建状态，防止重复构建
+  is_initialized = {},   -- 记录具体的配置代码块是否已执行
+  plugin_loaded = {},    -- 记录插件是否已挂载 (避免重复 packadd)
   disabled_plugins = {}, -- 专门记录被禁用的插件，供 load 拦截使用
 }
 

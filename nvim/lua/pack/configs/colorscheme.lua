@@ -1,6 +1,6 @@
--- === dracula official theme ===
--- if vim.g.vscode then return end
-
+--============================================--
+--=========  dracula official theme  =========--
+--============================================--
 local P = {
   name = "dracula.nvim",
 }

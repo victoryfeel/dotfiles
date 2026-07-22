@@ -28,6 +28,13 @@ ln -sf "$DOTFILES/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
 mkdir -p "$HOME/.config/lazygit"
 ln -sf "$DOTFILES/lazygit/config.yml" "$HOME/.config/lazygit/config.yml"
 
+#=============================
+#=====  llm config  ======
+#=============================
+mkdir -p "$HOME/.gemini/antigravity-cli/"
+ln -sf "$DOTFILES/llmconfig/gemini-settings.json" "$HOME/.gemini/antigravity-cli/settings.json"
+
+
 #=======================================
 #=====  gui tools config for mac  ======
 #=======================================

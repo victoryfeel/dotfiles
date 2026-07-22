@@ -40,7 +40,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
 	brew install --cask ghostty orbstack dbeaver-community
 	brew install --cask freefilesync google-drive cryptomator
 	brew install --cask anki calibre obsidian netnewswire
-	brew install --cask helium-browser
+  brew install --cask brave-browser
 
 	echo "Manual install with following links:"
 	echo "mpv player: https://github.com/mpv-player/mpv/releases"

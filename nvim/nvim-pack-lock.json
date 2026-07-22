@@ -37,10 +37,6 @@
       "rev": "31d6fb2d618bca1482b9f274751ead5f03461408",
       "src": "https://www.github.com/lewis6991/gitsigns.nvim"
     },
-    "image.nvim": {
-      "rev": "88351f1f7d9dbae286e671ce3690a49660dd8a5c",
-      "src": "https://github.com/3rd/image.nvim"
-    },
     "inlay-hints.nvim": {
       "rev": "297a65ab9543eb0850c1a55df4bb89e22cfec504",
       "src": "https://github.com/MysticalDevil/inlay-hints.nvim"
@@ -101,10 +97,6 @@
       "rev": "2a132953b944561d45b52e4541ebfff71934a742",
       "src": "https://github.com/hedyhli/outline.nvim"
     },
-    "peek.nvim": {
-      "rev": "19c98125c3dd732672c635e1255f7ed4205a1272",
-      "src": "https://github.com/cap153/peek.nvim"
-    },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
@@ -112,10 +104,6 @@
     "promise-async": {
       "rev": "119e8961014c9bfaf1487bf3c2a393d254f337e2",
       "src": "https://github.com/kevinhwang91/promise-async"
-    },
-    "render-markdown.nvim": {
-      "rev": "f422cb5c6855f150e2ddcfaf44e7157b98b34f6a",
-      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "snacks.nvim": {
       "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",

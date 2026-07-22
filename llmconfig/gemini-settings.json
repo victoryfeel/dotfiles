@@ -1,0 +1,21 @@
+{
+  "allowNonWorkspaceAccess": false,
+  "enableTerminalSandbox": true,
+  "toolPermission": "proceed-in-sandbox",
+  "artifactReviewPolicy": "asks-for-review",
+  "trustedWorkspaces": [
+    "/home/alex/tmp/",
+  ],
+  "model": "Gemini 3.1 Pro (High)",
+  "verbosity": "high",
+  "editor": "auto",
+  "colorScheme": "dark",
+  "altScreenMode": "never",
+  "showTips": false,
+  "showFeedbackSurvey": false,
+  "statusLine": {
+    "type": "",
+    "command": "",
+    "enabled": true
+  }
+}
