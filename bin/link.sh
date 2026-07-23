@@ -33,6 +33,7 @@ ln -sf "$DOTFILES/lazygit/config.yml" "$HOME/.config/lazygit/config.yml"
 #=============================
 mkdir -p "$HOME/.gemini/antigravity-cli/"
 ln -sf "$DOTFILES/llmconfig/gemini-settings.json" "$HOME/.gemini/antigravity-cli/settings.json"
+ln -sf "$DOTFILES/llmconfig/GEMINI.md" "$HOME/.gemini/GEMINI.md"
 
 
 #=======================================

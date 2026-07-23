@@ -79,7 +79,7 @@ local specs = {
   -- ==============================================================
   -- Category 11: Filetype Specific (特定文件格式增强)
   -- ==============================================================
-  --  "https://github.com/MeanderingProgrammer/render-markdown.nvim", -- Markdown 美化渲染
+  "https://github.com/MeanderingProgrammer/render-markdown.nvim", -- Markdown 美化渲染
   --  "https://github.com/cap153/peek.nvim",                          -- Markdown 网页实时同步预览
 
   -- ==============================================================

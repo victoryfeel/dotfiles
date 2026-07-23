@@ -36,7 +36,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
 	brew install zimfw git git-delta fzf fd ripgrep
 	brew install mandoc fastfetch htop
 	brew install lazygit neovim yazi tmux
-
+  brew install --cask antigravity-cli
 	brew install --cask ghostty orbstack dbeaver-community
 	brew install --cask freefilesync google-drive cryptomator
 	brew install --cask anki calibre obsidian netnewswire
