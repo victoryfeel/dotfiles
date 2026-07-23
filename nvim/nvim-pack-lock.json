@@ -9,10 +9,6 @@
       "src": "https://github.com/saghen/blink.cmp",
       "version": "'v1'"
     },
-    "bufferline.nvim": {
-      "rev": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3",
-      "src": "https://github.com/akinsho/bufferline.nvim"
-    },
     "code_runner.nvim": {
       "rev": "2a83e56fb6c71461c1a9a008ad35e4bc4e47b4f4",
       "src": "https://github.com/CRAG666/code_runner.nvim"
@@ -124,10 +120,6 @@
     "vim-suda": {
       "rev": "c492741b4679b3cdd4d9e34138209784e061d916",
       "src": "https://github.com/lambdalisue/vim-suda"
-    },
-    "which-key.nvim": {
-      "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
-      "src": "https://github.com/folke/which-key.nvim"
     },
     "yazi.nvim": {
       "rev": "3a5187b93d6f9fa1287ad63571df53e31a5c26bb",

@@ -39,7 +39,7 @@ local function setup_lualine_with_blend()
     sections = {
       lualine_a = {},
       lualine_b = { "branch", "diff", "diagnostics" },
-      lualine_c = { { "lsp_status", color = { fg = "#6C6E81" } } },
+      lualine_c = { { "lsp_status", color = { fg = "#6C6E81" } }, "filename" },
       lualine_x = {},
       lualine_y = {},
       lualine_z = { "progress" },

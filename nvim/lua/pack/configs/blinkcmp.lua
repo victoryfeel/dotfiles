@@ -41,6 +41,10 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter", "LspAttach" }, {
           keyword = { range = "full" },
           documentation = { auto_show = true, auto_show_delay_ms = 0 },
           list = { selection = { preselect = false, auto_insert = false } },
+          menu = {
+            border = "rounded",
+            winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+          },
         },
         enabled = function()
           return not vim.tbl_contains({}, vim.bo.filetype)

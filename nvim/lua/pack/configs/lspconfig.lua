@@ -6,13 +6,13 @@ local servers = {
   "vtsls", -- javascript
   "clangd"
 }
---if not IS_ARM then
---  vim.list_extend(servers, {
---    "marksman",
---    "svelte",
---    "cssls",
---    "html" })
---end
+if not IS_ARM then
+  vim.list_extend(servers, {
+    "marksman",
+    "svelte",
+    "cssls",
+    "html" })
+end
 
 -- 插件配置清单
 local P = {
@@ -22,13 +22,12 @@ local P = {
 
 -- === 全局快捷键映射 ===
 local opts = { noremap = true, silent = true }
-vim.keymap.set("n", "<leader>h", vim.lsp.buf.hover, opts)         -- <space>h显示提示文档
+vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)           -- gd跳转到定义
+vim.keymap.set("n", "gb", "<C-o>", opts)
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)          -- gD跳转到声明(例如c语言中的头文件中的原型、一个变量的extern声明)
-vim.keymap.set("n", "go", vim.lsp.buf.type_definition, opts)      -- go跳转到变量类型定义的位置(例如一些自定义类型)
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)       -- <space>rn变量重命名
-vim.keymap.set("n", "<leader>aw", vim.lsp.buf.code_action, opts)  -- <space>aw可以在出现警告或错误的地方打开建议的修复方法
-vim.keymap.set("n", "gh", vim.diagnostic.open_float, opts)        -- <space>d浮动窗口显示所在行警告或错误信息
+vim.keymap.set("n", "<leader>ef", vim.lsp.buf.code_action, opts)  -- <space>aw可以在出现警告或错误的地方打开建议的修复方法
 vim.keymap.set("n", "<leader>ek", vim.diagnostic.goto_prev, opts) -- <space>-跳转到上一处警告或错误的地方
 vim.keymap.set("n", "<leader>ej", vim.diagnostic.goto_next, opts) -- <space>+跳转到下一处警告或错误的地方
 -- vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)         -- gr跳转到引用了对应变量或函数的位置，改用snacks
@@ -52,6 +51,9 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
         underline = true,
         update_in_insert = false,
         severity_sort = true,
+        float = {
+          border = "rounded",
+        },
         signs = {
           text = {
             [vim.diagnostic.severity.ERROR] = "✘", --""

@@ -1,41 +1,65 @@
--- === noice ===
-if vim.g.vscode then return end
-
+--=========  Popup UI Customized  =========--
 local P = {
-	name = "noice.nvim",
-	deps = { "nui.nvim" },
+  name = "noice.nvim",
+  deps = { "nui.nvim" },
+  build_cmd = nil,
 }
 
--- 比其他插件更早启动才能捕获错误、警告等信息，这里不配置懒加载
+--=========================================--
+--=========  No Needed lazy-load  =========--
+--=========================================--
 PackUtils.load(P, function()
-	require("noice").setup({
-		presets = {
-			bottom_search = true,      -- use a classic bottom cmdline for search
-			command_palette = true,    -- position the cmdline and popupmenu together
-			long_message_to_split = true, -- long messages will be sent to a split
-			inc_rename = false,        -- enables an input dialog for inc-rename.nvim
-			lsp_doc_border = false,    -- add a border to hover docs and signature help
-		},
-		-- 需要过滤的信息
-		routes = {
-			{
-				-- 过滤翻译插件的成功提示
-				filter = {
-					event = "msg_show",
-					find = "Translate success",
-				},
-				-- opts.skip = true 会告诉 Noice 完全忽略这条消息
-				opts = { skip = true },
-			},
-			{
-				-- 过滤打开rust文件不影响使用的错误提示
-				filter = {
-					event = "msg_show",
-					kind = "emsg",
-					find = "Error in decoration provider",
-				},
-				opts = { skip = true },
-			},
-		},
-	})
+  require("noice").setup({
+    presets = {
+      bottom_search = true,
+      command_palette = true,
+      long_message_to_split = true,
+      inc_rename = false,
+      lsp_doc_border = false,
+    },
+    notify = {
+      enabled = false, -- 禁用 Noice 的弹窗，交由更专业的 snacks.notifier 处理
+    },
+    views = {
+      cmdline_popup = {
+        position = {
+          row = "50%",
+          col = "50%",
+        },
+        win_options = {
+          winhighlight = "NormalFloat:Normal,FloatBorder:FloatBorder",
+        },
+      },
+      cmdline_popupmenu = {
+        relative = "editor",
+        position = {
+          row = "54%", -- 让 popupmenu 紧贴在居中的 cmdline 下方
+          col = "50%",
+        },
+        size = {
+          width = 60,
+          height = 10,
+        },
+        border = {
+          style = "rounded",
+          padding = { 0, 1 },
+        },
+        win_options = {
+          winhighlight = "NormalFloat:Normal,FloatBorder:FloatBorder",
+        },
+      },
+    },
+    -- 需要过滤的信息
+    routes = {
+      {
+        -- 过滤打开rust文件不影响使用的错误提示
+        filter = {
+          event = "msg_show",
+          kind = "emsg",
+          find = "Error in decoration provider",
+        },
+        opts = { skip = true },
+      },
+    },
+  })
 end)

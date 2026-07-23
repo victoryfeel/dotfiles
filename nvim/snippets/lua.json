@@ -62,7 +62,14 @@
 			"-- \t\t$12",
 			"-- \tend)",
 			"-- \tvim.cmd(\"${13:Command}\")",
-			"-- end, { desc = \"${0:描述}\" })"
+			"-- end, { desc = \"${0:描述}\" })",
+      "",
+      "--=========================================--",
+      "--=========  No Needed lazy-load  =========--",
+      "--=========================================--",
+      "-- \tPackUtils.load(P, function()",
+      "-- \t\t$14",
+      "-- \tend)"
 		],
 		"description": "Neovim Native Package Loader (Pure Config)"
 	}

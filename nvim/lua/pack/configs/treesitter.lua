@@ -1,13 +1,12 @@
-if vim.g.vscode then return end
-
+--=========  syntax highlight  =========--
 local P = {
   name = "nvim-treesitter",
   build_cmd = ":TSUpdate",
 }
 
+-- setup listener
 PackUtils.setup_listener(P.name, P.build_cmd)
 
--- https://github.com/nvim-treesitter/nvim-treesitter/blob/main/SUPPORTED_LANGUAGES.md
 local ensure_installed = {
   -- programming language
   "c",
@@ -30,6 +29,9 @@ local ensure_installed = {
   "markdown",
 }
 
+--==============================================--
+--=========  lazy-load: event trigger  =========--
+--==============================================--
 -- 在 FileType 确定时，检查、安装并启动
 vim.api.nvim_create_autocmd("FileType", {
   pattern = ensure_installed,

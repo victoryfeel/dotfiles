@@ -21,11 +21,11 @@ local specs = {
   -- ==============================================================
   "https://github.com/Mofiqul/dracula.nvim",      -- 主题配色
   "https://github.com/nvim-lualine/lualine.nvim", -- 底部状态栏
-  "https://github.com/akinsho/bufferline.nvim",   -- 顶部 Buffer 标签栏
+  -- "https://github.com/akinsho/bufferline.nvim",   -- 顶部 Buffer 标签栏
   "https://github.com/folke/noice.nvim",          -- 重构 Neovim 消息与命令行 UI
-  "https://github.com/folke/which-key.nvim",      -- 快捷键可视化导航帮助
+  -- "https://github.com/folke/which-key.nvim",      -- 快捷键可视化导航帮助
   -- "https://github.com/3rd/image.nvim",                    -- 终端图片显示/预览支持
-  "https://github.com/folke/snacks.nvim",         -- Snacks.nvim 实用工具箱
+  "https://github.com/folke/snacks.nvim", -- Snacks.nvim 实用工具箱
 
 
   -- ==============================================================
