@@ -64,6 +64,7 @@ local specs = {
   -- Category 9: Git Integration (Git 关联与辅助)
   -- ==============================================================
   "https://www.github.com/lewis6991/gitsigns.nvim", -- Git 状态指示与 Diff
+  "https://github.com/folke/todo-comments.nvim",
 
   -- ==============================================================
   -- Category 10: Coding Helpers (通用编写辅助工具)
