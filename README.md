@@ -1,4 +1,4 @@
-# Deploy configs with one command
+# Deploy configs with one single command
 
 ## For Personal Computer
 
@@ -11,3 +11,11 @@ git clone https://github.com/victoryfeel/dotfiles.git ~/.dotfiles && bash ~/.dot
 ```bash
 git clone --depth 1 https://github.com/victoryfeel/dotfiles.git ~/.dotfiles && bash ~/.dotfiles/bin/boom.sh
 ```
+
+# A-neovim
+
+backup first if you copy my nvim configs
+- mv ~/.config/nvim{,.bak}
+- mv ~/.local/share/nvim{,.bak}
+- mv ~/.local/state/nvim{,.bak}
+- mv ~/.cache/nvim{,.bak}

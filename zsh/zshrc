@@ -120,7 +120,6 @@ alias tls="tmux ls"
 # neovim
 alias mn="nvim ~/alexmak/dotfiles/nvim/init.lua"
 # yazi
-alias y="yazi"
 alias my="nvim ~/alexmak/dotfiles/yazi/yazi.toml"
 # lazygit
 alias mg="nvim ~/alexmak/dotfiles/lazygit/config.yml"
@@ -162,6 +161,14 @@ fzf-work-edit() {
 }
 zle -N fzf-work-edit
 bindkey '^k' fzf-work-edit
+# yazi exit directory
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	command rm -f -- "$tmp"
+}
 
 
 # ==================== Vim Mode ===================

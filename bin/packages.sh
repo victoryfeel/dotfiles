@@ -10,7 +10,7 @@ sudo pacman -Syu --noconfirm
 
 sudo pacman -S --needed --noconfirm base-devel curl git zip unzip trash-cli tree
 sudo pacman -S --needed --noconfirm zsh fzf ripgrep fd the_silver_searcher fastfetch mandoc
-sudo pacman -S --needed --noconfirm neovim yazi tmux lazygit git-delta
+sudo pacman -S --needed --noconfirm neovim treesitter-cli yazi tmux lazygit git-delta
 sudo pacman -S --needed --noconfirm htop cmake make ninja gdb clang llvm lldb bear podman
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -36,11 +36,11 @@ if [ "$(uname -s)" = "Darwin" ]; then
 	brew install zimfw git git-delta fzf fd ripgrep
 	brew install mandoc fastfetch htop
 	brew install lazygit neovim yazi tmux
-
+  brew install --cask antigravity-cli
 	brew install --cask ghostty orbstack dbeaver-community
 	brew install --cask freefilesync google-drive cryptomator
 	brew install --cask anki calibre obsidian netnewswire
-	brew install --cask helium-browser
+  brew install --cask brave-browser
 
 	echo "Manual install with following links:"
 	echo "mpv player: https://github.com/mpv-player/mpv/releases"
