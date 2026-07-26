@@ -59,7 +59,10 @@ alias xi='sudo pacman -S --needed'
 alias yi='yay -S --needed'
 
 alias xr='sudo pacman -Rns'
-alias xc='sudo pacman -Sc'
+function xc {
+  sudo find /var/cache/pacman/pkg/ -maxdepth 1 -name 'download-*' -delete
+  sudo pacman -Sc
+}
 alias xca='sudo pacman -Rns $(pacman -Qdtq)'
 
 alias qs='pacman -Qs'
