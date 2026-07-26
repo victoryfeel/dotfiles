@@ -22,7 +22,9 @@ local P = {
 
 -- === 全局快捷键映射 ===
 local opts = { noremap = true, silent = true }
-vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts)
+vim.keymap.set("n", "gh", function()
+  vim.lsp.buf.hover()
+end)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)           -- gd跳转到定义
 vim.keymap.set("n", "gb", "<C-o>", opts)
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)          -- gD跳转到声明(例如c语言中的头文件中的原型、一个变量的extern声明)

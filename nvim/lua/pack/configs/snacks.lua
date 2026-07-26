@@ -1,10 +1,10 @@
--- === Snacks ===
-if vim.g.vscode then return end
-
+--=========  snacks tools  =========--
 local P = {
   name = "snacks.nvim",
 }
-
+--=========================================--
+--=========  No Needed lazy-load  =========--
+--=========================================--
 PackUtils.load(P, function()
   -- rainbow-indent variable
   vim.opt.list = true
@@ -20,7 +20,7 @@ PackUtils.load(P, function()
   vim.api.nvim_set_hl(0, "SnacksIndent4", { fg = "#375768" })
   -- AI Edit: 定义 lazygit 聚焦面板边框的高亮组（颜色需用组名，snacks 会读取其颜色写入 YAML）
   vim.api.nvim_set_hl(0, "LazyGitActiveBorder", { fg = "#50fa7b", bold = true }) -- lazygit 默认绿：当前聚焦 panel #00ff00
-  
+
   -- AI Edit: 强制修改普通通知 (Info) 的图标和标题为绿色，默认错误 (Error) 已经是红色
   vim.api.nvim_set_hl(0, "SnacksNotifierIconInfo", { fg = "#50fa7b" })
   vim.api.nvim_set_hl(0, "SnacksNotifierTitleInfo", { fg = "#50fa7b" })
@@ -87,12 +87,3 @@ for _, key in ipairs(default_lsp_keys) do
   pcall(vim.keymap.del, "n", key) -- 使用 pcall 忽略找不到映射时的报错
   pcall(vim.keymap.del, "x", key)
 end
-
--- ======== old lazygit.nvim config ===========
--- vim.pack.add({ "https://www.github.com/kdheepak/lazygit.nvim" })
---
--- vim.g.lazygit_floating_window_winblend = 0
--- vim.g.lazygit_floating_window_scaling_factor = 0.9
--- vim.g.lazygit_floating_window_border_chars = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
---
--- vim.keymap.set("n", "<leader>gg", "<cmd>LazyGitCurrentFile<cr>", { desc = "LazyGit (current file repo)" })

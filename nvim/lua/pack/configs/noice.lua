@@ -15,7 +15,19 @@ PackUtils.load(P, function()
       command_palette = true,
       long_message_to_split = true,
       inc_rename = false,
-      lsp_doc_border = false,
+      lsp_doc_border = true,
+    },
+    lsp = {
+      override = {
+        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+        ["vim.lsp.util.stylize_markdown"] = true,
+      },
+      hover = {
+        enabled = true,
+      },
+      signature = {
+        enabled = false,
+      },
     },
     notify = {
       enabled = false, -- 禁用 Noice 的弹窗，交由更专业的 snacks.notifier 处理

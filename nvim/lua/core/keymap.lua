@@ -31,6 +31,7 @@ vim.keymap.set("n", "<leader>jo", "mzJ`z")
 -- save and quit
 vim.keymap.set("n", "S", ":w<CR>")
 vim.keymap.set("n", "Q", ":q<CR>")
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR><cmd>Noice dismiss<CR>")
 -- search
 vim.keymap.set("n", "<leader><CR>", ":nohlsearch<CR>")
 vim.keymap.set("n", "n", "nzzzv")
