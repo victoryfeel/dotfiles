@@ -15,6 +15,7 @@ export LANG=en_US.UTF-8
 export EDITOR="nvim"
 export VISUAL="nvim"
 #export CONAN_HOME="${XDG_CONFIG_HOME}/conan2"
+export VCPKG_ROOT=$HOME/.local/share/vcpkg
 
 
 typeset -U path
@@ -72,11 +73,11 @@ alias md='mkdir -p'
 alias rm='echo "Use tp (trash-put) instead."; false'
 alias tp="trash-put"
 alias s='fastfetch'
-alias f='fzf'
 alias gg="git clone"
 alias cdd="cd ~/alexmak/dotfiles && ls -alh ~/alexmak/dotfiles"
 alias cdo="cd ~/alexmak/ongo && ls -alh ~/alexmak/ongo"
 alias cdl="cd ~/alexmak/learn && ls -alh ~/alexmak/learn"
+alias cdn="cd ~/alexmak/notes && ls -alh ~/alexmak/notes"
 alias cdt="cd ~/tmp && ls -alh ~/tmp"
 
 # devbox
@@ -119,7 +120,6 @@ alias tls="tmux ls"
 # neovim
 alias mn="nvim ~/alexmak/dotfiles/nvim/init.lua"
 # yazi
-alias y="yazi"
 alias my="nvim ~/alexmak/dotfiles/yazi/yazi.toml"
 # lazygit
 alias mg="nvim ~/alexmak/dotfiles/lazygit/config.yml"
@@ -161,6 +161,14 @@ fzf-work-edit() {
 }
 zle -N fzf-work-edit
 bindkey '^k' fzf-work-edit
+# yazi exit directory
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	command rm -f -- "$tmp"
+}
 
 
 # ==================== Vim Mode ===================
@@ -169,13 +177,13 @@ bindkey -M viins 'jk' vi-cmd-mode
 
 function zle-keymap-select {
     if [[ $KEYMAP == vicmd ]]; then
-        echo -ne '\e[1 q'  # Block
+        echo -ne '\e[2 q'  # Block
     else
-        echo -ne '\e[5 q'  # Beam
+        echo -ne '\e[6 q'  # Beam
     fi
 }
 zle -N zle-keymap-select
-echo -ne '\e[5 q' # Init cursor
+[[ -z "$NVIM" ]] && echo -ne '\e[6 q' # Init cursor (skip inside Neovim terminal)
 
 KEYTIMEOUT=20
 
