@@ -7,9 +7,3 @@ require("core.markdown_table_format")
 
 -- 2. plugins
 require("pack.plugins")
-
--- 3. backup first if you copy my nvim configs
--- mv ~/.config/nvim{,.bak}
--- mv ~/.local/share/nvim{,.bak}
--- mv ~/.local/state/nvim{,.bak}
--- mv ~/.cache/nvim{,.bak}

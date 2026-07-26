@@ -1,11 +1,13 @@
--- === 自动补全插件 (Blink.cmp) ===
+--=========  自动补全  =========--
 local P = {
   name = "blink.cmp",
-  deps = {
-    "friendly-snippets"
-  },
+  deps = { "friendly-snippets" },
+  build_cmd = nil,
 }
 
+--==============================================--
+--=========  lazy-load: event trigger  =========--
+--==============================================--
 vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter", "LspAttach" }, {
   once = true,
   callback = function()
@@ -18,8 +20,6 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter", "LspAttach" }, {
           },
         },
         cmdline = {
-          -- 默认的cmdline回车按下执行命令
-          -- keymap = { ["<CR>"] = { "select_and_accept", "fallback" } },
           completion = {
             list = { selection = { preselect = false, auto_insert = true } },
             menu = { auto_show = function() return vim.fn.getcmdtype() == ":" end },
@@ -62,12 +62,6 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter", "LspAttach" }, {
             path = { score_offset = 3 },
             lsp = { score_offset = 2 },
             snippets = { score_offset = 1 },
-            -- cmdline = { -- 输入超过3个及以上字母才触发补全
-            -- 	min_keyword_length = function(ctx)
-            -- 		if ctx.mode == "cmdline" and string.find(ctx.line, " ") == nil then return 3 end
-            -- 		return 0
-            -- 	end,
-            -- },
           },
         },
       })

@@ -68,13 +68,13 @@ local specs = {
   -- ==============================================================
   -- Category 10: Coding Helpers (通用编写辅助工具)
   -- ==============================================================
-  "https://github.com/windwp/nvim-autopairs",    -- 自动匹配/闭合括号
-  "https://github.com/echasnovski/mini.nvim",    -- mini.surround 包裹操作集
-  "https://github.com/RRethy/vim-illuminate",    -- 同词/同引用高亮与跳转
-  "https://github.com/kevinhwang91/nvim-ufo",    -- 高性能折叠引擎
-  "https://github.com/jiaoshijie/undotree",      -- 时光穿梭图形撤销树
-  "https://github.com/CRAG666/code_runner.nvim", -- 快捷运行代码
-  "https://github.com/lambdalisue/vim-suda",     -- 提权保存只读文件
+  "https://github.com/windwp/nvim-autopairs", -- 自动匹配/闭合括号
+  "https://github.com/echasnovski/mini.nvim", -- mini.surround 包裹操作集
+  "https://github.com/RRethy/vim-illuminate", -- 同词/同引用高亮与跳转
+  -- "https://github.com/kevinhwang91/nvim-ufo", -- 高性能折叠引擎
+  "https://github.com/jiaoshijie/undotree",   -- 时光穿梭图形撤销树
+  --"https://github.com/stevearc/overseer.nvim", -- 快捷运行代码
+  "https://github.com/lambdalisue/vim-suda",  -- 提权保存只读文件
 
   -- ==============================================================
   -- Category 11: Filetype Specific (特定文件格式增强)

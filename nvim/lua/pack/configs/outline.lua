@@ -50,6 +50,3 @@ vim.keymap.set({ "n", "x" }, "<leader>ee", function()
   end)
   vim.cmd("Outline")
 end, { desc = "Toggle outline" })
-
-
--- vim.keymap.set("n", "<leader>l", "<cmd>OutlineFocus<cr>")

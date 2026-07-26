@@ -143,7 +143,7 @@ local function toggle_float_terminal()
   end
 end
 
-vim.keymap.set({ "n", "t" }, "<leader>t", toggle_float_terminal, { desc = "Toggle float terminal" })
+vim.keymap.set({ "n", "t" }, "<leader>tt", toggle_float_terminal, { desc = "Toggle float terminal" })
 
 -- 下面的函数给外部文件调用的
 local map = {}
