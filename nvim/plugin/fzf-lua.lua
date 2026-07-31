@@ -1,14 +1,10 @@
--- === fzf-lua ===
-local P = {
-  name = "fzf-lua",
-}
-
+-- ======  keymap trigger  ====== --
 vim.keymap.set("n", "<leader>ff", function()
-  PackUtils.load(P, function()
+  if not package.loaded["fzf-lua"] then
+    vim.pack.add({ "https://github.com/ibhagwan/fzf-lua" })
     require("fzf-lua").setup({})
-  end)
-
+  end
   local buf_dir = vim.fn.expand("%:p:h")
   local git_root = vim.fn.systemlist("git -C " .. vim.fn.shellescape(buf_dir) .. " rev-parse --show-toplevel")[1]
   require("fzf-lua").files({ cwd = vim.v.shell_error == 0 and git_root or buf_dir })
-end, { desc = "Fuzzy find files" })
+end)

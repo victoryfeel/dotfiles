@@ -1,23 +1,16 @@
---=========  TODO COMMENT  =========--
-local P = {
-  name = "todo-comments.nvim",
-  deps = { "plenary.nvim" },
-}
-
---==============================================--
---=========  lazy-load: event trigger  =========--
---==============================================--
+-- AI Edit: 使用 vim.schedule 延后 todo-comments 加载，避开文件打开时的同步线程阻塞
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
   once = true,
   callback = function()
-    PackUtils.load(P, function()
+    vim.schedule(function()
+      vim.pack.add({ "https://github.com/folke/todo-comments.nvim" })
       require("todo-comments").setup({
         signs = true,
         sign_priority = 8,
 
         keywords = {
           BUG = { icon = " ", color = "#DC2626" },
-          TODO = { icon = " ", color = "#2563EB" }, --#FBBF24
+          TODO = { icon = " ", color = "#2563EB" },
           NOTE = { icon = "󱜾 ", color = "#10B981" },
         },
         merge_keywords = false,
