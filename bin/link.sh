@@ -14,6 +14,10 @@ mkdir -p "$HOME/.config/zsh"
 ln -sf "$DOTFILES/zsh/zshrc" "$HOME/.config/zsh/.zshrc"
 ln -sf "$DOTFILES/zsh/zimrc" "$HOME/.config/zsh/.zimrc"
 ln -sf "$DOTFILES/zsh/zshenv" "$HOME/.zshenv"
+# fastfetch
+mkdir -p "$HOME/.config/fastfetch"
+ln -sf "$DOTFILES/fastfetch/config.jsonc" "$HOME/.config/fastfetch/config.jsonc"
+
 
 #=============================
 #=====  the four mains  ======

@@ -126,6 +126,8 @@ alias mn="nvim ~/alexmak/dotfiles/nvim/init.lua"
 alias my="nvim ~/alexmak/dotfiles/yazi/yazi.toml"
 # lazygit
 alias mg="nvim ~/alexmak/dotfiles/lazygit/config.yml"
+# nvim startup time test
+alias nvtest="nvim --startuptime startup.log +q"
 
 
 # ==================== Functions ====================
