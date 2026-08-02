@@ -11,10 +11,10 @@ vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode" })
 --================================================
 -- better navigation
 vim.keymap.set("n", "j", function()
-  return vim.v.count == 0 and "gj" or "j"
+	return vim.v.count == 0 and "gj" or "j"
 end, { expr = true, silent = true })
 vim.keymap.set("n", "k", function()
-  return vim.v.count == 0 and "gk" or "k"
+	return vim.v.count == 0 and "gk" or "k"
 end, { expr = true, silent = true })
 
 vim.keymap.set("n", "J", "5jzz")
@@ -39,8 +39,8 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- split windows and switch focus
 vim.keymap.set("n", "<leader>sv", ":vsplit<CR>")
 vim.keymap.set("n", "<leader>sh", ":split<CR>")
-vim.keymap.set("n", "sv", "<C-w>t<C-w>H", { noremap = true, silent = true, desc = "上下互换" })
-vim.keymap.set("n", "sh", "<C-w>t<C-w>K", { noremap = true, silent = true, desc = "左右互换" })
+vim.keymap.set("n", "<leader>wv", "<C-w>t<C-w>H", { noremap = true, silent = true, desc = "上下互换" })
+vim.keymap.set("n", "<leader>wh", "<C-w>t<C-w>K", { noremap = true, silent = true, desc = "左右互换" })
 
 vim.keymap.set("n", "<C-M-k>", ":resize +2<CR>")
 vim.keymap.set("n", "<C-M-j>", ":resize -2<CR>")
@@ -52,18 +52,18 @@ vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 -- tab switch
-vim.keymap.set("n", "th", ":bprevious<CR>", { desc = "Previous buffer" })
-vim.keymap.set("n", "tl", ":bnext<CR>", { desc = "Next buffer" })
+vim.keymap.set("n", "<leader>th", ":bprevious<CR>", { desc = "Previous buffer" })
+vim.keymap.set("n", "<leader>tl", ":bnext<CR>", { desc = "Next buffer" })
 
 -- <leader>+pa to copy current file full path
 vim.keymap.set("n", "<leader>pa", function() -- show file path
-  local path = vim.fn.expand("%:p")
-  vim.fn.setreg("+", path)
-  print("file:", path)
+	local path = vim.fn.expand("%:p")
+	vim.fn.setreg("+", path)
+	print("file:", path)
 end, { desc = "Copy full file path" })
 
 vim.keymap.set("n", "<leader>td", function()
-  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+	vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end, { desc = "Toggle diagnostics" })
 
 --================================================
@@ -83,65 +83,65 @@ vim.keymap.set({ "n", "v" }, "<leader>x", '"_d', { desc = "Delete without yankin
 local float_term_state = { buf = nil, win = nil }
 
 local function open_float_terminal()
-  local width = math.floor(vim.o.columns * 0.85)
-  local height = math.floor(vim.o.lines * 0.80)
-  local row = math.floor((vim.o.lines - height) / 2)
-  local col = math.floor((vim.o.columns - width) / 2)
+	local width = math.floor(vim.o.columns * 0.85)
+	local height = math.floor(vim.o.lines * 0.80)
+	local row = math.floor((vim.o.lines - height) / 2)
+	local col = math.floor((vim.o.columns - width) / 2)
 
-  -- reuse buffer if it still exists
-  if float_term_state.buf and vim.api.nvim_buf_is_valid(float_term_state.buf) then
-    float_term_state.win = vim.api.nvim_open_win(float_term_state.buf, true, {
-      relative = "editor",
-      width = width,
-      height = height,
-      row = row,
-      col = col,
-      style = "minimal",
-      border = "rounded",
-    })
-    vim.cmd("startinsert")
-    return
-  end
+	-- reuse buffer if it still exists
+	if float_term_state.buf and vim.api.nvim_buf_is_valid(float_term_state.buf) then
+		float_term_state.win = vim.api.nvim_open_win(float_term_state.buf, true, {
+			relative = "editor",
+			width = width,
+			height = height,
+			row = row,
+			col = col,
+			style = "minimal",
+			border = "rounded",
+		})
+		vim.cmd("startinsert")
+		return
+	end
 
-  -- AI 编辑: 在创建新窗口前获取路径，否则 % 会指向新 buffer
-  local buf_dir = vim.fn.expand("%:p:h")
+	-- AI 编辑: 在创建新窗口前获取路径，否则 % 会指向新 buffer
+	local buf_dir = vim.fn.expand("%:p:h")
 
-  -- create new buffer and terminal
-  float_term_state.buf = vim.api.nvim_create_buf(false, true)
-  float_term_state.win = vim.api.nvim_open_win(float_term_state.buf, true, {
-    relative = "editor",
-    width = width,
-    height = height,
-    row = row,
-    col = col,
-    style = "minimal",
-    border = "rounded",
-  })
-  vim.fn.termopen(vim.o.shell, {
-    cwd = buf_dir,
-    on_exit = function()
-      float_term_state.buf = nil
-      float_term_state.win = nil
-    end,
-  })
-  vim.cmd("startinsert")
+	-- create new buffer and terminal
+	float_term_state.buf = vim.api.nvim_create_buf(false, true)
+	float_term_state.win = vim.api.nvim_open_win(float_term_state.buf, true, {
+		relative = "editor",
+		width = width,
+		height = height,
+		row = row,
+		col = col,
+		style = "minimal",
+		border = "rounded",
+	})
+	vim.fn.termopen(vim.o.shell, {
+		cwd = buf_dir,
+		on_exit = function()
+			float_term_state.buf = nil
+			float_term_state.win = nil
+		end,
+	})
+	vim.cmd("startinsert")
 
-  -- <Esc> closes the float window (without killing the shell)
-  vim.keymap.set("t", "<Esc>", function()
-    if float_term_state.win and vim.api.nvim_win_is_valid(float_term_state.win) then
-      vim.api.nvim_win_close(float_term_state.win, false)
-      float_term_state.win = nil
-    end
-  end, { buffer = float_term_state.buf, desc = "Close float terminal" })
+	-- <Esc> closes the float window (without killing the shell)
+	vim.keymap.set("t", "<Esc>", function()
+		if float_term_state.win and vim.api.nvim_win_is_valid(float_term_state.win) then
+			vim.api.nvim_win_close(float_term_state.win, false)
+			float_term_state.win = nil
+		end
+	end, { buffer = float_term_state.buf, desc = "Close float terminal" })
 end
 
 local function toggle_float_terminal()
-  if float_term_state.win and vim.api.nvim_win_is_valid(float_term_state.win) then
-    vim.api.nvim_win_close(float_term_state.win, false)
-    float_term_state.win = nil
-  else
-    open_float_terminal()
-  end
+	if float_term_state.win and vim.api.nvim_win_is_valid(float_term_state.win) then
+		vim.api.nvim_win_close(float_term_state.win, false)
+		float_term_state.win = nil
+	else
+		open_float_terminal()
+	end
 end
 
 vim.keymap.set({ "n", "t" }, "<leader>tt", toggle_float_terminal, { desc = "Toggle float terminal" })
@@ -149,19 +149,19 @@ vim.keymap.set({ "n", "t" }, "<leader>tt", toggle_float_terminal, { desc = "Togg
 -- 下面的函数给外部文件调用的
 local map = {}
 function map:key(mode, lhs, rhs)
-  vim.keymap.set(mode, lhs, rhs, { silent = true })
+	vim.keymap.set(mode, lhs, rhs, { silent = true })
 end
 
 function map:cmd(key, cmd)
-  vim.keymap.set("n", key, "<Cmd>" .. cmd .. "<CR>", { silent = true })
+	vim.keymap.set("n", key, "<Cmd>" .. cmd .. "<CR>", { silent = true })
 end
 
 function map:lua(key, txt_or_func)
-  if type(txt_or_func) == "string" then
-    vim.keymap.set("n", key, "<cmd>lua " .. txt_or_func .. "<cr>", { silent = true })
-  else
-    vim.keymap.set("n", key, txt_or_func, { silent = true })
-  end
+	if type(txt_or_func) == "string" then
+		vim.keymap.set("n", key, "<cmd>lua " .. txt_or_func .. "<cr>", { silent = true })
+	else
+		vim.keymap.set("n", key, txt_or_func, { silent = true })
+	end
 end
 
 return map
