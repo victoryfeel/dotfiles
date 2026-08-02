@@ -3,7 +3,7 @@
 ## For Personal Computer
 
 ```bash
-git clone https://github.com/victoryfeel/dotfiles.git ~/.dotfiles && bash ~/.dotfiles/bin/boom.sh
+curl -fsSL https://raw.githubusercontent.com/victoryfeel/dotfiles/main/bin/boom.sh | bash
 ```
 
 ## For Company Computer
@@ -15,6 +15,7 @@ git clone --depth 1 https://github.com/victoryfeel/dotfiles.git ~/.dotfiles && b
 # A-neovim
 
 backup first if you copy my nvim configs
+
 - mv ~/.config/nvim{,.bak}
 - mv ~/.local/share/nvim{,.bak}
 - mv ~/.local/state/nvim{,.bak}
