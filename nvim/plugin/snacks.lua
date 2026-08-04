@@ -25,7 +25,7 @@ require("snacks").setup({
 		doc = {
 			inline = false,
 			float = true,
-			max_width = 60,
+			max_width = 50,
 			max_height = 30,
 		},
 	},
@@ -73,8 +73,10 @@ require("snacks").setup({
 			},
 		},
 		snacks_image = {
-			relative = "editor",
-			col = -1,
+			border = "rounded",
+			backdrop = false,
+			--relative = "editor",
+			--col = -1,
 		},
 	},
 })

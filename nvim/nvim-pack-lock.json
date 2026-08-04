@@ -28,6 +28,10 @@
       "rev": "31d6fb2d618bca1482b9f274751ead5f03461408",
       "src": "https://www.github.com/lewis6991/gitsigns.nvim"
     },
+    "img-clip.nvim": {
+      "rev": "b6ddfb97b5600d99afe3452d707444afda658aca",
+      "src": "https://github.com/hakonharnes/img-clip.nvim"
+    },
     "inlay-hints.nvim": {
       "rev": "297a65ab9543eb0850c1a55df4bb89e22cfec504",
       "src": "https://github.com/MysticalDevil/inlay-hints.nvim"

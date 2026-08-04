@@ -1,7 +1,7 @@
 vim.schedule(function()
 	if not package.loaded["render-markdown"] then
 		vim.pack.add({
-			--"https://github.com/hakonharnes/img-clip.nvim",
+			"https://github.com/hakonharnes/img-clip.nvim",
 			"https://github.com/nvim-treesitter/nvim-treesitter",
 			"https://github.com/nvim-tree/nvim-web-devicons",
 			"https://github.com/MeanderingProgrammer/render-markdown.nvim",
@@ -15,13 +15,15 @@ vim.schedule(function()
 		vim.api.nvim_set_hl(0, "Headline2Fg", { fg = "#000000", bold = true })
 		vim.api.nvim_set_hl(0, "Headline3Fg", { fg = "#000000", bold = true })
 
+		-- ==================== render-markdown ======================= --
 		require("render-markdown").setup({
 			enabled = true,
 			render_modes = { "n", "c", "t" },
 			heading = {
 				sign = false,
-				icons = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 " },
+				icons = { "  󰎤  ", "  󰎧  ", "  󰎪  ", "  󰎭  ", "  󰎱  ", "  󰎳  " },
 				position = "inline",
+				border = true,
 				backgrounds = {
 					"Headline1Bg",
 					"Headline2Bg",
@@ -34,14 +36,20 @@ vim.schedule(function()
 				},
 			},
 			code = {
-				enabled = true,
+				-- general
+				width = "block",
+				min_width = 80,
 				sign = false,
-				style = "full",
+				-- borders
 				border = "thin",
-			},
-			bullet = {
-				enabled = true,
-				--icons = { "• ", "◦ ", "◆ ", "◇ " },
+				left_pad = 1,
+				right_pad = 1,
+				-- language info
+				position = "right",
+				language_icon = true,
+				language_name = true,
+				-- avoid making headings ugly
+				highlight_inline = "RenderMarkdownCodeInfo",
 			},
 			checkbox = {
 				enabled = true,
@@ -55,21 +63,55 @@ vim.schedule(function()
 				},
 			},
 			link = {
-				image = vim.g.neovim_mode == "skitty" and "" or "󰥶 ",
+				image = " ",
 				custom = {
-					youtu = { pattern = "youtu%.be", icon = "󰗃 " },
+					web = { icon = " ", pattern = "^http" },
 				},
+				hyperlink = "󰧮 ",
 			},
-			table = {
-				enabled = true,
-				border = "thin",
+			pipe_table = {
+				alignment_indicator = "─",
+				border = { "╭", "┬", "╮", "├", "┼", "┤", "╰", "┴", "╯", "│", "─" },
 			},
 			anti_conceal = {
 				enabled = true,
+				--disabled_modes = { "n" },
+				ignore = {
+					head_border = true,
+					head_background = true,
+				},
 			},
 			completions = {
+				blink = { enabled = true },
 				lsp = { enabled = true },
+			},
+		})
+
+		-- ==================== img-clip ======================= --
+		require("img-clip").setup({
+			default = {
+				dir_path = function()
+					local git_root = vim.fn.system("git rev-parse --show-toplevel"):gsub("\n", "")
+					if vim.v.shell_error == 0 then
+						return git_root .. "/assets/image"
+					end
+					return "/assets/image"
+				end,
+				use_absolute_path = false,
+				copy_images = true,
+				prompt_for_file_name = false,
+				file_name = "%y%m%d-%H%M%S",
+				extension = "avif",
+				process_cmd = "magick convert - -quality 100 avif:-",
+				formats = { "avif" },
+			},
+			filetypes = {
+				markdown = {
+					template = "![image$CURSOR]($FILE_PATH)",
+				},
 			},
 		})
 	end
 end)
+
+vim.keymap.set("n", "<leader>pi", "<cmd>PasteImage<cr>", { buffer = true, silent = true })
