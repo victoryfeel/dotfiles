@@ -2,7 +2,16 @@
 vim.keymap.set("n", "<leader>ff", function()
 	if not package.loaded["fzf-lua"] then
 		vim.pack.add({ "https://github.com/ibhagwan/fzf-lua" })
-		require("fzf-lua").setup({})
+		require("fzf-lua").setup({
+			previewers = {
+				builtin = {
+					ueberzug_scaler = "fit_contain",
+					chafa_opts = {
+						"--preset=canvas",
+					},
+				},
+			},
+		})
 	end
 	local buf_dir = vim.fn.expand("%:p:h")
 	local git_root = vim.fn.systemlist("git -C " .. vim.fn.shellescape(buf_dir) .. " rev-parse --show-toplevel")[1]
