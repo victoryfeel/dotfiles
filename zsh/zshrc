@@ -9,7 +9,6 @@ export HISTSIZE=10000
 export SAVEHIST=1000
 export ZSH_COMPDUMP="${ZSH_CACHE_DIR}/zcompdump-${HOST/.*/}-${ZSH_VERSION}"
 
-
 #==================== Environment & PATH ====================
 export LANG=en_US.UTF-8
 export EDITOR="nvim"
@@ -17,17 +16,15 @@ export VISUAL="nvim"
 #export CONAN_HOME="${XDG_CONFIG_HOME}/conan2"
 export VCPKG_ROOT=$HOME/.local/share/vcpkg
 
-
 typeset -U path
 path=(
-    $HOME/bin
-    $HOME/.local/bin
-    $HOME/.cargo/bin
-    /usr/local/bin
-    $path
+  $HOME/bin
+  $HOME/.local/bin
+  $HOME/.cargo/bin
+  /usr/local/bin
+  $path
 )
 export PATH
-
 
 # ==================== Zim Setup ====================
 ZIM_HOME="${XDG_CACHE_HOME}/zim"
@@ -36,17 +33,15 @@ zstyle ':zim:completion' dump-file "$ZSH_COMPDUMP"
 
 #--Auto Download Modules/Plugins
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
-    curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
-        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+    https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
 fi
 # --Auto Install Modules/Plugins
 if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE} ]]; then
-    source ${ZIM_HOME}/zimfw.zsh init
+  source ${ZIM_HOME}/zimfw.zsh init
 fi
 #--Initialize Zim
 source ${ZIM_HOME}/init.zsh
-
-
 
 # ==================== Alias ====================
 # pacman & yay
@@ -69,7 +64,6 @@ alias qs='pacman -Qs'
 alias qi='pacman -Qi'
 alias qu='pacman -Qu'
 
-
 # file system
 alias ll='ls -alh'
 alias md='mkdir -p'
@@ -80,7 +74,7 @@ alias gg="git clone"
 alias cdd="cd ~/alexmak/dotfiles && ls -alh ~/alexmak/dotfiles"
 alias cdo="cd ~/alexmak/ongo && ls -alh ~/alexmak/ongo"
 alias cdl="cd ~/alexmak/learn && ls -alh ~/alexmak/learn"
-alias cdn="cd ~/alexmak/notes && ls -alh ~/alexmak/notes"
+alias cdn="cd ~/alexmak/notes/core && ls -alh ~/alexmak/notes/core"
 alias cdt="cd ~/tmp && ls -alh ~/tmp"
 
 # devbox
@@ -89,19 +83,19 @@ alias lpm="lsipc -m"
 alias lps="lsipc -s"
 # search process
 function psg {
-    local pat=$1
-    [[ -z $pat ]] && {
-        echo "usage: psg <process-name-or-pattern>"
-        return 1
-    }
+  local pat=$1
+  [[ -z $pat ]] && {
+    echo "usage: psg <process-name-or-pattern>"
+    return 1
+  }
 
-    local -a pids
-    pids=($(pgrep -f "$pat")) || {
-        echo "no process matched: $pat"
-        return 1
-    }
+  local -a pids
+  pids=($(pgrep -f "$pat")) || {
+    echo "no process matched: $pat"
+    return 1
+  }
 
-    ps -fp $pids
+  ps -fp $pids
 }
 
 # podman
@@ -129,63 +123,61 @@ alias mg="nvim ~/alexmak/dotfiles/lazygit/config.yml"
 # nvim startup time test
 alias nvtest="nvim --startuptime startup.log +q"
 
-
 # ==================== Functions ====================
 # tm to start a tmuxsession
 function tm {
-    if [ -z "$1" ]; then
-        tmux attach || tmux new-session
-    else
-        tmux attach -t "$1" || tmux new-session -s "$1"
-    fi
+  if [ -z "$1" ]; then
+    tmux attach || tmux new-session
+  else
+    tmux attach -t "$1" || tmux new-session -s "$1"
+  fi
 }
 # vim and automatically tmux
 function v {
-    if [ -n "$TMUX" ]; then
-        nvim "$@"
-    else
-        tmux new-session -A -s edit nvim "$@"
-    fi
+  if [ -n "$TMUX" ]; then
+    nvim "$@"
+  else
+    tmux new-session -A -s edit nvim "$@"
+  fi
 }
 # ctrl+g to open lazygit
 function lazygit_widget {
-    lazygit
-    zle reset-prompt
+  lazygit
+  zle reset-prompt
 }
 zle -N lazygit_widget
 bindkey '^g' lazygit_widget
-# ctrl+f to search
+# ctrl+k to search
 fzf-work-edit() {
   local file=$(fd --type f --hidden --exclude .git . ~/alexmak/ | fzf --height 40% --reverse)
-    if [ -n "$file" ]; then
-      zle -I
-      cd "$(dirname "$file")"
-      nvim "$file"
-    fi
-    zle reset-prompt
+  if [ -n "$file" ]; then
+    zle -I
+    cd "$(dirname "$file")"
+    nvim "$file"
+  fi
+  zle reset-prompt
 }
 zle -N fzf-work-edit
 bindkey '^k' fzf-work-edit
 # yazi exit directory
 function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	command yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
-	command rm -f -- "$tmp"
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  command yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd <"$tmp"
+  [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+  command rm -f -- "$tmp"
 }
-
 
 # ==================== Vim Mode ===================
 bindkey -v
 bindkey -M viins 'jk' vi-cmd-mode
 
 function zle-keymap-select {
-    if [[ $KEYMAP == vicmd ]]; then
-        echo -ne '\e[2 q'  # Block
-    else
-        echo -ne '\e[6 q'  # Beam
-    fi
+  if [[ $KEYMAP == vicmd ]]; then
+    echo -ne '\e[2 q' # Block
+  else
+    echo -ne '\e[6 q' # Beam
+  fi
 }
 zle -N zle-keymap-select
 [[ -z "$NVIM" ]] && echo -ne '\e[6 q' # Init cursor (skip inside Neovim terminal)

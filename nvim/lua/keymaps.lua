@@ -102,6 +102,14 @@ vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Paste without yanking" })
 vim.keymap.set({ "n", "v" }, "<leader>x", '"_d', { desc = "Delete without yanking" })
 
 -- =============================================================================
+-- dev keymap
+-- =============================================================================
+vim.keymap.set("n", "<C-/>", "gcc", { remap = true, desc = "Toggle commentline" })
+vim.keymap.set("v", "<C-/>", "gc", { remap = true, desc = "Toggle commentselection" })
+vim.keymap.set("n", "<C-_>", "gcc", { remap = true, desc = "Toggle commentline" })
+vim.keymap.set("v", "<C-_>", "gc", { remap = true, desc = "Toggle commentselection" })
+
+-- =============================================================================
 -- Float Terminal
 -- =============================================================================
 local float_term_state = { buf = nil, win = nil }

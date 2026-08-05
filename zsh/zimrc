@@ -5,7 +5,7 @@ zmodule input
 zmodule termtitle
 zmodule utility
 zmodule completion
-zmodule fzf
+#zmodule fzf
 
 ## prompt
 zmodule git-info
@@ -22,4 +22,4 @@ zmodule hlissner/zsh-autopair
 zmodule supercrabtree/k
 zmodule pabloariasal/zfm
 zmodule agkozak/zsh-z
-zmodule Aloxaf/fzf-tab
+#zmodule Aloxaf/fzf-tab

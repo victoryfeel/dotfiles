@@ -1,0 +1,60 @@
+{
+  "Table": {
+    "prefix": "tbl",
+    "body": [
+      "| ${1:Header 1} | ${2:Header 2} | ${3:Header 3} |",
+      "| :--- | :---: | ---: |",
+      "| ${4:Cell 1} | ${5:Cell 2} | ${6:Cell 3} |",
+      "$0"
+    ],
+    "description": "Markdown formatted table"
+  },
+  "GitHub Callout Note": {
+    "prefix": "note",
+    "body": [
+      "> [!NOTE]",
+      "> ${1:Useful information that users should know, even when skimming.}"
+    ],
+    "description": "GitHub style NOTE alert callout"
+  },
+  "GitHub Callout Important": {
+    "prefix": "tip",
+    "body": [
+      "> [!IMPORTANT]",
+      "> ${1:Crucial information needed for user success.}"
+    ],
+    "description": "GitHub style IMPORTANT alert callout"
+  },
+  "Fenced Code Block": {
+    "prefix": "cb",
+    "body": ["```${1:cpp}", "$0", "```"],
+    "description": "Fenced code block with language specification"
+  },
+  "LaTeX Math Display Block": {
+    "prefix": "mathb",
+    "body": [
+      "$$",
+      "${1:f(x) = \\int_{-\\infty}^{\\infty} e^{-x^2} dx}",
+      "$$",
+      "$0"
+    ],
+    "description": "LaTeX display math block"
+  },
+  "Collapsible Details Block": {
+    "prefix": "details",
+    "body": [
+      "<details>",
+      "<summary>${1:Click to expand}</summary>",
+      "",
+      "${0:Hidden content here...}",
+      "",
+      "</details>"
+    ],
+    "description": "HTML collapsible details/summary block"
+  },
+  "Subpage Link": {
+    "prefix": "subpath",
+    "body": ["[${1:Title}](../assets/subpage/${2:name}.md)"],
+    "description": "Link to subpage in assets/subpage/"
+  }
+}

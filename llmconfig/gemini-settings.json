@@ -3,9 +3,7 @@
   "enableTerminalSandbox": true,
   "toolPermission": "proceed-in-sandbox",
   "artifactReviewPolicy": "asks-for-review",
-  "trustedWorkspaces": [
-    "/home/alex/tmp/"
-  ],
+  "trustedWorkspaces": ["/home/alex/tmp/"],
   "model": "Gemini 3.1 Pro (High)",
   "verbosity": "high",
   "editor": "auto",
@@ -17,5 +15,11 @@
     "type": "",
     "command": "",
     "enabled": true
-  }
+  },
+  "navigation.down": ["down", "j"],
+  "navigation.left": ["left", "h"],
+  "navigation.right": ["right", "l"],
+  "navigation.up": ["up", "k"],
+  "cli.clear_screen": ["ctrl+l"],
+  "prompt.insert_newline": ["shift+enter", "ctrl+j"]
 }
