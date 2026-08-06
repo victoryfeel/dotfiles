@@ -1,0 +1,189 @@
+{
+  "Disallow Copy and Assign": {
+    "prefix": "nocopy",
+    "body": [
+      "${1:ClassName}(const ${1:ClassName}&) = delete;",
+      "${1:ClassName}& operator=(const ${1:ClassName}&) = delete;",
+      "${1:ClassName}(${1:ClassName}&&) = delete;",
+      "${1:ClassName}& operator=(${1:ClassName}&&) = delete;"
+    ],
+    "description": "Disable copy/move constructors and assignment operators"
+  },
+  "Thread-Safe Singleton (Meyers)": {
+    "prefix": "singleton",
+    "body": [
+      "class ${1:Singleton} {",
+      "public:",
+      "    static ${1:Singleton}& GetInstance() {",
+      "        static ${1:Singleton} instance;",
+      "        return instance;",
+      "    }",
+      "",
+      "    ${1:Singleton}(const ${1:Singleton}&) = delete;",
+      "    ${1:Singleton}& operator=(const ${1:Singleton}&) = delete;",
+      "    ${1:Singleton}(${1:Singleton}&&) = delete;",
+      "    ${1:Singleton}& operator=(${1:Singleton}&&) = delete;",
+      "",
+      "private:",
+      "    ${1:Singleton}() = default;",
+      "    ~${1:Singleton}() = default;",
+      "};"
+    ],
+    "description": "Thread-safe Meyers Singleton pattern"
+  },
+  "Scope Guard (Defer)": {
+    "prefix": "defer",
+    "body": [
+      "template <typename F>",
+      "class ScopeGuard {",
+      "public:",
+      "    explicit ScopeGuard(F&& func) : func_(std::forward<F>(func)) {}",
+      "    ~ScopeGuard() { if (active_) func_(); }",
+      "    void Dismiss() { active_ = false; }",
+      "    ScopeGuard(const ScopeGuard&) = delete;",
+      "    ScopeGuard& operator=(const ScopeGuard&) = delete;",
+      "    ScopeGuard(ScopeGuard&& other) noexcept : func_(std::move(other.func_)), active_(other.active_) {",
+      "        other.active_ = false;",
+      "    }",
+      "private:",
+      "    F func_;",
+      "    bool active_{true};",
+      "};",
+      "",
+      "template <typename F>",
+      "ScopeGuard<std::decay_t<F>> MakeScopeGuard(F&& func) {",
+      "    return ScopeGuard<std::decay_t<F>>(std::forward<F>(func));",
+      "}",
+      "",
+      "auto ${1:guard} = MakeScopeGuard([&] {",
+      "    $0",
+      "});"
+    ],
+    "description": "RAII ScopeGuard for resource cleanup"
+  },
+  "Latency Timer": {
+    "prefix": "timer",
+    "body": [
+      "class ScopedTimer {",
+      "public:",
+      "    explicit ScopedTimer(std::string_view name)",
+      "        : name_(name), start_(std::chrono::high_resolution_clock::now()) {}",
+      "    ~ScopedTimer() {",
+      "        auto end = std::chrono::high_resolution_clock::now();",
+      "        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start_).count();",
+      "        std::cout << \"[\" << name_ << \"] Elapsed: \" << duration << \" us\" << std::endl;",
+      "    }",
+      "private:",
+      "    std::string name_;",
+      "    std::chrono::high_resolution_clock::time_point start_;",
+      "};",
+      "",
+      "ScopedTimer ${1:timer}(\"${2:OperationName}\");"
+    ],
+    "description": "Scoped execution timer for micro-benchmarking latency"
+  },
+  "Hash Combine": {
+    "prefix": "hashcomb",
+    "body": [
+      "template <typename T>",
+      "inline void hash_combine(std::size_t& seed, const T& val) {",
+      "    std::hash<T> hasher;",
+      "    seed ^= hasher(val) + 0x9e3779b9 + (seed << 6) + (seed >> 2);",
+      "}",
+      "",
+      "struct ${1:CustomHash} {",
+      "    std::size_t operator()(const ${2:KeyType}& k) const {",
+      "        std::size_t seed = 0;",
+      "        hash_combine(seed, k.${3:field1});",
+      "        hash_combine(seed, k.${4:field2});",
+      "        return seed;",
+      "    }",
+      "};"
+    ],
+    "description": "Hash combine utility for unordered_map custom keys"
+  },
+  "Result / StatusOr Pattern": {
+    "prefix": "statusor",
+    "body": [
+      "template <typename T>",
+      "class StatusOr {",
+      "public:",
+      "    StatusOr(const T& value) : data_(value) {}",
+      "    StatusOr(T&& value) : data_(std::move(value)) {}",
+      "    StatusOr(std::string error) : data_(std::move(error)) {}",
+      "",
+      "    bool ok() const { return std::holds_alternative<T>(data_); }",
+      "    const T& value() const { return std::get<T>(data_); }",
+      "    T& value() { return std::get<T>(data_); }",
+      "    const std::string& status() const { return std::get<std::string>(data_); }",
+      "",
+      "private:",
+      "    std::variant<T, std::string> data_;",
+      "};"
+    ],
+    "description": "Simplified StatusOr error-handling result wrapper"
+  },
+  "C++20 Concept": {
+    "prefix": "concept",
+    "body": [
+      "template <typename T>",
+      "concept ${1:Serializable} = requires(T a) {",
+      "    { a.Serialize() } -> std::same_as<std::string>;",
+      "};"
+    ],
+    "description": "C++20 type constraint concept definition"
+  },
+  "Pimpl Pattern": {
+    "prefix": "pimpl",
+    "body": [
+      "class ${1:MyClass} {",
+      "public:",
+      "    ${1:MyClass}();",
+      "    ~${1:MyClass}();",
+      "    ${1:MyClass}(${1:MyClass}&&) noexcept;",
+      "    ${1:MyClass}& operator=(${1:MyClass}&&) noexcept;",
+      "",
+      "    void ${2:DoWork}();",
+      "",
+      "private:",
+      "    struct Impl;",
+      "    std::unique_ptr<Impl> impl_;",
+      "};"
+    ],
+    "description": "Pimpl (Pointer to Implementation) pattern header"
+  },
+  "Backend Server Main Entry": {
+    "prefix": "main_sys",
+    "body": [
+      "#include <iostream>",
+      "#include <csignal>",
+      "#include <atomic>",
+      "#include <thread>",
+      "#include <chrono>",
+      "",
+      "std::atomic<bool> g_running{true};",
+      "",
+      "void SignalHandler(int signal) {",
+      "    if (signal == SIGINT || signal == SIGTERM) {",
+      "        g_running.store(false);",
+      "    }",
+      "}",
+      "",
+      "int main(int argc, char* argv[]) {",
+      "    std::signal(SIGINT, SignalHandler);",
+      "    std::signal(SIGTERM, SignalHandler);",
+      "",
+      "    std::cout << \"Starting backend service...\" << std::endl;",
+      "",
+      "    while (g_running.load()) {",
+      "        $0",
+      "        std::this_thread::sleep_for(std::chrono::milliseconds(100));",
+      "    }",
+      "",
+      "    std::cout << \"Service shutdown complete.\" << std::endl;",
+      "    return 0;",
+      "}"
+    ],
+    "description": "Production service main entrypoint with signal handling"
+  }
+}

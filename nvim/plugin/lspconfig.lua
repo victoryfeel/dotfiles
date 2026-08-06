@@ -76,22 +76,25 @@ vim.diagnostic.config({
 	},
 })
 
----------------------------------------------------------------------------------
-
+-- OPTIMIZATION: Defer Mason and LSP server activation using vim.schedule.
+-- This prevents heavy Mason module loads and LSP server initializations from blocking
+-- the synchronous initial UI frame render.
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 	once = true,
 	callback = function()
-		vim.pack.add({
-			"https://github.com/williamboman/mason.nvim",
-			"https://github.com/williamboman/mason-lspconfig.nvim",
-			"https://github.com/neovim/nvim-lspconfig",
-		})
-		require("mason").setup()
-		require("mason-lspconfig").setup({
-			ensure_installed = servers,
-		})
-		for _, server in ipairs(servers) do
-			vim.lsp.enable(server)
-		end
+		vim.schedule(function()
+			vim.pack.add({
+				"https://github.com/williamboman/mason.nvim",
+				"https://github.com/williamboman/mason-lspconfig.nvim",
+				"https://github.com/neovim/nvim-lspconfig",
+			})
+			require("mason").setup()
+			require("mason-lspconfig").setup({
+				ensure_installed = servers,
+			})
+			for _, server in ipairs(servers) do
+				vim.lsp.enable(server)
+			end
+		end)
 	end,
 })

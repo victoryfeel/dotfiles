@@ -101,9 +101,9 @@ vim.schedule(function()
 				copy_images = true,
 				prompt_for_file_name = false,
 				file_name = "%y%m%d-%H%M%S",
-				extension = "avif",
-				process_cmd = "magick convert - -quality 100 avif:-",
-				formats = { "avif" },
+				extension = "jpg",
+				process_cmd = "magick convert - -quality 100 -sampling-factor 4:4:4 jpg:-",
+				formats = { "jpg" },
 			},
 			filetypes = {
 				markdown = {
@@ -115,3 +115,6 @@ vim.schedule(function()
 end)
 
 vim.keymap.set("n", "<leader>pi", "<cmd>PasteImage<cr>", { buffer = true, silent = true })
+vim.opt_local.wrap = true
+vim.opt_local.linebreak = true
+vim.opt_local.breakindent = true
