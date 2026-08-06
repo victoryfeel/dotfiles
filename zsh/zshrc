@@ -121,7 +121,7 @@ alias my="nvim ~/alexmak/dotfiles/yazi/yazi.toml"
 # lazygit
 alias mg="nvim ~/alexmak/dotfiles/lazygit/config.yml"
 # nvim startup time test
-alias nvtest="nvim --startuptime startup.log +q"
+alias nvtest="nvim --startuptime startup.log file-name +q"
 
 # ==================== Functions ====================
 # tm to start a tmuxsession
