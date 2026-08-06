@@ -1,8 +1,3 @@
--- =============================================================================
--- Overseer Code Runner & Task Manager (C/C++, Rust, Go)
--- AI Edit: 按需懒加载 Overseer 后台构建任务管理器，保持启动耗时 < 15ms
--- =============================================================================
-
 local function ensure_overseer(callback)
 	if not package.loaded["overseer"] then
 		vim.schedule(function()
