@@ -147,7 +147,29 @@ function lazygit_widget {
 }
 zle -N lazygit_widget
 bindkey '^g' lazygit_widget
-# ctrl+k to search
+# yazi exit directory
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  command yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd <"$tmp"
+  [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+  command rm -f -- "$tmp"
+}
+# ==================== fzf search ====================
+# ctrl+j to search directory with fzf
+fzf-work-cd() {
+  local dir=$(fd --type d --hidden --exclude .git . ~/alexmak/ | fzf --height 40% --reverse)
+  if [ -n "$dir" ]; then
+    zle -I
+    cd "$dir"
+    ls -alh
+  fi
+  zle reset-prompt
+}
+zle -N fzf-work-cd
+bindkey '^j' fzf-work-cd
+
+# ctrl+k to search file with fzf
 fzf-work-edit() {
   local file=$(fd --type f --hidden --exclude .git . ~/alexmak/ | fzf --height 40% --reverse)
   if [ -n "$file" ]; then
@@ -159,14 +181,24 @@ fzf-work-edit() {
 }
 zle -N fzf-work-edit
 bindkey '^k' fzf-work-edit
-# yazi exit directory
-function y() {
-  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-  command yazi "$@" --cwd-file="$tmp"
-  IFS= read -r -d '' cwd <"$tmp"
-  [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
-  command rm -f -- "$tmp"
+
+# ctrl+l to search content with fzf and open in nvim at line
+fzf-work-search-content() {
+  # Search file contents under ~/alexmak/ using ripgrep, select via fzf
+  local selected=$(rg --line-number --no-heading --smart-case --hidden --glob '!.git' . ~/alexmak/ 2>/dev/null | fzf --height 40% --reverse)
+  if [ -n "$selected" ]; then
+    # Extract file path and line number from selection (format file:line:content)
+    local file=$(echo "$selected" | cut -d: -f1)
+    local line=$(echo "$selected" | cut -d: -f2)
+    zle -I
+    # Navigate to directory and open file at the matching line in neovim
+    cd "$(dirname "$file")"
+    nvim "+${line}" "$file"
+  fi
+  zle reset-prompt
 }
+zle -N fzf-work-search-content
+bindkey '^l' fzf-work-search-content
 
 # ==================== Vim Mode ===================
 bindkey -v

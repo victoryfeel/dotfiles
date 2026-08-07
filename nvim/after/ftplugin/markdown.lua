@@ -24,6 +24,7 @@ vim.schedule(function()
 				icons = { "  󰎤  ", "  󰎧  ", "  󰎪  ", "  󰎭  ", "  󰎱  ", "  󰎳  " },
 				position = "inline",
 				border = true,
+				render_modes = true,
 				backgrounds = {
 					"Headline1Bg",
 					"Headline2Bg",
@@ -64,14 +65,21 @@ vim.schedule(function()
 			},
 			link = {
 				image = " ",
+				hyperlink = "󰧮 ",
 				custom = {
 					web = { icon = " ", pattern = "^http" },
+					youtube = { icon = " ", pattern = "youtube[^.]*%.com", kind = "url" },
 				},
-				hyperlink = "󰧮 ",
 			},
 			pipe_table = {
 				alignment_indicator = "─",
 				border = { "╭", "┬", "╮", "├", "┼", "┤", "╰", "┴", "╯", "│", "─" },
+				head = "Normal",
+				row = "Normal",
+				preset = "round",
+				cell = "trimmed",
+				padding = 1,
+				min_width = 10,
 			},
 			anti_conceal = {
 				enabled = true,
