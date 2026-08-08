@@ -109,18 +109,13 @@ alias pdc="podman system prune"
 
 # zsh
 alias mz="nvim ~/alexmak/dotfiles/zsh/zshrc"
-alias mzm="nvim ~/alexmak/dotfiles/zsh/zimrc"
 alias sz="exec zsh"
 # tmux
 alias mt="nvim ~/alexmak/dotfiles/tmux/tmux.conf"
 alias tls="tmux ls"
-# neovim
-alias mn="nvim ~/alexmak/dotfiles/nvim/init.lua"
-# yazi
-alias my="nvim ~/alexmak/dotfiles/yazi/yazi.toml"
-# lazygit
-alias mg="nvim ~/alexmak/dotfiles/lazygit/config.yml"
 # nvim startup time test
+# nvtest +q : to test without openning file
+# nvtest /path/filename +q : to test with file open
 alias nvtest="nvim --startuptime startup.log"
 
 # ==================== Functions ====================
@@ -149,6 +144,7 @@ zle -N lazygit_widget
 bindkey '^g' lazygit_widget
 # yazi exit directory
 function y() {
+  (command trash-empty 15 &>/dev/null &)
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   command yazi "$@" --cwd-file="$tmp"
   IFS= read -r -d '' cwd <"$tmp"

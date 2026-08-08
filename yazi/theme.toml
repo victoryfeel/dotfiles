@@ -148,7 +148,7 @@ dirs = [
   { name = "Public", text = "", fg = "#8be9fd" },
   { name = "Videos", text = "", fg = "#8be9fd" },
 ]
-exts = [
+files = [
   { name = "readme", text = "", fg = "#dddddd" },
   { name = "readme.md", text = "", fg = "#dddddd" },
   { name = "rmd", text = "", fg = "#dddddd" },

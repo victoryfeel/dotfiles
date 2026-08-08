@@ -18,7 +18,6 @@ ln -sf "$DOTFILES/zsh/zshenv" "$HOME/.zshenv"
 mkdir -p "$HOME/.config/fastfetch"
 ln -sf "$DOTFILES/fastfetch/config.jsonc" "$HOME/.config/fastfetch/config.jsonc"
 
-
 #=============================
 #=====  the four mains  ======
 #=============================
@@ -39,19 +38,18 @@ mkdir -p "$HOME/.gemini/antigravity-cli/"
 ln -sf "$DOTFILES/llmconfig/gemini-settings.json" "$HOME/.gemini/antigravity-cli/settings.json"
 ln -sf "$DOTFILES/llmconfig/GEMINI.md" "$HOME/.gemini/GEMINI.md"
 
-
 #=======================================
 #=====  gui tools config for mac  ======
 #=======================================
 if [ "$(uname -s)" = "Darwin" ]; then
-	# alacritty
-	# mkdir -p "$HOME/.config/alacritty"
-	# ln -sf "$DOTFILES/alacritty/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
+  # alacritty
+  # mkdir -p "$HOME/.config/alacritty"
+  # ln -sf "$DOTFILES/alacritty/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
 
-	# ghostty
+  # ghostty
 
-	# mpv
-	ln -sfn "$DOTFILES/mpv/portable_config" "$HOME/.config/mpv"
+  # mpv
+  ln -sfn "$DOTFILES/mpv/portable_config" "$HOME/.config/mpv"
 fi
 
 echo "done!"
