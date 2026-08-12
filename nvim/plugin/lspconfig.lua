@@ -26,12 +26,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = bufnr, silent = true }
 
 		vim.keymap.set("n", "<leader>gh", function()
-			vim.lsp.buf.hover({ border = "rounded" })
+			-- vim.lsp.buf.hover({ border = "rounded", focusable = true, focus = true })
+			vim.lsp.buf.hover({ focusable = true, focus = true })
+			vim.defer_fn(function()
+				vim.lsp.buf.hover({ border = "rounded" })
+			end, 50)
 		end, opts)
 		vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts)
 		vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, opts)
 		vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, opts)
-		vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts)
+		-- vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts)
 		vim.keymap.set("n", "<leader>gb", "<C-o>", opts)
 		-- refactor
 		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
@@ -62,7 +66,7 @@ vim.diagnostic.config({
 	virtual_text = { prefix = "●", spacing = 2 },
 	update_in_insert = false,
 	severity_sort = true,
-	--underline = true,
+	-- underline = true,
 	float = {
 		border = "rounded",
 	},

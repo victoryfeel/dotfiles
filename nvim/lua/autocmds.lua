@@ -20,3 +20,16 @@ autocmd("BufReadPost", {
 		end
 	end,
 })
+
+-- Auto-split direction for help documentation based on window width (wide screen: right, narrow: bottom)
+autocmd("FileType", {
+	group = augroup("HelpSplitDirection", { clear = true }),
+	pattern = "help",
+	callback = function()
+		if vim.api.nvim_win_get_width(0) >= 120 then
+			vim.cmd("wincmd L")
+		else
+			vim.cmd("wincmd J")
+		end
+	end,
+})

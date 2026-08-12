@@ -1,7 +1,16 @@
 vim.schedule(function()
 	vim.pack.add({
+		"https://github.com/rcarriga/nvim-notify",
 		"https://github.com/MunifTanjim/nui.nvim",
 		"https://github.com/folke/noice.nvim",
+	})
+
+	require("notify").setup({
+		background_colour = "#000000",
+		minimum_width = 50,
+		max_width = 50,
+		render = "wrapped-compact",
+		-- render = "compact",
 	})
 
 	require("noice").setup({
@@ -23,14 +32,20 @@ vim.schedule(function()
 			hover = {
 				enabled = true,
 			},
+			-- disabled sign, config at blink.cmp
 			signature = {
 				enabled = false,
 			},
 		},
 		notify = {
-			enabled = false, -- 禁用 Noice 的弹窗，交由更专业的 snacks.notifier 处理
+			enabled = true,
+			view = "notify",
 		},
 		views = {
+			history = {
+				view = "popup",
+				reverse = true,
+			},
 			cmdline_popup = {
 				position = {
 					row = "50%",
@@ -43,7 +58,7 @@ vim.schedule(function()
 			cmdline_popupmenu = {
 				relative = "editor",
 				position = {
-					row = "54%", -- 让 popupmenu 紧贴在居中的 cmdline 下方
+					row = "54%",
 					col = "50%",
 				},
 				size = {
@@ -71,3 +86,5 @@ vim.schedule(function()
 		},
 	})
 end)
+
+vim.keymap.set("n", "<leader>n", "<cmd>Noice history<CR>")

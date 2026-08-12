@@ -14,14 +14,11 @@ vim.api.nvim_set_hl(0, "SnacksIndent3", { fg = "#5e4568" })
 vim.api.nvim_set_hl(0, "SnacksIndent4", { fg = "#375768" })
 -- lazygit
 vim.api.nvim_set_hl(0, "LazyGitActiveBorder", { fg = "#50fa7b", bold = true })
--- notification
-vim.api.nvim_set_hl(0, "SnacksNotifierIconInfo", { fg = "#50fa7b" })
-vim.api.nvim_set_hl(0, "SnacksNotifierTitleInfo", { fg = "#50fa7b" })
-vim.api.nvim_set_hl(0, "SnacksNotifierBorderInfo", { fg = "#50fa7b" })
 
 require("snacks").setup({
+	--=========  snacks.image  =========--
 	image = {
-		enabled = true,
+		enabled = false,
 		doc = {
 			inline = false,
 			float = true,
@@ -29,23 +26,13 @@ require("snacks").setup({
 			max_height = 30,
 		},
 	},
+	--=========  snacks.lazygit  =========--
 	lazygit = {
 		theme = {
 			activeBorderColor = { fg = "LazyGitActiveBorder", bold = true },
 		},
 	},
-	notifier = {},
-	picker = {
-		win = {
-			input = {
-				keys = {
-					["<Esc>"] = { "close", mode = { "n", "i" } },
-					["<c-e>"] = { "list_down", mode = { "i", "n" } },
-					["<c-u>"] = { "list_up", mode = { "i", "n" } },
-				},
-			},
-		},
-	},
+	--=========  snacks.indent  =========--
 	indent = {
 		indent = {
 			char = "│",
@@ -63,6 +50,7 @@ require("snacks").setup({
 			enabled = false,
 		},
 	},
+	--=========  snacks parts config  =========--
 	styles = {
 		lazygit = {
 			border = "rounded",
@@ -81,13 +69,8 @@ require("snacks").setup({
 	},
 })
 
+--=========  keymap  =========--
 local Snacks = require("snacks")
 vim.keymap.set("n", "<leader>gg", function()
 	Snacks.lazygit()
-end)
-vim.keymap.set("n", "gr", function()
-	Snacks.picker.lsp_references()
-end)
-vim.keymap.set("n", "<leader>n", function()
-	Snacks.notifier.show_history()
 end)
