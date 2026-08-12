@@ -9,6 +9,17 @@ vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode" })
 -- =============================================================================
 -- Normal Mode - Navigation & Editing
 -- =============================================================================
+-- reload config
+vim.keymap.set("n", "<leader>rr", function()
+	for name, _ in pairs(package.loaded) do
+		if name:match("^options") or name:match("^keymaps") or name:match("^autocmds") then
+			package.loaded[name] = nil
+		end
+	end
+	dofile(vim.env.MYVIMRC)
+	vim.notify("Neovim reload config success.", vim.log.levels.INFO, { title = "Config Reload" })
+end)
+
 -- Wrap-aware j/k movement
 vim.keymap.set("n", "j", function()
 	return vim.v.count == 0 and "gj" or "j"
@@ -69,9 +80,9 @@ vim.keymap.set("n", "<C-M-h>", "<cmd>vertical resize -2<CR>", { silent = true })
 vim.keymap.set("n", "<C-M-l>", "<cmd>vertical resize +2<CR>", { silent = true })
 
 -- Window navigation
-vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Buffer navigation

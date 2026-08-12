@@ -41,3 +41,21 @@ vim.keymap.set("n", "<leader>dd", function()
 	ensure_fzf_lua()
 	require("fzf-lua").live_grep({ cwd = get_cwd() })
 end)
+
+-- <leader>hh: search help tags
+vim.keymap.set("n", "<leader>hh", function()
+	ensure_fzf_lua()
+	require("fzf-lua").help_tags()
+end)
+
+-- <leader>gr: lsp references
+vim.keymap.set("n", "<leader>gr", function()
+	ensure_fzf_lua()
+	require("fzf-lua").lsp_references()
+end)
+
+-- <leader>nf: search noice history with fzf
+-- vim.keymap.set("n", "<leader>nf", function()
+-- 	ensure_fzf_lua()
+-- 	require("noice").cmd("fzf")
+-- end)

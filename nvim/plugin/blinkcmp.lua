@@ -42,6 +42,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
 					winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
 				},
 			},
+			signature = { enabled = true },
 			enabled = function()
 				return not vim.tbl_contains({}, vim.bo.filetype)
 					and vim.bo.buftype ~= "prompt"

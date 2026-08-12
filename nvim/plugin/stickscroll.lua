@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd({
 				multiline_threshold = 20,
 				trim_scope = "outer",
 				mode = "cursor",
-				separator = "",
+				separator = "─",
 				zindex = 20,
 			})
 			vim.keymap.set("n", "[c", function()

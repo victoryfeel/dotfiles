@@ -199,6 +199,10 @@ keymap = [
     "g",
     "h",
   ], run = "cd ~", desc = "Go home" },
+  { on = [
+    "g",
+    "n",
+  ], run = "cd ~/.local/share/nvim/site/pack/core/opt/" },
 
   { on = [
     "g",

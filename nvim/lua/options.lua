@@ -40,6 +40,7 @@ vim.opt.wrap = false
 vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 10
 vim.opt.fillchars = { eob = " " }
+vim.opt.winborder = "rounded"
 
 -- =============================================================================
 -- Formatting & Indentation
