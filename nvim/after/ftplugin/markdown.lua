@@ -1,7 +1,6 @@
 vim.schedule(function()
 	if not package.loaded["render-markdown"] then
 		vim.pack.add({
-			"https://github.com/hakonharnes/img-clip.nvim",
 			"https://github.com/nvim-treesitter/nvim-treesitter",
 			"https://github.com/nvim-tree/nvim-web-devicons",
 			"https://github.com/MeanderingProgrammer/render-markdown.nvim",
@@ -94,8 +93,14 @@ vim.schedule(function()
 				lsp = { enabled = true },
 			},
 		})
+	end
+end)
 
-		-- ==================== img-clip ======================= --
+-- OPTIMIZATION: Lazy-load img-clip.nvim only on keypress (<leader>pi)
+-- to avoid loading clipboard image pasting plugin on initial markdown buffer open.
+vim.keymap.set("n", "<leader>pi", function()
+	if not package.loaded["img-clip"] then
+		vim.pack.add({ "https://github.com/hakonharnes/img-clip.nvim" })
 		require("img-clip").setup({
 			default = {
 				dir_path = function()
@@ -120,9 +125,9 @@ vim.schedule(function()
 			},
 		})
 	end
-end)
+	vim.cmd("PasteImage")
+end, { buffer = true, silent = true })
 
-vim.keymap.set("n", "<leader>pi", "<cmd>PasteImage<cr>", { buffer = true, silent = true })
 vim.opt_local.wrap = true
 vim.opt_local.linebreak = true
 vim.opt_local.breakindent = true

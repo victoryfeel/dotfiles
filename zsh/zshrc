@@ -114,9 +114,9 @@ alias sz="exec zsh"
 alias mt="nvim ~/alexmak/dotfiles/tmux/tmux.conf"
 alias tls="tmux ls"
 # nvim startup time test
-# nvtest +q : to test without openning file
-# nvtest /path/filename +q : to test with file open
-alias nvtest="nvim --startuptime startup.log"
+# nvtest: to test without openning file
+# nvtest /path/filename: to test with file open
+alias nvtest="nvim --startuptime /home/alex/alexmak/dotfiles/nvim/startup.log +q"
 
 # ==================== Functions ====================
 # tm to start a tmuxsession

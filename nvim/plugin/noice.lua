@@ -9,8 +9,8 @@ vim.schedule(function()
 		background_colour = "#000000",
 		minimum_width = 50,
 		max_width = 50,
-		render = "wrapped-compact",
-		-- render = "compact",
+		-- render = "wrapped-compact",
+		render = "compact",
 	})
 
 	require("noice").setup({

@@ -15,7 +15,12 @@ vim.g.loaded_tarPlugin = 1
 vim.g.loaded_zipPlugin = 1
 vim.g.loaded_tutor_mode_plugin = 1
 vim.g.loaded_2html_plugin = 1
+-- OPTIMIZATION: Disable htmlcomplete.vim & default markdown recommended style overrides
+-- to unblock markdown buffer startup (~8ms speedup)
+vim.g.loaded_htmlcomplete = 1
+vim.g.markdown_recommended_style = 0
 vim.g.loaded_python3_provider = 0
+
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_node_provider = 0
