@@ -1,12 +1,8 @@
 vim.api.nvim_create_user_command("NoteClean", function()
 	local root = vim.fn.expand("~/alexmak/notes")
 
-	-- 前置检查：必须安装 ripgrep
 	if vim.fn.executable("rg") == 0 then
-		vim.notify(
-			"❌ 极致性能版需要系统中安装有 ripgrep (rg) 命令，请先安装",
-			vim.log.levels.ERROR
-		)
+		vim.notify("!! Install Ripgrep First.", vim.log.levels.ERROR)
 		return
 	end
 

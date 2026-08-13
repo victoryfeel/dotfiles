@@ -149,9 +149,9 @@ dirs = [
   { name = "Videos", text = "", fg = "#8be9fd" },
 ]
 files = [
-  { name = "readme", text = "", fg = "#dddddd" },
-  { name = "readme.md", text = "", fg = "#dddddd" },
-  { name = "rmd", text = "", fg = "#dddddd" },
+  { name = "readme", text = "", fg = "#519aba" },
+  { name = "readme.md", text = "", fg = "#519aba" },
+  { name = "rmd", text = "", fg = "#519aba" },
   { name = "gnumakefile", text = "", fg = "#6d8086" },
   { name = "makefile", text = "", fg = "#6d8086" },
 ]
