@@ -6,7 +6,7 @@ vim.keymap.set("n", "<leader>rr", "<cmd>restart<CR>")
 -- =============================================================================
 -- Insert Mode
 -- =============================================================================
-vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode" })
+-- vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode" })
 
 -- =============================================================================
 -- Normal Mode - Navigation & Editing

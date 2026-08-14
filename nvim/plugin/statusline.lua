@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
 		vim.opt_local.statusline = table.concat({
 			" ",
 			"%{v:lua.git_branch()}",
-			"\u{e0b1} %f %h%m%r",
+			"\u{e0b1} %F %h%m%r",
 			"%=",
 			" \u{f017} %l:%c ",
 		})
@@ -37,6 +37,10 @@ vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
 vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
 	group = augroup,
 	callback = function()
-		vim.opt_local.statusline = "%#StatusLine# %f %h%m%r "
+		vim.opt_local.statusline = table.concat({
+			" %#StatusLine#",
+			"%{v:lua.git_branch()}",
+			"\u{e0b1} %t %h%m%r ",
+		})
 	end,
 })

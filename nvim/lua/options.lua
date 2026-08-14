@@ -77,7 +77,6 @@ vim.opt.iskeyword:append("-")
 vim.opt.path:append("**")
 vim.opt.mouse = "a"
 vim.opt.clipboard:append("unnamedplus")
---vim.opt.clipboard="unnamedplus"
 
 -- =============================================================================
 -- Diff, Backups & Undo

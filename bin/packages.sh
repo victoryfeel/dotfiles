@@ -14,7 +14,6 @@ sudo pacman -S --needed --noconfirm neovim treesitter-cli yazi tmux lazygit git-
 sudo pacman -S --needed --noconfirm htop cmake make ninja gdb clang llvm lldb bear podman
 sudo pacman -S --needed --noconfirm imagemagick
 
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 
 command -v yay >/dev/null || (
