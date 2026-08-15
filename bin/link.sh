@@ -5,18 +5,17 @@ DOTFILES="$HOME/alexmak/dotfiles"
 
 echo "creating symbolic links..."
 #==============================
-#=====  zsh-font-script  ======
+#=====  general  ======
 #==============================
+mkdir -p "$HOME/.local/share"
 ln -sfn "$DOTFILES/fonts" "$HOME/.local/share/fonts"
 ln -sfn "$DOTFILES/scripts" "$HOME/.config/scripts"
+ln -sfn "$DOTFILES/fastfetch" "$HOME/.config/fastfetch"
 # zsh
 mkdir -p "$HOME/.config/zsh"
 ln -sf "$DOTFILES/zsh/zshrc" "$HOME/.config/zsh/.zshrc"
 ln -sf "$DOTFILES/zsh/zimrc" "$HOME/.config/zsh/.zimrc"
 ln -sf "$DOTFILES/zsh/zshenv" "$HOME/.zshenv"
-# fastfetch
-mkdir -p "$HOME/.config/fastfetch"
-ln -sf "$DOTFILES/fastfetch/config.jsonc" "$HOME/.config/fastfetch/config.jsonc"
 
 #=============================
 #=====  the four mains  ======

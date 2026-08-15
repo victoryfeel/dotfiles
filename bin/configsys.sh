@@ -3,13 +3,15 @@ set -e
 
 echo "config system..."
 
-chsh -s "$(which zsh)"
+if [ "$SHELL" != "$(which zsh)" ]; then
+  chsh -s "$(which zsh)" || true
+fi
 mkdir -p "$HOME/alexmak/learn"
 mkdir -p "$HOME/alexmak/ongo"
 mkdir -p "$HOME/tmp"
 
 git config --global user.name "alex"
-git config --global user.email "aliasgmail@duck.com"
+git config --global user.email "113433667+victoryfeel@users.noreply.github.com"
 git config --global init.defaultBranch main
 
 echo "done!"
