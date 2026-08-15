@@ -3,37 +3,13 @@ set -e
 
 echo "installing packages..."
 
-#==========================
-#========  Linux  =========
-#==========================
-sudo pacman -Syu --noconfirm
-
-sudo pacman -S --needed --noconfirm base-devel curl git zip unzip trash-cli tree
-sudo pacman -S --needed --noconfirm zsh fzf ripgrep fd the_silver_searcher fastfetch mandoc
-sudo pacman -S --needed --noconfirm neovim treesitter-cli yazi tmux lazygit git-delta
-sudo pacman -S --needed --noconfirm htop cmake make ninja gdb clang llvm lldb bear podman
-sudo pacman -S --needed --noconfirm imagemagick
-
-curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
-
-command -v yay >/dev/null || (
-  mkdir -p "${HOME}/tmp" &&
-    cd "${HOME}/tmp" &&
-    rm -rf yay &&
-    git clone https://aur.archlinux.org/yay.git &&
-    cd yay &&
-    makepkg -sic --noconfirm &&
-    cd "${HOME}" &&
-    rm -rf "${HOME}/tmp/yay"
-)
-
-#========================
-#========  Mac  =========
-#========================
 if [ "$(uname -s)" = "Darwin" ]; then
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  #========================
+  #========  Mac  =========
+  #========================
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 
-  brew install zimfw git git-delta fzf fd ripgrep
+  brew install git git-delta fzf fd ripgrep trash-cli
   brew install mandoc fastfetch htop
   brew install lazygit neovim yazi tmux
   brew install imagemagick
@@ -50,7 +26,28 @@ if [ "$(uname -s)" = "Darwin" ]; then
   echo "cracked app links:"
   echo "alfred: https://www.minorpatch.com/apps/alfred-powerpack.html"
   echo "pdf expert: https://www.minorpatch.com/apps/pdf-expert.html"
+else
+  #=========================
+  #========  Arch  =========
+  #=========================
+  sudo pacman -Syu --noconfirm
 
+  sudo pacman -S --needed --noconfirm base-devel curl git zip unzip trash-cli tree less
+  sudo pacman -S --needed --noconfirm zsh fzf ripgrep fd the_silver_searcher fastfetch mandoc
+  sudo pacman -S --needed --noconfirm neovim treesitter-cli yazi tmux lazygit git-delta
+  sudo pacman -S --needed --noconfirm htop cmake make ninja gdb clang llvm lldb bear podman
+  sudo pacman -S --needed --noconfirm imagemagick
+
+  command -v yay >/dev/null || (
+    mkdir -p "${HOME}/tmp" &&
+      cd "${HOME}/tmp" &&
+      rm -rf yay &&
+      git clone https://aur.archlinux.org/yay.git &&
+      cd yay &&
+      makepkg -sic --noconfirm &&
+      cd "${HOME}" &&
+      rm -rf "${HOME}/tmp/yay"
+  )
 fi
 
 echo "done!"

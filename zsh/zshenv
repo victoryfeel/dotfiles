@@ -1,1 +1,32 @@
-export ZDOTDIR=$HOME/.config/zsh
+## ================= XDG Base Directories =================
+#-- xdg paths
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_STATE_HOME="${HOME}/.local/state"
+#-- zsh and dotfiles paths
+export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+export DOTFILES="${HOME}/alexmak/dotfiles"
+
+## ================= Global Environment & Tools =================
+#-- locale & default editor
+export LANG="en_US.UTF-8"
+export EDITOR="nvim"
+export VISUAL="nvim"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+#-- toolchain paths
+export VCPKG_ROOT="${XDG_DATA_HOME}/vcpkg"
+
+## ================= PATH Configuration =================
+#-- construct path with auto-deduplication
+typeset -U path
+path=(
+  /opt/homebrew/bin
+  /opt/homebrew/sbin
+  $HOME/bin
+  $HOME/.local/bin
+  $HOME/.cargo/bin
+  /usr/local/bin
+  $path
+)
+export PATH

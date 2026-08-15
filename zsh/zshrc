@@ -1,70 +1,63 @@
-# ==================== XDG & Cache Setup ====================
-export XDG_CONFIG_HOME="${HOME}/.config"
-export XDG_CACHE_HOME="${HOME}/.cache"
-export ZSH_CACHE_DIR="${XDG_CACHE_HOME}/zsh"
-
+## ================= Cache & History =================
+#-- cache directory
+export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-${HOME}/.cache}/zsh"
 [[ -d "$ZSH_CACHE_DIR" ]] || mkdir -p "$ZSH_CACHE_DIR"
+#-- history setup
 export HISTFILE="${ZSH_CACHE_DIR}/history"
 export HISTSIZE=10000
 export SAVEHIST=1000
+#-- completion dump cache
 export ZSH_COMPDUMP="${ZSH_CACHE_DIR}/zcompdump-${HOST/.*/}-${ZSH_VERSION}"
 
-#==================== Environment & PATH ====================
-export LANG=en_US.UTF-8
-export EDITOR="nvim"
-export VISUAL="nvim"
-#export CONAN_HOME="${XDG_CONFIG_HOME}/conan2"
-export VCPKG_ROOT=$HOME/.local/share/vcpkg
-
-typeset -U path
-path=(
-  $HOME/bin
-  $HOME/.local/bin
-  $HOME/.cargo/bin
-  /usr/local/bin
-  $path
-)
-export PATH
-
-# ==================== Zim Setup ====================
+## ================= Zim Setup =================
+#-- paths and completion config
 ZIM_HOME="${XDG_CACHE_HOME}/zim"
 ZIM_CONFIG_FILE="${ZDOTDIR:-${HOME}}/.zimrc"
-zstyle ':zim:completion' dump-file "$ZSH_COMPDUMP"
-
-#--Auto Download Modules/Plugins
+zstyle ':zim:completion' dumpfile "$ZSH_COMPDUMP"
+#-- auto download zimfw
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
   curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
     https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
 fi
-# --Auto Install Modules/Plugins
+#-- auto install & compile modules
 if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE} ]]; then
   source ${ZIM_HOME}/zimfw.zsh init
 fi
-#--Initialize Zim
+#-- initialize zim
 source ${ZIM_HOME}/init.zsh
 
-# ==================== Alias ====================
-# pacman & yay
-alias xu='sudo pacman -Syu'
+## ================= Aliases =================
+#-- OS specific package manager & tools
+if [[ "$OSTYPE" == darwin* ]]; then
+  #-- macos (homebrew)
+  alias xu='brew update && brew upgrade'
+  alias xs='brew search'
+  alias xi='brew install'
+  alias yi='brew install --cask'
+  alias xr='brew uninstall'
+  alias xc='brew cleanup'
+else
+  #-- pacman & yay
+  alias xu='sudo pacman -Syu'
+  alias yu='yay -Syu'
+  # alias yu='yay -Syu --noconfirm'
+  alias xs='pacman -Ss'
+  alias ys='yay -Ss'
+  alias xi='sudo pacman -S --needed'
+  alias yi='yay -S --needed'
+  # alias yi='yay -S --needed --noconfirm'
+  alias xr='sudo pacman -Rns'
+  function xc {
+    sudo find /var/cache/pacman/pkg/ -maxdepth 1 -name 'download-*' -delete
+    sudo pacman -Sc
+  }
+  alias xca='sudo pacman -Rns $(pacman -Qdtq)'
+  alias qs='pacman -Qs'
+  alias qi='pacman -Qi'
+  alias qu='pacman -Qu'
+fi
 
-alias xs='pacman -Ss'
-alias ys='yay -Ss'
-
-alias xi='sudo pacman -S --needed'
-alias yi='yay -S --needed'
-
-alias xr='sudo pacman -Rns'
-function xc {
-  sudo find /var/cache/pacman/pkg/ -maxdepth 1 -name 'download-*' -delete
-  sudo pacman -Sc
-}
-alias xca='sudo pacman -Rns $(pacman -Qdtq)'
-
-alias qs='pacman -Qs'
-alias qi='pacman -Qi'
-alias qu='pacman -Qu'
-
-# file system
+#-- file system
 alias ll='ls -alh'
 alias md='mkdir -p'
 alias rm='echo "Use tp (trash-put) instead."; false'
@@ -77,28 +70,21 @@ alias cdl="cd ~/alexmak/learn && ls -alh ~/alexmak/learn"
 alias cdn="cd ~/alexmak/notes/core && ls -alh ~/alexmak/notes/core"
 alias cdt="cd ~/tmp && ls -alh ~/tmp"
 
-# devbox
-#monitor
-alias lpm="lsipc -m"
-alias lps="lsipc -s"
-# search process
 function psg {
   local pat=$1
   [[ -z $pat ]] && {
     echo "usage: psg <process-name-or-pattern>"
     return 1
   }
-
   local -a pids
   pids=($(pgrep -f "$pat")) || {
     echo "no process matched: $pat"
     return 1
   }
-
   ps -fp $pids
 }
 
-# podman
+#-- podman
 alias pd="podman"
 alias pds="podman search"
 alias pdp="podman pull"
@@ -107,19 +93,23 @@ alias pdri="podman run -it"
 alias pde="podman exec -it"
 alias pdc="podman system prune"
 
-# zsh
+#-- quick config & reload
 alias mz="nvim ~/alexmak/dotfiles/zsh/zshrc"
 alias sz="exec zsh"
-# tmux
+
+#-- tmux
 alias mt="nvim ~/alexmak/dotfiles/tmux/tmux.conf"
 alias tls="tmux ls"
-# nvim startup time test
-# nvtest: to test without openning file
-# nvtest /path/filename: to test with file open
-alias nvtest="nvim --startuptime /home/alex/alexmak/dotfiles/nvim/startup.log +q"
 
-# ==================== Functions ====================
-# tm to start a tmuxsession
+#-- neovim startup benchmarks
+alias nvtest="nvim --startuptime $DOTFILES/nvim/startup.log +q"
+
+## ================= Functions =================
+#-- mandoc
+function man {
+  command man "$@" | col -bx | bat -l man -p
+}
+#-- tmux session attach or create
 function tm {
   if [ -z "$1" ]; then
     tmux attach || tmux new-session
@@ -127,7 +117,8 @@ function tm {
     tmux attach -t "$1" || tmux new-session -s "$1"
   fi
 }
-# vim and automatically tmux
+
+#-- open neovim inside or outside tmux
 function v {
   if [ -n "$TMUX" ]; then
     nvim "$@"
@@ -135,14 +126,16 @@ function v {
     tmux new-session -A -s edit nvim "$@"
   fi
 }
-# ctrl+g to open lazygit
+
+#-- lazygit widget (ctrl+g)
 function lazygit_widget {
   lazygit
   zle reset-prompt
 }
 zle -N lazygit_widget
 bindkey '^g' lazygit_widget
-# yazi exit directory
+
+#-- yazi file manager with cwd sync
 function y() {
   (command trash-empty 15 &>/dev/null &)
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -151,8 +144,9 @@ function y() {
   [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
   command rm -f -- "$tmp"
 }
-# ==================== fzf search ====================
-# ctrl+j to search directory with fzf
+
+## ================= FZF Search Widgets =================
+#-- search directory (ctrl+j)
 fzf-work-cd() {
   local dir=$(fd --type d --hidden --exclude .git . ~/alexmak/ | fzf --height 40% --reverse)
   if [ -n "$dir" ]; then
@@ -165,7 +159,7 @@ fzf-work-cd() {
 zle -N fzf-work-cd
 bindkey '^j' fzf-work-cd
 
-# ctrl+k to search file with fzf
+#-- search file and edit (ctrl+k)
 fzf-work-edit() {
   local file=$(fd --type f --hidden --exclude .git . ~/alexmak/ | fzf --height 40% --reverse)
   if [ -n "$file" ]; then
@@ -178,16 +172,13 @@ fzf-work-edit() {
 zle -N fzf-work-edit
 bindkey '^k' fzf-work-edit
 
-# ctrl+l to search content with fzf and open in nvim at line
+#-- search content with ripgrep (ctrl+l)
 fzf-work-search-content() {
-  # Search file contents under ~/alexmak/ using ripgrep, select via fzf
   local selected=$(rg --line-number --no-heading --smart-case --hidden --glob '!.git' . ~/alexmak/ 2>/dev/null | fzf --height 40% --reverse)
   if [ -n "$selected" ]; then
-    # Extract file path and line number from selection (format file:line:content)
     local file=$(echo "$selected" | cut -d: -f1)
     local line=$(echo "$selected" | cut -d: -f2)
     zle -I
-    # Navigate to directory and open file at the matching line in neovim
     cd "$(dirname "$file")"
     nvim "+${line}" "$file"
   fi
@@ -196,10 +187,25 @@ fzf-work-search-content() {
 zle -N fzf-work-search-content
 bindkey '^l' fzf-work-search-content
 
-# ==================== Vim Mode ===================
+## ================= Vim Mode =================
+#-- enable vi mode
 bindkey -v
-bindkey -M viins 'jk' vi-cmd-mode
 
+#-- history navigation (j/k)
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
+#-- line movement (H/L)
+bindkey -M vicmd 'H' vi-first-non-blank
+bindkey -M vicmd 'L' vi-end-of-line
+
+#-- edit command line in neovim (ctrl+e)
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M viins '^e' edit-command-line
+bindkey -M vicmd '^e' edit-command-line
+
+#-- cursor shape indicator
 function zle-keymap-select {
   if [[ $KEYMAP == vicmd ]]; then
     echo -ne '\e[2 q' # Block
@@ -208,9 +214,7 @@ function zle-keymap-select {
   fi
 }
 zle -N zle-keymap-select
-[[ -z "$NVIM" ]] && echo -ne '\e[6 q' # Init cursor (skip inside Neovim terminal)
+[[ -z "$NVIM" ]] && echo -ne '\e[6 q'
 
-KEYTIMEOUT=20
-
-# opencode
-export PATH=/home/alex/.opencode/bin:$PATH
+#-- multi-key timeout
+KEYTIMEOUT=1

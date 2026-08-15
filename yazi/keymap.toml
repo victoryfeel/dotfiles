@@ -308,13 +308,12 @@ keymap = [
   { on = "<C-c>", run = "close", desc = "Cancel input" },
   { on = "<Enter>", run = "close --submit", desc = "Submit input" },
   { on = "<Esc>", run = "escape", desc = "Back to normal mode, or cancel input" },
-  { on = "<C-[>", run = "escape", desc = "Back to normal mode, or cancel input" },
   # Mode
   { on = "i", run = "insert", desc = "Enter insert mode" },
   { on = "I", run = [
     "move first-char",
     "insert",
-  ], desc = "Move to the BOL, and enter insert mode" },
+  ] },
   { on = "a", run = "insert --append", desc = "Enter append mode" },
   { on = "A", run = [
     "move eol",
@@ -356,14 +355,8 @@ keymap = [
   { on = "<C-Right>", run = "forward --end-of-word", desc = "Move forward to the end of the current or next word" },
 
   # Line-wise movement
-  { on = "0", run = "move bol", desc = "Move to the BOL" },
-  { on = "$", run = "move eol", desc = "Move to the EOL" },
-  { on = "_", run = "move first-char", desc = "Move to the first non-whitespace character" },
-  { on = "^", run = "move first-char", desc = "Move to the first non-whitespace character" },
-  { on = "<C-a>", run = "move bol", desc = "Move to the BOL" },
-  { on = "<C-e>", run = "move eol", desc = "Move to the EOL" },
-  { on = "<Home>", run = "move bol", desc = "Move to the BOL" },
-  { on = "<End>", run = "move eol", desc = "Move to the EOL" },
+  { on = "H", run = "move first-char" },
+  { on = "L", run = "move eol" },
 
   # Delete
   { on = "<Backspace>", run = "backspace", desc = "Delete the character before the cursor" },
