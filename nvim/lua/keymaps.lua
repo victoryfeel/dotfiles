@@ -1,21 +1,31 @@
+--     _    _                          _        __  __       _
+--    / \  | | _____  ____ _ _ __   __| |_ __  |  \/  | __ _| | __
+--   / _ \ | |/ _ \ \/ / _` | '_ \ / _` | '__| | |\/| |/ _` | |/ /
+--  / ___ \| |  __/>  < (_| | | | | (_| | |    | |  | | (_| |   <
+-- /_/   \_\_|\___/_/\_\__,_|_| |_|\__,_|_|    |_|  |_|\__,_|_|\_\
+--------------------------------------------------------------------------------
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 vim.keymap.set("n", "<leader>rr", "<cmd>restart<CR>")
 
 -- =============================================================================
--- Insert Mode
--- =============================================================================
--- vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode" })
-
--- =============================================================================
 -- Normal Mode - Navigation & Editing
 -- =============================================================================
+-- spell check
+vim.keymap.set("n", "<leader>sc", "<Cmd>set spell!<CR>")
+-- force save in root permission file
+vim.keymap.set("n", "<leader>ss", "<Cmd>w !sudo tee % > /dev/null<CR>")
+-- quick filled with
+vim.keymap.set("n", "<leader><leader>", "<Esc>/<++><CR><Cmd>nohlsearch<CR>c4l", { desc = "Jump to next <++> and edit" })
+-- figlet text
+vim.keymap.set("n", "tx", ":r !figlet ")
+
 -- Wrap-aware j/k movement
 vim.keymap.set("n", "j", function()
 	return vim.v.count == 0 and "gj" or "j"
 end, { expr = true, silent = true })
-
 vim.keymap.set("n", "k", function()
 	return vim.v.count == 0 and "gk" or "k"
 end, { expr = true, silent = true })

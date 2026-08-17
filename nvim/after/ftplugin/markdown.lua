@@ -131,3 +131,22 @@ end, { buffer = true, silent = true })
 vim.opt_local.wrap = true
 vim.opt_local.linebreak = true
 vim.opt_local.breakindent = true
+
+-- snippets
+local function map(lhs, rhs)
+	vim.keymap.set("i", lhs, rhs, { buffer = true })
+end
+
+map(",s", "~~~~ <++><Esc>F~hi")
+map(",i", "** <++><Esc>F*i")
+map(",d", "`` <++><Esc>F`i")
+map(",b", "**** <++><Esc>F*hi")
+map(",a", "[](<++>) <++><Esc>F[a")
+map(",p", "![](<++>) <++><Esc>F[a")
+map(",1", "# <CR><++><Esc>kA")
+map(",2", "## <CR><++><Esc>kA")
+map(",3", "### <CR><++><Esc>kA")
+map(",c", "```<CR><++><CR>```<CR><CR><++><Esc>4kA")
+map(",m", "- [ ] ")
+map(",n", "---<CR><CR>")
+map(",l", "--------<CR>")
