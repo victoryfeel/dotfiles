@@ -28,8 +28,6 @@ vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
 			" ",
 			"%{v:lua.git_branch()}",
 			"\u{e0b1} %f %h%m%r",
-			"%=",
-			" \u{f017} %l:%c ",
 		})
 	end,
 })

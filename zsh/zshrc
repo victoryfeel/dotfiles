@@ -69,6 +69,7 @@ alias cdo="cd ~/alexmak/ongo && ls -alh ~/alexmak/ongo"
 alias cdl="cd ~/alexmak/learn && ls -alh ~/alexmak/learn"
 alias cdn="cd ~/alexmak/notes/core && ls -alh ~/alexmak/notes/core"
 alias cdt="cd ~/tmp && ls -alh ~/tmp"
+alias cdm="nvim /project/README.md"
 
 function psg {
   local pat=$1
@@ -116,6 +117,15 @@ function tm {
   else
     tmux attach -t "$1" || tmux new-session -s "$1"
   fi
+}
+#-- tmux recovery
+tmre() {
+  if ! tmux has-session 2>/dev/null; then
+    tmux new-session -d -s _temp_init 2>/dev/null
+    tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh
+    tmux kill-session -t _temp_init 2>/dev/null
+  fi
+  tmux attach-session
 }
 
 #-- open neovim inside or outside tmux
