@@ -1,65 +1,65 @@
 vim.api.nvim_create_user_command("NoteClean", function()
 	local root = vim.fn.expand("~/alexmak/notes")
 
-	if vim.fn.executable("rg") == 0 then
-		vim.notify("!! Install Ripgrep First.", vim.log.levels.ERROR)
-		return
-	end
-
-	local search_dirs = {}
-	if vim.fn.isdirectory(root .. "/core") == 1 then
-		table.insert(search_dirs, root .. "/core")
-	end
-	if vim.fn.isdirectory(root .. "/assets/subpage") == 1 then
-		table.insert(search_dirs, root .. "/assets/subpage")
-	end
-
-	if #search_dirs == 0 then
-		vim.notify("❌ 在 " .. root .. " 下找不到 core 或 assets/subpage 目录", vim.log.levels.ERROR)
-		return
-	end
-
 	local referenced_files = {}
 
 	-- =========================================================
-	-- 🔥 Ripgrep 极限扫描引擎 🔥
-	-- 命令解释：无表头(--no-heading) 带文件名(--with-filename)
-	-- 仅输出匹配部分(-o) 正则匹配所有的 ](xxxxx)
+	-- Ripgrep to search attachments
 	-- =========================================================
 	local cmd = {
 		"rg",
 		"--no-heading",
 		"--with-filename",
-		"-o",
-		"\\]\\(([^\\)]+)\\)", -- 核心正则：匹配 ]( 后面的任意非 ) 字符
+		"-e",
+		"\\]\\(",
+		root .. "/core",
+		root .. "/assets/subpage",
 	}
-	for _, dir in ipairs(search_dirs) do
-		table.insert(cmd, dir)
-	end
 
-	-- 执行系统命令并将结果输出为 Lua 数组
+	-- Execute system command and return output as Lua array
 	local lines = vim.fn.systemlist(cmd)
 
-	-- ripgrep 输出格式极其标准，类似:
-	-- /Users/alex/notes/core/note1.md:](../assets/image/pic.png)
+	-- Helper: parse link target and normalize to absolute path in reference table
+	local function record_reference(raw_path, current_md_dir)
+		if not raw_path or raw_path == "" or raw_path:match("^https?://") or raw_path:match("^mailto:") then
+			return
+		end
+
+		-- 1. URL decode (handle %20 space and hex encoded characters)
+		raw_path = raw_path:gsub("%%(%x%x)", function(h)
+			return string.char(tonumber(h, 16))
+		end)
+
+		-- 2. Strip optional Markdown title "title" / 'title'
+		raw_path = raw_path:match("^([^\"']-)%s+[\"'].*[\"']$") or raw_path
+
+		-- 3. Strip anchor #anchor and surrounding whitespace
+		raw_path = raw_path:match("^([^#]+)") or raw_path
+		raw_path = raw_path:match("^%s*(.-)%s*$") or raw_path
+		if raw_path == "" then
+			return
+		end
+
+		-- 4. Resolve and record absolute paths (relative to current file and note root)
+		referenced_files[vim.fn.fnamemodify(current_md_dir .. "/" .. raw_path, ":p")] = true
+		referenced_files[vim.fn.fnamemodify(root .. "/" .. raw_path, ":p")] = true
+	end
+
 	for _, line in ipairs(lines) do
-		-- 利用 Lua 模式匹配瞬间切分出【绝对路径】和【链接内容】
-		local filepath, link = line:match("^(.-):%]%((.+)%)$")
-		if filepath and link then
-			-- 剔除锚点(#)和空格
-			local path_only = link:match("^([^%s#]+)")
-			if path_only and not path_only:match("^http") then
-				local current_md_dir = vim.fn.fnamemodify(filepath, ":p:h")
-				-- 将相对链接还原为绝对路径并存入哈希表
-				local abs_path = vim.fn.fnamemodify(current_md_dir .. "/" .. path_only, ":p")
-				referenced_files[abs_path] = true
+		-- Split file path and line content
+		local filepath, content = line:match("^(/.-):(.*)$")
+		if filepath and content then
+			local current_md_dir = vim.fn.fnamemodify(filepath, ":p:h")
+
+			-- Extract standard Markdown links ](...) using Lua balanced parentheses %b()
+			for raw_paren in content:gmatch("%](%b())") do
+				record_reference(raw_paren:sub(2, -2), current_md_dir)
 			end
 		end
 	end
 
 	-- =========================================================
-	-- 下面的逻辑维持原样：收集物理文件并比对差集
-	-- 因为获取目录下的物理文件列表，Neovim 底层的 C API 已经是 O(1) 的最优解了
+	-- Collect physical asset files and compute difference set
 	-- =========================================================
 	local all_assets = {}
 	vim.list_extend(all_assets, vim.fn.globpath(root .. "/assets/image", "**/*", false, true))
@@ -75,20 +75,20 @@ vim.api.nvim_create_user_command("NoteClean", function()
 	end
 
 	if #unused_files == 0 then
-		vim.notify("🎉 工作区很干净，没有未引用的资源需要清理。", vim.log.levels.INFO)
+		vim.notify("Workspace is clean. No unreferenced assets found.", vim.log.levels.INFO)
 		return
 	end
 
-	-- 生成确认界面 (UI)
+	-- Create confirmation buffer (UI)
 	local buf = vim.api.nvim_create_buf(false, true)
 	vim.api.nvim_buf_set_name(buf, "NoteClean_Confirm_UI")
 	vim.api.nvim_set_option_value("buftype", "acwrite", { buf = buf })
 	vim.api.nvim_set_option_value("bufhidden", "wipe", { buf = buf })
 
 	local display_lines = {
-		"# 🗑️ [ Ripgrep 极速引擎 ] 扫描到 " .. #unused_files .. " 个未引用的资源文件",
+		"# Found " .. #unused_files .. " unreferenced asset file(s)",
 		"# ----------------------------------------------------------------",
-		"# 确认下方列表后，输入 :w 确认删除，或者按 q 退出。",
+		"# Review the list below. Write (:w) to delete, or press 'q' to abort.",
 		"# ----------------------------------------------------------------",
 	}
 	for _, f in ipairs(unused_files) do
@@ -99,7 +99,7 @@ vim.api.nvim_create_user_command("NoteClean", function()
 	vim.cmd("vsplit")
 	vim.api.nvim_win_set_buf(0, buf)
 
-	-- 挂载保存事件，执行删除
+	-- Attach save event to perform deletion
 	vim.api.nvim_create_autocmd("BufWriteCmd", {
 		buffer = buf,
 		callback = function()
@@ -113,9 +113,9 @@ vim.api.nvim_create_user_command("NoteClean", function()
 				end
 			end
 			vim.cmd("bd!")
-			vim.notify("✅ 成功清理了 " .. count .. " 个未引用的资源文件！", vim.log.levels.INFO)
+			vim.notify("Successfully removed " .. count .. " unreferenced asset file(s).", vim.log.levels.INFO)
 		end,
 	})
 
-	vim.keymap.set("n", "q", ":bd!<CR>", { buffer = buf, silent = true, desc = "取消清理并退出" })
-end, { desc = "Ripgrep 极致性能版清理孤儿资源" })
+	vim.keymap.set("n", "q", ":bd!<CR>", { buffer = buf, silent = true, desc = "Cancel note clean and exit" })
+end, { desc = "Clean orphaned note assets using ripgrep" })

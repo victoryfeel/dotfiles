@@ -26,7 +26,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = bufnr, silent = true }
 
 		vim.keymap.set("n", "<leader>gh", function()
-			-- vim.lsp.buf.hover({ border = "rounded", focusable = true, focus = true })
 			vim.lsp.buf.hover({ focusable = true, focus = true })
 			vim.defer_fn(function()
 				vim.lsp.buf.hover({ border = "rounded" })
