@@ -1,4 +1,10 @@
+##== general
+# quitOnTopLevelReturn: true
+##== gui
 gui:
+  nerdFontsVersion: "3"
+  mouseEvents: false
+  showRootItemInFileTree: false
   theme:
     activeBorderColor:
       - green
@@ -7,20 +13,51 @@ gui:
       - default
     selectedLineBgColor:
       - reverse
-    nerdFontsVersion: 3
-    mouseEvents: false
-    border: rounded
+##== git
 git:
-  autoFetch: true
-  log:
-    showGraph: always
   diffRenderers:
     - colorArg: always
-      command: delta --paging=never
+      command: 'delta --dark --paging=never --24-bit-color=never --syntax-theme="OneHalfDark"'
+##== keymap
 keybinding:
   universal:
-    quit: 'q'
-    nextTab: ']'
-    prevTab: '['
+    quit: "q"
+    nextTab: "]"
+    prevTab: "["
   files:
-    commitChanges: 'c'
+    commitChanges: "c"
+##== colemak-dh keymap
+# keybinding:
+#   universal:
+#     return: '<esc>'
+#     prevItem-alt: 'u'
+#     nextItem-alt: 'e'
+#     prevBlock-alt: 'n'
+#     nextBlock-alt: 'i'
+#     nextMatch: '='
+#     prevMatch: '-'
+#     new: 'k'
+#     edit: 'o'
+#     openFile: 'O'
+#     scrollUpMain-alt1: 'U'
+#     scrollDownMain-alt1: 'E'
+#     scrollUpMain-alt2: '<c-u>'
+#     scrollDownMain-alt2: '<c-e>'
+#     undo: 'l'
+#     redo: '<c-r>'
+#     diffingMenu: 'M'
+#     filteringMenu: '<c-f>'
+#     toggleRangeSelect: v
+#   files:
+#     ignoreFile: 'I'
+#   commits:
+#     moveDownCommit: '<c-e>'
+#     moveUpCommit: '<c-u>'
+#     openInBrowser: o
+#     viewBisectOptions: b
+#     startInteractiveRebase: O
+#     cherryPickCopy: C
+#     pasteCommits: V
+#   branches:
+#     viewGitFlowOptions: 'I'
+#     setUpstream: 'U'
