@@ -26,6 +26,6 @@
   },
   "Subpage Link": {
     "prefix": "subpath",
-    "body": ["[<++>](../assets/subpage/<++>.md)"]
+    "body": ["[<++>](../../assets/subpage/<++>.md)"]
   }
 }

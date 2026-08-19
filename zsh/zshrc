@@ -110,24 +110,6 @@ alias nvtest="nvim --startuptime $DOTFILES/nvim/startup.log +q"
 function man {
   command man "$@" | col -bx | bat -l man -p
 }
-#-- tmux session attach or create
-function tm {
-  if [ -z "$1" ]; then
-    tmux attach || tmux new-session
-  else
-    tmux attach -t "$1" || tmux new-session -s "$1"
-  fi
-}
-#-- tmux recovery
-tmre() {
-  if ! tmux has-session 2>/dev/null; then
-    tmux new-session -d -s _temp_init 2>/dev/null
-    tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh
-    tmux kill-session -t _temp_init 2>/dev/null
-  fi
-  tmux attach-session
-}
-
 #-- open neovim inside or outside tmux
 function v {
   if [ -n "$TMUX" ]; then
@@ -154,6 +136,35 @@ function y() {
   [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
   command rm -f -- "$tmp"
 }
+
+## ================= tmux =================
+#-- tmux session attach or create
+function tm {
+  if [ -z "$1" ]; then
+    tmux attach || tmux new-session
+  else
+    tmux attach -t "$1" || tmux new-session -s "$1"
+  fi
+}
+#-- tmux recovery
+tmre() {
+  if ! tmux has-session 2>/dev/null; then
+    tmux new-session -d -s _temp_init 2>/dev/null
+    tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh
+    tmux kill-session -t _temp_init 2>/dev/null
+  fi
+  tmux attach-session
+}
+#-- never leave tmux
+# _not_inside_tmux() { [ -z "$TMUX" ](%20-z%20"$TMUX"%20); }
+#
+# ensure_tmux_is_running() {
+#   if _not_inside_tmux; then
+#     tat
+#   fi
+# }
+#
+# ensure_tmux_is_running
 
 ## ================= FZF Search Widgets =================
 #-- search directory (ctrl+j)

@@ -18,7 +18,7 @@ vim.keymap.set("n", "<leader>sc", "<Cmd>set spell!<CR>")
 -- force save in root permission file
 vim.keymap.set("n", "<leader>ss", "<Cmd>w !sudo tee % > /dev/null<CR>")
 -- quick filled with
-vim.keymap.set("n", "<leader><leader>", "<Esc>/<++><CR><Cmd>nohlsearch<CR>c4l", { desc = "Jump to next <++> and edit" })
+vim.keymap.set("n", "<leader><leader>", '<Esc>/<++><CR><Cmd>nohlsearch<CR>"_c4l')
 -- figlet text
 vim.keymap.set("n", "tx", ":r !figlet ")
 

@@ -1,4 +1,10 @@
+##== general
+quitOnTopLevelReturn: true
+##== gui
 gui:
+  nerdFontsVersion: "3"
+  mouseEvents: false
+  showRootItemInFileTree: false
   theme:
     activeBorderColor:
       - green
@@ -7,20 +13,23 @@ gui:
       - default
     selectedLineBgColor:
       - reverse
-    nerdFontsVersion: 3
-    mouseEvents: false
-    border: rounded
+    selectedRangeBgColor:
+      - blue
+##== git
 git:
-  autoFetch: true
+  paging:
+  colorArg: always
+  pager: delta --dark --paging=never --24-bit-color=never --syntax-theme="Dracula"
   log:
     showGraph: always
   diffRenderers:
     - colorArg: always
       command: delta --paging=never
+##== keymap
 keybinding:
   universal:
-    quit: 'q'
-    nextTab: ']'
-    prevTab: '['
+    quit: "q"
+    nextTab: "]"
+    prevTab: "["
   files:
-    commitChanges: 'c'
+    commitChanges: "c"
