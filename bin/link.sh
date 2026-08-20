@@ -26,9 +26,11 @@ ln -sfn "$DOTFILES/nvim" "$HOME/.config/nvim"
 # tmux
 mkdir -p "$HOME/.config/tmux"
 ln -sf "$DOTFILES/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
-# lazygit
+# lazygit-lazydocker
 mkdir -p "$HOME/.config/lazygit"
 ln -sf "$DOTFILES/lazygit/config.yml" "$HOME/.config/lazygit/config.yml"
+mkdir -p "$HOME/.config/lazydocker"
+ln -sf "$DOTFILES/lazydocker/config.yml" "$HOME/.config/lazydocker/config.yml"
 
 #=============================
 #=====  llm config  ======
