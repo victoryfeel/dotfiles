@@ -63,6 +63,7 @@ alias md='mkdir -p'
 alias rm='echo "Use tp (trash-put) instead."; false'
 alias tp="trash-put"
 alias s='fastfetch'
+alias g='onefetch'
 alias gg="git clone"
 alias cdd="cd ~/alexmak/dotfiles && ls -alh ~/alexmak/dotfiles"
 alias cdo="cd ~/alexmak/ongo && ls -alh ~/alexmak/ongo"
@@ -150,7 +151,7 @@ function tm {
 tmre() {
   if ! tmux has-session 2>/dev/null; then
     tmux new-session -d -s _temp_init 2>/dev/null
-    tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh
+    tmux run-shell ~/.config/tmux/plugins/tmux-resurrect/scripts/restore.sh
     tmux kill-session -t _temp_init 2>/dev/null
   fi
   tmux attach-session
