@@ -41,8 +41,8 @@ vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
 vim.opt.showmode = false
 vim.opt.wrap = false
-vim.opt.scrolloff = 10
-vim.opt.sidescrolloff = 10
+vim.opt.scrolloff = 15
+vim.opt.sidescrolloff = 15
 vim.opt.fillchars = { eob = " " }
 vim.opt.winborder = "rounded"
 

@@ -96,7 +96,7 @@ alias pdc="podman system prune"
 
 #-- quick config & reload
 alias mz="nvim ~/alexmak/dotfiles/zsh/zshrc"
-alias sz="exec zsh"
+alias sz="exec zsh && source ~/.zshenv"
 
 #-- tmux
 alias mt="nvim ~/alexmak/dotfiles/tmux/tmux.conf"
