@@ -156,16 +156,14 @@ tmre() {
   fi
   tmux attach-session
 }
-#-- never leave tmux
-# _not_inside_tmux() { [ -z "$TMUX" ](%20-z%20"$TMUX"%20); }
-#
-# ensure_tmux_is_running() {
-#   if _not_inside_tmux; then
-#     tat
-#   fi
-# }
-#
-# ensure_tmux_is_running
+#-- never leave tmux, auto attach tmux when reboot or re-ssh
+_not_inside_tmux() { [ -z "$TMUX" ]; }
+ensure_tmux_is_running() {
+  if _not_inside_tmux; then
+    tm
+  fi
+}
+ensure_tmux_is_running
 
 ## ================= FZF Search Widgets =================
 #-- search directory (ctrl+j)
@@ -208,6 +206,20 @@ fzf-work-search-content() {
 }
 zle -N fzf-work-search-content
 bindkey '^l' fzf-work-search-content
+
+#-- now on go project quick search
+#-1
+fzf-work-project1() {
+  local file=$(fd --type f --hidden --exclude .git . /project/ | fzf --height 40% --reverse)
+  if [ -n "$file" ]; then
+    zle -I
+    cd "$(dirname "$file")"
+    nvim "$file"
+  fi
+  zle reset-prompt
+}
+zle -N fzf-work-project1
+bindkey '^o' fzf-work-project1
 
 ## ================= Vim Mode =================
 #-- enable vi mode
