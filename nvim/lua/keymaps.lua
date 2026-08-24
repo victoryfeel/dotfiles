@@ -1,10 +1,3 @@
---     _    _                          _        __  __       _
---    / \  | | _____  ____ _ _ __   __| |_ __  |  \/  | __ _| | __
---   / _ \ | |/ _ \ \/ / _` | '_ \ / _` | '__| | |\/| |/ _` | |/ /
---  / ___ \| |  __/>  < (_| | | | | (_| | |    | |  | | (_| |   <
--- /_/   \_\_|\___/_/\_\__,_|_| |_|\__,_|_|    |_|  |_|\__,_|_|\_\
---------------------------------------------------------------------------------
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -19,8 +12,6 @@ vim.keymap.set("n", "<leader>sc", "<Cmd>set spell!<CR>")
 vim.keymap.set("n", "<leader>ss", "<Cmd>w !sudo tee % > /dev/null<CR>")
 -- quick filled with
 vim.keymap.set("n", "<leader><leader>", '<Esc>/<++><CR><Cmd>nohlsearch<CR>"_c4l')
--- figlet text
-vim.keymap.set("n", "tx", ":r !figlet ")
 
 -- Wrap-aware j/k movement
 vim.keymap.set("n", "j", function()
@@ -55,8 +46,8 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR><cmd>Noice dismiss<CR>", { sile
 vim.keymap.set("n", "<leader><CR>", "<cmd>nohlsearch<CR>", { silent = true })
 
 -- Keep search results centered
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "m", "nzzzv")
+vim.keymap.set("n", "n", "Nzzzv")
 
 -- Window splits and layout toggles
 vim.keymap.set("n", "<leader>sv", "<cmd>vsplit<CR>", { silent = true, desc = "Vertical split" })
