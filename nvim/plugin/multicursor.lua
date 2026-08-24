@@ -9,17 +9,17 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 
 			local set = vim.keymap.set
 
-			set({ "n", "v" }, "<C-n>", function()
+			set({ "n", "v" }, "<C-m>", function()
 				mc.matchAddCursor(1)
 			end)
-			set({ "n", "v" }, "<C-p>", function()
+			set({ "n", "v" }, "<C-n>", function()
 				mc.matchAddCursor(-1)
 			end)
 
-			set({ "n", "v" }, "<leader><C-n>", function()
+			set({ "n", "v" }, "<leader><C-m>", function()
 				mc.matchSkipCursor(1)
 			end)
-			set({ "n", "v" }, "<leader><C-p>", function()
+			set({ "n", "v" }, "<leader><C-n>", function()
 				mc.matchSkipCursor(-1)
 			end)
 
