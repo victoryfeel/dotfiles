@@ -45,11 +45,11 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 				},
 			})
 
-			vim.keymap.set("n", "<C-M-j>", function()
+			vim.keymap.set("n", "<C-S-j>", function()
 				require("todo-comments").jump_next()
 			end, { noremap = true, silent = true })
 
-			vim.keymap.set("n", "<C-M-k>", function()
+			vim.keymap.set("n", "<C-S-k>", function()
 				require("todo-comments").jump_prev()
 			end, { noremap = true, silent = true })
 		end)

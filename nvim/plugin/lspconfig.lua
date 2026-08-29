@@ -43,9 +43,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<leader>ci", vim.lsp.buf.incoming_calls, opts)
 		vim.keymap.set("n", "<leader>co", vim.lsp.buf.outgoing_calls, opts)
 		-- Inlay Hints
-		if client and client:supports_method("textDocument/inlayHint") then
-			vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-		end
+		-- if client and client:supports_method("textDocument/inlayHint") then
+		-- 	vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+		-- end
 	end,
 })
 
