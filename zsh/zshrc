@@ -163,7 +163,7 @@ ensure_tmux_is_running() {
     tm
   fi
 }
-ensure_tmux_is_running
+# ensure_tmux_is_running
 
 ## ================= FZF Search Widgets =================
 #-- search directory (ctrl+j)
