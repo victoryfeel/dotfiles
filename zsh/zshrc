@@ -63,7 +63,6 @@ alias md='mkdir -p'
 alias rm='echo "Use tp (trash-put) instead."; false'
 alias tp="trash-put"
 alias s='fastfetch'
-alias g='onefetch'
 alias gg="git clone"
 alias cdd="cd ~/alexmak/dotfiles && ls -alh ~/alexmak/dotfiles"
 alias cdo="cd ~/alexmak/ongo && ls -alh ~/alexmak/ongo"
@@ -124,7 +123,10 @@ function y() {
 ## ================= git =================
 #-- repo checker
 function gcheck {
-  echo "========== [1/6] Project Momentum (Commit count by month) =========="
+  echo "========== !!Basic Info!! =========="
+  echo "Created:     $(git log --reverse --format='%ad' --date=short | head -1)"
+  echo "Last Commit: $(git log -1 --format='%ad' --date=short)"
+  echo "\n========== [1/6] Project Momentum (Commit count by month) =========="
   git log --format='%ad' --date=format:'%Y-%m' | sort | uniq -c
   echo "\n========== [2/6] Code Churn Hotspots (Top 20 most changed files in the last year) =========="
   git log --format=format: --name-only --since='1 year ago' | sort | uniq -c | sort -nr | head -20
@@ -185,12 +187,11 @@ ensure_tmux_is_running
 #-- search directory (ctrl+j)
 fzf-work-cd() {
   local dir=$(fd --type d --hidden --exclude .git . ~/alexmak/ | fzf --height 40% --reverse)
+  zle reset-prompt
   if [ -n "$dir" ]; then
     zle -I
-    cd "$dir"
-    ls -alh
+    cd "$dir" && ls -alh
   fi
-  zle reset-prompt
 }
 zle -N fzf-work-cd
 bindkey '^j' fzf-work-cd
