@@ -10,7 +10,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 
   brew install git git-delta fzf fd ripgrep trash-cli
-  brew install mandoc htop fastfetch onefetch
+  brew install mandoc htop fastfetch
   brew install lazygit neovim yazi tmux
   brew install imagemagick
   brew install --cask antigravity-cli
@@ -33,7 +33,7 @@ else
   sudo pacman -Syu --noconfirm
 
   sudo pacman -S --needed --noconfirm base-devel curl git zip unzip trash-cli tree less
-  sudo pacman -S --needed --noconfirm zsh fzf ripgrep fd the_silver_searcher fastfetch mandoc onefetch
+  sudo pacman -S --needed --noconfirm zsh fzf ripgrep fd the_silver_searcher fastfetch mandoc
   sudo pacman -S --needed --noconfirm neovim treesitter-cli yazi tmux lazygit git-delta
   sudo pacman -S --needed --noconfirm htop cmake make ninja gdb clang llvm lldb bear podman
   sudo pacman -S --needed --noconfirm imagemagick
