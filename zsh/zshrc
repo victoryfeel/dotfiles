@@ -111,23 +111,6 @@ alias nvtest="nvim --startuptime $DOTFILES/nvim/startup.log +q"
 function man {
   command man "$@" | col -bx | bat -l man -p
 }
-#-- open neovim inside or outside tmux
-function v {
-  if [ -n "$TMUX" ]; then
-    nvim "$@"
-  else
-    tmux new-session -A -s edit nvim "$@"
-  fi
-}
-
-#-- lazygit widget (ctrl+g)
-function lazygit_widget {
-  lazygit
-  zle reset-prompt
-}
-zle -N lazygit_widget
-bindkey '^g' lazygit_widget
-
 #-- yazi file manager with cwd sync
 function y() {
   (command trash-empty 15 &>/dev/null &)
@@ -138,7 +121,40 @@ function y() {
   command rm -f -- "$tmp"
 }
 
+## ================= git =================
+#-- repo checker
+function gcheck {
+  echo "========== [1/6] Project Momentum (Commit count by month) =========="
+  git log --format='%ad' --date=format:'%Y-%m' | sort | uniq -c
+  echo "\n========== [2/6] Code Churn Hotspots (Top 20 most changed files in the last year) =========="
+  git log --format=format: --name-only --since='1 year ago' | sort | uniq -c | sort -nr | head -20
+  echo "\n========== [3/6] The Bus Factor (All-time commit count by author) =========="
+  git shortlog -sn --no-merges
+  echo "\n========== [4/6] Active Maintainers (Commit count by author in the last 6 months) =========="
+  git shortlog -sn --no-merges --since='6 months ago'
+  echo "\n========== [5/6] Bug Clusters (Top 20 files with the most bug fixes) =========="
+  git log -i -E --grep='fix|bug|broken' --name-only --format='' | sort | uniq -c | sort -nr | head -20
+  echo "\n========== [6/6] Firefighting Frequency (Reverts and hotfixes in the last year) =========="
+  git log --oneline --since='1 year ago' | grep -iE 'revert|hotfix|emergency|rollback'
+  echo "\n========== !!Diagnose Complete!! =========="
+}
+#-- lazygit widget (ctrl+g)
+function lazygit_widget {
+  lazygit
+  zle reset-prompt
+}
+zle -N lazygit_widget
+bindkey '^g' lazygit_widget
+
 ## ================= tmux =================
+#-- open neovim inside or outside tmux
+function v {
+  if [ -n "$TMUX" ]; then
+    nvim "$@"
+  else
+    tmux new-session -A -s edit nvim "$@"
+  fi
+}
 #-- tmux session attach or create
 function tm {
   if [ -z "$1" ]; then
