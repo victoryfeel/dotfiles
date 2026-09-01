@@ -16,6 +16,9 @@ mkdir -p "$HOME/.config/zsh"
 ln -sf "$DOTFILES/zsh/zshrc" "$HOME/.config/zsh/.zshrc"
 ln -sf "$DOTFILES/zsh/zimrc" "$HOME/.config/zsh/.zimrc"
 ln -sf "$DOTFILES/zsh/zshenv" "$HOME/.zshenv"
+# htop
+mkdir -p "$HOME/.config/htop"
+ln -sf "$DOTFILES/htop/htoprc" "$HOME/.config/htop/htoprc"
 
 #=============================
 #=====  the four mains  ======
