@@ -1,0 +1,205 @@
+# -------------------------
+# ------A1_TECH_NEWS-------
+# -------------------------
+https://archlinux.org/feeds/news/ "~A1_TECH_NEWS:Arch Linux news"
+https://devblogs.microsoft.com/oldnewthing/feed "~A1_TECH_NEWS:Raymond Chen"
+https://daily.juya.uk/rss.xml "~A1_TECH_NEWS:AI Daily News"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCKARTq-t5SPMzwtft8FWwnA "~A1_TECH_NEWS:Last Week in AI"
+http://www.ruanyifeng.com/blog/atom.xml "~A1_TECH_NEWS:阮一峰周刊"
+https://daringfireball.net/feeds/main "~A1_TECH_NEWS:John Gruber Apple News"
+https://www.bandwagonhost.net/tag/%e6%90%ac%e7%93%a6%e5%b7%a5-cn2-gia-e-%e9%99%90%e9%87%8f%e7%89%88/feed "~A1_TECH_NEWS:搬瓦工CN2限量"
+https://www.bandwagonhost.net/promotion/all-plans/feed "~A1_TECH_NEWS:搬瓦工优惠"
+# -------------------------
+# ------A2_AI_KOL----------
+# -------------------------
+https://magazine.sebastianraschka.com/feed "~A2_AI_KOL:Sebastian Raschka (Ahead of AI)"
+https://karpathy.bearblog.dev/feed/ "~A2_AI_KOL:Andrej Karpathy's Blog"
+https://www.geoffreylitt.com/feed.xml "~A2_AI_KOL:Geoffrey Litt"
+https://www.jerpint.io/rss.xml "~A2_AI_KOL:Jeremy Pinto"
+https://minimaxir.com/index.xml "~A2_AI_KOL:Max Woolf"
+https://simonwillison.net/atom/everything/ "~A2_AI_KOL:Simon Willison"
+https://worksonmymachine.substack.com/feed "~A2_AI_KOL:Scott Werner (works-on-my-machine)"
+https://blog.samaltman.com/posts.atom "~A2_AI_KOL:Sam Altman"
+https://www.dwarkeshpatel.com/feed "~A2_AI_KOL:Dwarkesh Patel"
+https://garymarcus.substack.com/feed "~A2_AI_KOL:Gary Marcus"
+https://martinalderson.com/feed.xml "~A2_AI_KOL:Martin Alderson"
+# -------------------------
+# ------A3_REPO_UTILITY----
+# -------------------------
+https://mshibanami.github.io/GitHubTrendingRSS/weekly/all.xml "~A3_REPO_UTILITY:repo_GitHub All Languages Weekly Trending"
+https://rssh-ub-opal-eight.vercel.app/hellogithub/home "~A3_REPO_UTILITY:repo_HelloGitHub Featured"
+https://hellogithub.com/rss "~A3_REPO_UTILITY:repo_HelloGitHub Monthly"
+https://www.johndcook.com/blog/feed/ "~A3_REPO_UTILITY:math-John Cook"
+https://susam.net/feed.xml "~A3_REPO_UTILITY:math_Susam Pal"
+# -------------------------
+# ------B1_LANG_CPP--------
+# -------------------------
+https://stepanovpapers.com/stepanovpapers.xml "~B1_LANG_CPP:Alexander Stepanov Papers"
+https://rss.diffbot.com/atom?url=https://erdani.org/index.php/articles "~B1_LANG_CPP:Andrei Alexandrescu"
+https://akrzemi1.wordpress.com/feed/ "~B1_LANG_CPP:Andrzej's C++ blog"
+http://feeds.feedburner.com/BannaliaTrivialNotesOnThemesDiverse "~B1_LANG_CPP:Bannalia note"
+https://bartoszmilewski.com/feed/ "~B1_LANG_CPP:Bartosz Milewski's Programming Cafe"
+https://becpp.org/blog/feed "~B1_LANG_CPP:Belgian C++ UG"
+https://rss.diffbot.com/rss?url=https://www.stroustrup.com/ "~B1_LANG_CPP:Bjarne Stroustrup's Blog"
+http://feeds.feedburner.com/CppTruths "~B1_LANG_CPP:C++ Truths"
+https://rss.diffbot.com/atom?url=https://stepanovpapers.com/ "~B1_LANG_CPP:Collected Papers of Alexander A. Stepanov"
+https://cppcon.org/feed/ "~B1_LANG_CPP:CppCon"
+https://functionalcpp.wordpress.com/feed/ "~B1_LANG_CPP:Functional C++"
+https://www.justsoftwaresolutions.co.uk/index.rss "~B1_LANG_CPP:Just Software Solutions Blog"
+https://rss.diffbot.com/atom?url=https://lafstern.org/matt/ "~B1_LANG_CPP:Matt Austern's Blog"
+https://preshing.com/feed "~B1_LANG_CPP:Preshing on Programming"
+https://isocpp.org/blog/rss/category/events "~B1_LANG_CPP:Standard C++ | Events"
+https://herbsutter.com/feed/ "~B1_LANG_CPP:Sutter’s Mill"
+https://rss.diffbot.com/atom?url=https://www.blogger.com/profile/05280964633768289328 "~B1_LANG_CPP:Scott Meyers"
+https://www.fluentcpp.com/feed/ "~B1_LANG_CPP:Fluent C++"
+https://beej.us/blog/rss.xml "~B1_LANG_CPP:beej-network"
+https://www.modernescpp.com/index.php/feed/ "~B1_LANG_CPP:Rainer Grimm"
+https://xania.org/feed "~B1_LANG_CPP:Matt Godbolt"
+# -------------------------
+# ------B2_LANG_RUST-------
+# -------------------------
+https://jyn.dev/atom.xml "~B2_LANG_RUST:Joshua Nelson"
+https://matklad.github.io/feed.xml "~B2_LANG_RUST:Aleksey Kladov"
+https://blog.rust-lang.org/feed.xml "~B2_LANG_RUST:Rust Official"
+# -------------------------
+# ------B3_LANG_PYTHON-----
+# -------------------------
+https://frostming.com/feed.xml "~B3_LANG_PYTHON:Frost Ming"
+https://gilesthomas.com/feed/rss.xml "~B3_LANG_PYTHON:Giles Thomas"
+https://iscinumpy.dev/index.xml "~B3_LANG_PYTHON:Henry Schreiner"
+https://pycon.blogspot.com/feeds/posts/default?alt=rss "~B3_LANG_PYTHON:PyCon US Committee"
+https://blog.miguelgrinberg.com/feed "~B3_LANG_PYTHON:Miguel Grinberg"
+# -------------------------
+# ------B4_LANG_WEB--------
+# -------------------------
+https://blog.jim-nielsen.com/feed.xml "~B4_LANG_WEB:Jim Nielsen"
+https://evanhahn.com/blog/feed.xml "~B4_LANG_WEB:nodejs-Evan Hahn"
+https://overreacted.io/rss.xml "~B4_LANG_WEB:Dan Abramov"
+https://danieldelaney.net/feed "~B4_LANG_WEB:Daniel Delaney"
+https://herman.bearblog.dev/feed/ "~B4_LANG_WEB:Herman Martinus"
+# -------------------------
+# ------C1_HARDWARE_CHIP---
+# -------------------------
+https://www.abortretry.fail/feed "~C1_HARDWARE_CHIP:Bradford Morgan White"
+https://computer.rip/rss.xml "~C1_HARDWARE_CHIP:Crawford"
+https://dfarq.homeip.net/feed/ "~C1_HARDWARE_CHIP:Dave Farquhar"
+https://www.downtowndougbrown.com/feed/ "~C1_HARDWARE_CHIP:Doug Brown"
+https://fabiensanglard.net/rss.xml "~C1_HARDWARE_CHIP:Fabien Sanglard"
+https://www.filfre.net/feed/ "~C1_HARDWARE_CHIP:Jimmy Maher"
+https://www.jeffgeerling.com/blog.xml "~C1_HARDWARE_CHIP:Jeff Geerling"
+https://oldvcr.blogspot.com/feeds/posts/default "~C1_HARDWARE_CHIP:Cameron Kaiser"
+https://www.righto.com/feeds/posts/default "~C1_HARDWARE_CHIP:Ken Shirriff"
+https://feed.tedium.co/ "~C1_HARDWARE_CHIP:Ernie Smith"
+# -------------------------
+# ------C2_ENGINEERING_ARCHITECTURE
+# -------------------------
+https://blog.pixelmelt.dev/rss/ "~C2_ENGINEERING_ARCHITECTURE:PixelMelt"
+https://borretti.me/feed.xml "~C2_ENGINEERING_ARCHITECTURE:Fernando Borretti"
+https://buttondown.com/hillelwayne/rss "~C2_ENGINEERING_ARCHITECTURE:Hillel Wayne"
+https://chadnauseam.com/rss.xml "~C2_ENGINEERING_ARCHITECTURE:Chad Nauseam"
+https://codeandcake.dev/feed.xml "~C2_ENGINEERING_ARCHITECTURE:Code and Cake"
+https://danielwirtz.com/rss.xml "~C2_ENGINEERING_ARCHITECTURE:Daniel Wirtz"
+https://hey.paris/index.xml "~C2_ENGINEERING_ARCHITECTURE:Paris"
+https://hugotunius.se/feed.xml "~C2_ENGINEERING_ARCHITECTURE:Hugo Tunius"
+https://idiallo.com/feed.rss "~C2_ENGINEERING_ARCHITECTURE:Ibrahim Diallo"
+https://keygen.sh/blog/feed.xml "~C2_ENGINEERING_ARCHITECTURE:Zeke Gabrielse"
+https://lucumr.pocoo.org/feed.atom "~C2_ENGINEERING_ARCHITECTURE:Armin Ronacher"
+https://matduggan.com/rss/ "~C2_ENGINEERING_ARCHITECTURE:Mat Duggan"
+https://seangoedecke.com/rss.xml "~C2_ENGINEERING_ARCHITECTURE:Sean Goedecke"
+https://terriblesoftware.org/feed/ "~C2_ENGINEERING_ARCHITECTURE:Matheus Lima"
+https://rss.diffbot.com/rss?url=https://mitchellh.com/writing "~C2_ENGINEERING_ARCHITECTURE:Mitchell Hashimoto"
+https://xeiaso.net/blog.rss "~C2_ENGINEERING_ARCHITECTURE:Xe Iaso"
+https://tomrenner.com/index.xml "~C2_ENGINEERING_ARCHITECTURE:Tom Renner"
+# -------------------------
+# ------C3_OS_PERFORMANCE--
+# -------------------------
+https://www.martinfowler.com/feed.atom "~C3_OS_PERFORMANCE:Martin Fowler"
+https://grantslatton.com/rss.xml "~C3_OS_PERFORMANCE:Grant Slatton"
+https://entropicthoughts.com/feed.xml "~C3_OS_PERFORMANCE:Entropic Thoughts"
+https://easyperf.net/feed.xml "~C3_OS_PERFORMANCE:Denis Bakhvalov"
+https://bernsteinbear.com/feed.xml "~C3_OS_PERFORMANCE:Maxwell Bernstein"
+https://berthub.eu/articles/index.xml "~C3_OS_PERFORMANCE:Bert Hubert"
+https://rss.diffbot.com/atom?url=https://www.brendangregg.com/blog/index.html "~C3_OS_PERFORMANCE:Brendan Gregg"
+https://utcc.utoronto.ca/~cks/space/blog/?atom "~C3_OS_PERFORMANCE:Chris Siebenmann"
+https://lemire.me/blog/feed/ "~C3_OS_PERFORMANCE:Daniel Lemire"
+https://it-notes.dragas.net/feed/ "~C3_OS_PERFORMANCE:Stefano Marinelli"
+https://travisdowns.github.io/feed.xml "~C3_OS_PERFORMANCE:Travis Downs (Performance Matters)"
+https://maurycyz.com/index.xml "~C3_OS_PERFORMANCE:Maurycy Zarzycki"
+https://www.bwplotka.dev/posts/index.xml "~C3_OS_PERFORMANCE:go-Bartłomiej Płotka"
+https://eli.thegreenplace.net/feeds/all.atom.xml "~C3_OS_PERFORMANCE:go-Eli Bendersky"
+https://danielchasehooper.com/feed.xml "~C3_OS_PERFORMANCE:cpp-Daniel Chase Hooper"
+http://antirez.com/rss "~C3_OS_PERFORMANCE:cpp-Salvatore Sanfilippo"
+https://www.chiark.greenend.org.uk/~sgtatham/quasiblog/feed.xml "~C3_OS_PERFORMANCE:cpp-Simon Tatham"
+# -------------------------
+# ------C4_SECURITY_PRIVACY
+# -------------------------
+https://codon.org.uk/~mjg59/blog/index.xml "~C4_SECURITY_PRIVACY:Matthew Garrett-1"
+https://mjg59.dreamwidth.org/data/rss "~C4_SECURITY_PRIVACY:Matthew Garrett-2"
+https://brutecat.com/rss.xml "~C4_SECURITY_PRIVACY:Arvin Shivram"
+https://krebsonsecurity.com/feed/ "~C4_SECURITY_PRIVACY:Brian Krebs"
+https://lcamtuf.substack.com/feed "~C4_SECURITY_PRIVACY:Michal Zalewski"
+https://micahflee.com/feed/ "~C4_SECURITY_PRIVACY:Micah Lee"
+https://www.troyhunt.com/rss/ "~C4_SECURITY_PRIVACY:Troy Hunt"
+# -------------------------
+# ------D_GEEKER_BLOG------
+# -------------------------
+https://geohot.github.io/blog/feed.xml "~D_GEEKER_BLOG:George Hotz"
+https://aresluna.org/main.rss "~D_GEEKER_BLOG:Marcin Wichary"
+https://bogdanthegeek.github.io/blog/index.xml "~D_GEEKER_BLOG:Bogdan Ionescu"
+https://jiteshcodes.com/index.xml "~D_GEEKER_BLOG:Jitesh's Blog"
+https://nesbitt.io/feed.xml "~D_GEEKER_BLOG:Andrew Nesbitt"
+https://philiplaine.com/index.xml "~D_GEEKER_BLOG:Philip Laine"
+https://refactoringenglish.com/index.xml "~D_GEEKER_BLOG:Michael Lynch"
+https://skyfall.dev/rss.xml "~D_GEEKER_BLOG:Mahad Kalam"
+https://timsh.org/rss/ "~D_GEEKER_BLOG:Tim Sh"
+# -------------------------
+# ------E_TOOLCHAIN--------
+# -------------------------
+https://rakhim.exotext.com/rss.xml "~E_TOOLCHAIN:Rakhim Davletkaliyev"
+https://mitchellh.com/feed.xml "~E_TOOLCHAIN:ghostty_Mitchell Hashimoto"
+https://rss.diffbot.com/rss?url=https://jesseduffield.com/ "~E_TOOLCHAIN:lazygit_Jesse Duffield"
+https://echasnovski.com/blog.xml "~E_TOOLCHAIN:nvim_Evgeni Chasnovski"
+https://fredrikaverpil.github.io/blog/index.xml "~E_TOOLCHAIN:nvim_Fredrik Averpil"
+https://www.radleylewis.com/feed.xml "~E_TOOLCHAIN:nvim_radleylewis"
+https://michael.stapelberg.ch/feed.xml "~E_TOOLCHAIN:i3wm_Michael Stapelberg"
+https://upsilon.cc/~zack/blog/index.rss "~E_TOOLCHAIN:linux_Stefano Zacchiroli (debian)"
+https://lukesmith.xyz/index.xml "~E_TOOLCHAIN:linux_Luke Smith"
+https://jayd.ml/feed.xml "~E_TOOLCHAIN:linux_Jayden Milne"
+https://rss.diffbot.com/rss?url=https://yaocc.cc/ "~E_TOOLCHAIN:dwm_Mr-C"
+# -------------------------
+# ------X_SILICON_VALLEY---
+# -------------------------
+https://anildash.com/feed.xml "~X_SILICON_VALLEY:Anil Dash"
+https://www.construction-physics.com/feed "~X_SILICON_VALLEY:Brian Potter"
+https://www.theatlantic.com/feed/author/derek-thompson/ "~X_SILICON_VALLEY:Derek Thompson"
+https://dynomight.net/feed.xml "~X_SILICON_VALLEY:Dynomight"
+https://ericmigi.com/rss.xml "~X_SILICON_VALLEY:Eric Migicovsky"
+https://www.experimental-history.com/feed "~X_SILICON_VALLEY:Adam Mastroianni"
+https://gwern.substack.com/feed "~X_SILICON_VALLEY:Gwern Branwen"
+https://raw.githubusercontent.com/Olshansk/rss-feeds/refs/heads/main/feeds/feed_paulgraham.xml "~X_SILICON_VALLEY:Paul Graham Essays"
+http://www.aaronsw.com/2002/feeds/pgessays.rss "~X_SILICON_VALLEY:Paul Graham Blog"
+https://pluralistic.net/feed/ "~X_SILICON_VALLEY:Cory Doctorow"
+https://shkspr.mobi/blog/feed/ "~X_SILICON_VALLEY:Terence Eden"
+https://simone.org/feed/ "~X_SILICON_VALLEY:Simone Salis"
+https://steveblank.com/feed/ "~X_SILICON_VALLEY:Steve Blank"
+https://www.wheresyoured.at/rss/ "~X_SILICON_VALLEY:Ed Zitron"
+# -------------------------
+# ------Z_XYT--------------
+# -------------------------
+https://xcancel.com/theapplehub/rss "~Z_XYT:x_Apple Hub"
+https://xcancel.com/geekplux/rss "~Z_XYT:x_geekplux"
+https://geekplux.com/feed.xml "~Z_XYT:b_geekplux"
+https://xcancel.com/karpathy/rss "~Z_XYT:x_karpathy"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCZGVB6g74LXWtkR3fX50ykg "~Z_XYT:yt_Edwin H."
+https://www.youtube.com/feeds/videos.xml?channel_id=UCD_cg9Tak9SvlPHRsWxUIpA "~Z_XYT:yt_BigEar TV"
+https://lexfridman.com/feed/podcast/ "~Z_XYT:yt_Lex Fridman"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCXUPKJO5MZQN11PqgIvyuvQ "~Z_XYT:yt_Andrej Karpathy"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCMlGfpWw-RUdWX_JbLCukXg "~Z_XYT:yt_CppCon"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCR3gXcme1HMK7_TrUaNZOqw "~Z_XYT:yt_EuroRust"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCdEpz2A4DzV__4C1x2quKLw "~Z_XYT:yt_PAPAYA Computer Class"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC0jzvznwtnsdXYIp415oC9g "~Z_XYT:yt_Rust Foundation"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCLksRXfBiEITZMUo2ssjSdA "~Z_XYT:yt_Rust Nation UK"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCBdn2g49kLEyjlssavwbxdQ "~Z_XYT:yt_RustLab Conference"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC9sLTozvg2SJme_W1in5s9Q "~Z_XYT:yt_RustNL"
+https://lmuo.blogspot.com/feeds/posts/default "~Z_XYT:b_山人樵話"
+https://innei.in/feed "~Z_XYT:b_拾壹"
