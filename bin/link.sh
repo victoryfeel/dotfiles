@@ -4,9 +4,9 @@ set -e
 DOTFILES="$HOME/alexmak/dotfiles"
 
 echo "creating symbolic links..."
-#==============================
-#=====  general  ======
-#==============================
+## ============================== ##
+## ========  general  =========== ##
+## ============================== ##
 mkdir -p "$HOME/.local/share"
 ln -sfn "$DOTFILES/fonts" "$HOME/.local/share/fonts"
 ln -sfn "$DOTFILES/scripts" "$HOME/.config/scripts"
@@ -19,10 +19,12 @@ ln -sf "$DOTFILES/zsh/zshenv" "$HOME/.zshenv"
 # htop
 mkdir -p "$HOME/.config/htop"
 ln -sf "$DOTFILES/htop/htoprc" "$HOME/.config/htop/htoprc"
+# newsboat
+ln -sfn "$DOTFILES/newsboat" "$HOME/.config/newsboat"
 
-#=============================
-#=====  the four mains  ======
-#=============================
+## ============================== ##
+## ========  four mains  ======== ##
+## ============================== ##
 # yazi-nvim
 ln -sfn "$DOTFILES/yazi" "$HOME/.config/yazi"
 ln -sfn "$DOTFILES/nvim" "$HOME/.config/nvim"
@@ -35,16 +37,16 @@ ln -sf "$DOTFILES/lazygit/config.yml" "$HOME/.config/lazygit/config.yml"
 mkdir -p "$HOME/.config/lazydocker"
 ln -sf "$DOTFILES/lazydocker/config.yml" "$HOME/.config/lazydocker/config.yml"
 
-#=============================
-#=====  llm config  ======
-#=============================
+## =============================== ##
+## ========  llm configs  ======== ##
+## =============================== ##
 mkdir -p "$HOME/.gemini/antigravity-cli/"
 ln -sf "$DOTFILES/llmconfig/gemini-settings.json" "$HOME/.gemini/antigravity-cli/settings.json"
 ln -sf "$DOTFILES/llmconfig/GEMINI.md" "$HOME/.gemini/GEMINI.md"
 
-#=======================================
-#=====  gui tools config for mac  ======
-#=======================================
+## ============================================ ##
+## ========  gui tools config for mac  ======== ##
+## ============================================ ##
 if [ "$(uname -s)" = "Darwin" ]; then
   # alacritty
   # mkdir -p "$HOME/.config/alacritty"
