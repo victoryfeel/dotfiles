@@ -29,27 +29,27 @@ unbind-key ,
 unbind-key v
 unbind-key T
 
-bind-key SPACE macro-prefix
-bind-key q     quit
-bind-key Q     hard-quit
-bind-key U     toggle-show-read-feeds
-bind-key j     down
-bind-key k     up
-bind-key g     home
-bind-key G     end
-bind-key J     next-feed articlelist
-bind-key K     next-feed articlelist
-bind-key l     open
-bind-key h     quit articlelist
-bind-key h     quit article
-bind-key J     next article
-bind-key K     next article
-bind-key ^R    reload-all
-bind-key o     open-in-browser-and-mark-read
-bind-key m     toggle-article-read
-bind-key M     mark-feed-read
-bind-key T     toggle-show-read-feeds
-# bind-key A     mark-all-feeds-read
+bind SPACE everywhere macro-prefix
+bind q everywhere quit
+bind Q everywhere hard-quit
+bind U everywhere toggle-show-read-feeds
+bind j everywhere down
+bind k everywhere up
+bind g everywhere home
+bind G everywhere end
+bind J articlelist next-feed
+bind K articlelist next-feed
+bind l everywhere open
+bind h articlelist quit
+bind h article quit
+bind J article next
+bind K article next
+bind ^R everywhere reload-all
+bind o everywhere open-in-browser-and-mark-read
+bind m everywhere toggle-article-read
+bind M everywhere mark-feed-read
+bind T everywhere toggle-show-read-feeds ; set show-read-articles!
+# bind A everywhere mark-all-feeds-read
 
 
 
