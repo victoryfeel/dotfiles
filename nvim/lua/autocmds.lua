@@ -33,3 +33,13 @@ autocmd("FileType", {
 		end
 	end,
 })
+
+-- turn off options when open float terminal
+vim.api.nvim_create_autocmd("TermOpen", {
+	group = vim.api.nvim_create_augroup("DisableTerminalUI", { clear = true }),
+	callback = function()
+		vim.opt_local.number = false
+		vim.opt_local.relativenumber = false
+		vim.opt_local.cursorline = false
+	end,
+})
