@@ -4,14 +4,19 @@
 datetime-format     "%m/%d/%y"
 feedlist-format     "%4i %3U %t"
 articlelist-format  "%4i %f %D %?T?|%-17T|  ?%t"
-auto-reload         yes
 show-read-feeds     no
 show-read-articles  no
 cleanup-on-quit     no
-prepopulate-query-feeds yes
-browser "open '%u'"
 pager internal
+confirm-mark-feed-read no
 # show-keymap-hint no
+# show-titile-bar no
+auto-reload         yes
+reload-time 30
+max-items 95
+
+#browser "open '%u'"
+browser "${HOME}/.config/scripts/browser-in-host.sh '%u'"
 
 
 ##===========================##
