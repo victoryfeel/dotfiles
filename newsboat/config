@@ -6,7 +6,7 @@ feedlist-format     "%4i %3U %t"
 articlelist-format  "%4i %f %D %?T?|%-17T|  ?%t"
 show-read-feeds     no
 show-read-articles  no
-cleanup-on-quit     no
+cleanup-on-quit     yes
 pager internal
 confirm-mark-feed-read no
 # show-keymap-hint no
