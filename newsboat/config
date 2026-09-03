@@ -13,6 +13,7 @@ confirm-mark-feed-read no
 # show-titile-bar no
 auto-reload         yes
 reload-time 30
+reload-threads 256
 max-items 95
 
 #browser "open '%u'"
@@ -49,7 +50,7 @@ bind h articlelist quit
 bind h article quit
 bind J article next
 bind K article next
-bind ^R everywhere reload-all
+bind R everywhere reload-all
 bind o everywhere open-in-browser-and-mark-read
 bind m everywhere toggle-article-read
 bind M everywhere mark-feed-read
