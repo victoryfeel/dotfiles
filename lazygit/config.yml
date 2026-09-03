@@ -1,5 +1,8 @@
 ##== general
 # quitOnTopLevelReturn: true
+os:
+  openLink: '"${HOME}/.config/scripts/browser-in-host.sh" {{link}}'
+
 ##== gui
 gui:
   nerdFontsVersion: "3"
@@ -26,6 +29,8 @@ keybinding:
     prevTab: "["
   files:
     commitChanges: "c"
+  commits:
+    openPullRequestInBrowser: "o"
 ##== colemak-dh keymap
 # keybinding:
 #   universal:
