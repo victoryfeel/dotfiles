@@ -39,7 +39,7 @@ vim.keymap.set("n", "<leader>jo", "mzJ`z", { desc = "Join lines keeping cursor p
 
 -- Save and quit
 vim.keymap.set("n", "S", "<cmd>w<CR>", { silent = true, desc = "Save file" })
-vim.keymap.set("n", "Q", "<cmd>q<CR>", { silent = true, desc = "Quit window" })
+vim.keymap.set("n", "Q", "<cmd>OutlineClose<CR><cmd>q<CR>", { silent = true, desc = "Quit window" })
 
 -- Clear search highlight and dismiss notifications
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR><cmd>Noice dismiss<CR>", { silent = true })
