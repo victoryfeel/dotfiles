@@ -18,6 +18,9 @@ ln -sf "$DOTFILES/zsh/zimrc" "$HOME/.config/zsh/.zimrc"
 ln -sf "$DOTFILES/zsh/zshenv" "$HOME/.zshenv"
 # newsboat
 ln -sfn "$DOTFILES/newsboat" "$HOME/.config/newsboat"
+# global git ignore
+mkdir -p "$HOME/.config/git"
+ln -sf "$DOTFILES/git/ignore" "$HOME/.config/git/ignore"
 
 ## ============================== ##
 ## ========  four mains  ======== ##
