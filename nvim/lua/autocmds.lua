@@ -43,3 +43,35 @@ vim.api.nvim_create_autocmd("TermOpen", {
 		vim.opt_local.cursorline = false
 	end,
 })
+
+-- Auto-save: write buffer on focus loss, idle, or leaving insert mode
+autocmd({ "FocusLost", "BufLeave", "InsertLeave", "TextChanged" }, {
+	group = augroup("AutoSave", { clear = true }),
+	callback = function(args)
+		local buf = args.buf
+		if
+			vim.bo[buf].modified
+			and vim.bo[buf].buftype == ""
+			and vim.bo[buf].modifiable
+			and vim.api.nvim_buf_get_name(buf) ~= ""
+		then
+			vim.api.nvim_buf_call(buf, function()
+				vim.cmd("silent! write")
+			end)
+		end
+	end,
+})
+
+-- Persist nvim session file for tmux-resurrect recovery
+autocmd({ "VimLeavePre", "BufWritePost" }, {
+	group = augroup("SessionPersist", { clear = true }),
+	callback = function()
+		-- Only save if at least one real file buffer exists
+		for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+			if vim.bo[buf].buflisted and vim.bo[buf].buftype == "" and vim.api.nvim_buf_get_name(buf) ~= "" then
+				vim.cmd("silent! mksession!")
+				return
+			end
+		end
+	end,
+})
