@@ -14,12 +14,9 @@ vim.g.loaded_tarPlugin = 1
 vim.g.loaded_zipPlugin = 1
 vim.g.loaded_tutor_mode_plugin = 1
 vim.g.loaded_2html_plugin = 1
--- OPTIMIZATION: Disable htmlcomplete.vim & default markdown recommended style overrides
--- to unblock markdown buffer startup (~8ms speedup)
 vim.g.loaded_htmlcomplete = 1
 vim.g.markdown_recommended_style = 0
 vim.g.loaded_python3_provider = 0
-
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_node_provider = 0
@@ -28,12 +25,20 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.foldmethod = "manual"
 vim.opt.foldlevel = 99
-vim.opt.writebackup = false
-vim.opt.swapfile = false
-vim.opt.undofile = true
 
 -- =============================================================================
--- UI & Display
+-- data save and protection
+-- =============================================================================
+vim.opt.undofile = true
+vim.opt.undolevels = 20000
+vim.opt.swapfile = true
+vim.opt.writebackup = true
+vim.fn.mkdir(vim.fn.stdpath("state") .. "/backup", "p")
+vim.opt.backup = true
+vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup//"
+
+-- =============================================================================
+-- ui & display
 -- =============================================================================
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -71,7 +76,7 @@ vim.opt.wildmode = "longest:full,full"
 -- =============================================================================
 -- System & Behavior
 -- =============================================================================
-vim.opt.updatetime = 300
+vim.opt.updatetime = 200
 vim.opt.timeoutlen = 500
 vim.opt.iskeyword:append("-")
 vim.opt.path:append("**")
@@ -79,6 +84,6 @@ vim.opt.mouse = "a"
 vim.opt.clipboard:append("unnamedplus")
 
 -- =============================================================================
--- Diff, Backups & Undo
+-- Diff
 -- =============================================================================
 vim.opt.diffopt:append("linematch:60")

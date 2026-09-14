@@ -13,7 +13,7 @@ confirm-mark-feed-read no
 # show-titile-bar no
 auto-reload         yes
 reload-time 30
-reload-threads 256
+reload-threads 195
 max-items 95
 
 #browser "open '%u'"
