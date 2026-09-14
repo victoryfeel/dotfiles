@@ -15,12 +15,14 @@ vim.g.loaded_zipPlugin = 1
 vim.g.loaded_tutor_mode_plugin = 1
 vim.g.loaded_2html_plugin = 1
 vim.g.loaded_htmlcomplete = 1
-vim.g.markdown_recommended_style = 0
+
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_node_provider = 0
+vim.g.markdown_recommended_style = 0
 vim.opt.shada = "'20,<50,s10,h"
+
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.foldmethod = "manual"
@@ -80,7 +82,7 @@ vim.opt.updatetime = 200
 vim.opt.timeoutlen = 500
 vim.opt.iskeyword:append("-")
 vim.opt.path:append("**")
-vim.opt.mouse = "a"
+vim.opt.mouse = ""
 vim.opt.clipboard:append("unnamedplus")
 
 -- =============================================================================
