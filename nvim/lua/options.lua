@@ -30,6 +30,7 @@ vim.opt.foldlevel = 99
 -- data save and protection
 -- =============================================================================
 vim.opt.undofile = true
+vim.opt.undolevels = 20000
 vim.opt.swapfile = true
 vim.opt.writebackup = true
 vim.fn.mkdir(vim.fn.stdpath("state") .. "/backup", "p")
