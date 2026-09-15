@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.keymap.set("n", "<leader>rr", "<cmd>restart<CR>")
+vim.keymap.set("n", "<leader>rr", "<cmd>silent! OutlineClose<CR><cmd>restart<CR>")
 
 -- =============================================================================
 -- Normal Mode - Navigation & Editing
