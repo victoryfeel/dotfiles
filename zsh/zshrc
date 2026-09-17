@@ -106,6 +106,19 @@ alias tls="tmux ls"
 alias nvtest="nvim --startuptime $DOTFILES/nvim/startup.log +q"
 
 ## ================= Functions =================
+#-- newsboat cache recovery
+function newsboat-recover {
+  for f in $(ls -1t ~/.local/share/newsboat/backups/cache.db.* 2>/dev/null); do
+    if sqlite3 "$f" "PRAGMA integrity_check;" 2>/dev/null | grep -q "^ok$"; then
+      cp "$f" ~/.local/share/newsboat/cache.db
+      echo "restored from $f"
+      return 0
+    fi
+  done
+  echo "no valid backup found" >&2
+  return 1
+}
+
 #-- mandoc
 function man {
   command man "$@" | col -bx | bat -l man -p
