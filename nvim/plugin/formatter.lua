@@ -1,6 +1,6 @@
 -- OPTIMIZATION: Defer conform setup and mason-registry refresh using vim.schedule.
 -- This ensures formatting initialization doesn't block the synchronous initial buffer render.
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
 	once = true,
 	callback = function()
 		vim.schedule(function()
@@ -40,6 +40,10 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 			end)
 			---------------------------------------------------------------------------------
 			require("conform").setup({
+				format_on_save = {
+					timeout_ms = 500,
+					lsp_format = "fallback",
+				},
 				formatters_by_ft = {
 					-- main three
 					c = { "clang-format", lsp_format = "fallback" },
@@ -67,17 +71,5 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 				},
 			})
 		end)
-	end,
-})
-
--- format on save
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = "*",
-	callback = function(args)
-		require("conform").format({
-			bufnr = args.buf,
-			async = false,
-			lsp_fallback = true,
-		})
 	end,
 })

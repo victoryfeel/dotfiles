@@ -3,14 +3,10 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
 	callback = function()
 		vim.pack.add({
 			"https://github.com/rafamadriz/friendly-snippets",
+			"https://github.com/saghen/blink.lib",
 			"https://github.com/saghen/blink.cmp",
 		})
 		require("blink.cmp").setup({
-			fuzzy = {
-				prebuilt_binaries = {
-					force_version = "v*",
-				},
-			},
 			cmdline = {
 				completion = {
 					list = { selection = { preselect = false, auto_insert = true } },
