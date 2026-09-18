@@ -62,16 +62,3 @@ autocmd({ "FocusLost", "BufLeave", "InsertLeave", "TextChanged" }, {
 	end,
 })
 
--- Persist nvim session file for tmux-resurrect recovery
-autocmd({ "VimLeavePre", "BufWritePost" }, {
-	group = augroup("SessionPersist", { clear = true }),
-	callback = function()
-		-- Only save if at least one real file buffer exists
-		for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-			if vim.bo[buf].buflisted and vim.bo[buf].buftype == "" and vim.api.nvim_buf_get_name(buf) ~= "" then
-				vim.cmd("silent! mksession!")
-				return
-			end
-		end
-	end,
-})
