@@ -2,7 +2,6 @@
 # ------A1_TECH_NEWS-------
 # -------------------------
 https://archlinux.org/feeds/news/ "~A1_TECH_NEWS:Arch Linux news"
-https://devblogs.microsoft.com/oldnewthing/feed "~A1_TECH_NEWS:Raymond Chen"
 https://daily.juya.uk/rss.xml "~A1_TECH_NEWS:AI Daily News"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCKARTq-t5SPMzwtft8FWwnA "~A1_TECH_NEWS:Last Week in AI"
 http://www.ruanyifeng.com/blog/atom.xml "~A1_TECH_NEWS:阮一峰周刊"
@@ -93,6 +92,7 @@ https://feed.tedium.co/ "~C1_HARDWARE_CHIP:Ernie Smith"
 # -------------------------
 # ------C2_ENGINEERING_ARCHITECTURE
 # -------------------------
+https://devblogs.microsoft.com/oldnewthing/feed "~C2_ENGINEERING_ARCHITECTURE:Raymond Chen"
 https://blog.pixelmelt.dev/rss/ "~C2_ENGINEERING_ARCHITECTURE:PixelMelt"
 https://borretti.me/feed.xml "~C2_ENGINEERING_ARCHITECTURE:Fernando Borretti"
 https://buttondown.com/hillelwayne/rss "~C2_ENGINEERING_ARCHITECTURE:Hillel Wayne"
@@ -185,6 +185,7 @@ https://www.wheresyoured.at/rss/ "~X_SILICON_VALLEY:Ed Zitron"
 # -------------------------
 # ------Z_XYT--------------
 # -------------------------
+https://blog.luojie.net/index.xml "~Z_XYT:b_Roger"
 https://geekplux.com/feed.xml "~Z_XYT:b_geekplux"
 https://lexfridman.com/feed/podcast/ "~Z_XYT:yt_Lex Fridman"
 https://lmuo.blogspot.com/feeds/posts/default "~Z_XYT:b_山人樵話"
@@ -203,6 +204,7 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UC0jzvznwtnsdXYIp415oC9g "~Z
 https://www.youtube.com/feeds/videos.xml?channel_id=UCLksRXfBiEITZMUo2ssjSdA "~Z_XYT:yt_Rust Nation UK"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCBdn2g49kLEyjlssavwbxdQ "~Z_XYT:yt_RustLab Conference"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC9sLTozvg2SJme_W1in5s9Q "~Z_XYT:yt_RustNL"
+https://rss.diffbot.com/atom?url=https://space.bilibili.com/13081489/dynamic "~Z_XYT:yt_thecw"
 https://xcancel.com/theapplehub/rss "~Z_XYT:x_Apple Hub"
 https://xcancel.com/geekplux/rss "~Z_XYT:x_geekplux"
 https://xcancel.com/karpathy/rss "~Z_XYT:x_karpathy"

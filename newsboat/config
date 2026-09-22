@@ -55,7 +55,7 @@ bind o everywhere open-in-browser-and-mark-read
 bind m everywhere toggle-article-read
 bind M everywhere mark-feed-read
 bind T everywhere toggle-show-read-feeds ; set show-read-articles!
-# bind A everywhere mark-all-feeds-read
+bind A everywhere mark-all-feeds-read
 
 
 

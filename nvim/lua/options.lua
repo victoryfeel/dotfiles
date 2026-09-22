@@ -29,7 +29,7 @@ vim.opt.foldmethod = "manual"
 vim.opt.foldlevel = 99
 
 -- =============================================================================
--- data save and protection
+-- data security
 -- =============================================================================
 vim.opt.undofile = true
 vim.opt.undolevels = 20000

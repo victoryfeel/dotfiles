@@ -22,7 +22,7 @@
   },
   "LaTeX Math Display Block": {
     "prefix": "mathb",
-    "body": ["$$", "<++>", "$$", "<++>"]
+    "body": ["\\$\\$", "<++>", "\\$\\$", "<++>"]
   },
   "Subpage Link": {
     "prefix": "subpath",
