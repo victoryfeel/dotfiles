@@ -2,6 +2,10 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 vim.keymap.set("n", "<leader>rr", "<cmd>silent! OutlineClose<CR><cmd>restart<CR>")
+-- gx to open url in browser
+vim.ui.open = function(url)
+	vim.system({ "/home/alex/alexmak/dotfiles/scripts/browser-in-host.sh", url })
+end
 
 -- =============================================================================
 -- Normal Mode - Navigation & Editing
