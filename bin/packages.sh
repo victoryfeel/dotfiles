@@ -14,9 +14,9 @@ if [ "$(uname -s)" = "Darwin" ]; then
   brew install lazygit neovim yazi tmux
   brew install imagemagick
   brew install --cask antigravity-cli
-  brew install --cask ghostty orbstack dbeaver-community
+  brew install --cask kitty orbstack dbeaver-community
   brew install --cask freefilesync google-drive cryptomator
-  brew install --cask anki calibre obsidian netnewswire
+  brew install --cask anki calibre netnewswire
   brew install --cask helium-browser
 
   echo "Manual install with following links:"
