@@ -248,20 +248,6 @@ fzf-work-search-content() {
 zle -N fzf-work-search-content
 bindkey '^l' fzf-work-search-content
 
-#-- now on go project quick search
-#-1
-fzf-work-project1() {
-  local file=$(fd --type f --hidden --exclude .git . /project/ | fzf --height 40% --reverse)
-  if [ -n "$file" ]; then
-    zle -I
-    cd "$(dirname "$file")"
-    nvim "$file"
-  fi
-  zle reset-prompt
-}
-zle -N fzf-work-project1
-bindkey '^o' fzf-work-project1
-
 ## ================= Vim Mode =================
 #-- enable vi mode
 bindkey -v
