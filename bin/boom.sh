@@ -20,6 +20,7 @@ if [ -d "$TARGET_DIR/.git" ]; then
 else
   mkdir -p "$(dirname "$TARGET_DIR")"
   git clone https://github.com/victoryfeel/dotfiles.git "$TARGET_DIR"
+  git -C "$TARGET_DIR" remote set-url origin git@github.com:victoryfeel/dotfiles.git
 fi
 
 bash "$TARGET_DIR/bin/packages.sh"
