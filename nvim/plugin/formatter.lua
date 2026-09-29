@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
 		vim.schedule(function()
 			vim.pack.add({
 				"https://github.com/williamboman/mason.nvim",
-				"https://github.com/mason-org/mason-registry",
+				-- "https://github.com/mason-org/mason-registry",
 				"https://github.com/stevearc/conform.nvim",
 			})
 			require("mason").setup()
@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
 			local ensure_installed = {
 				-- main three
 				"clang-format",
-				"rustfmt",
+				-- "rustfmt",
 				"goimports",
 				"gofumpt",
 				-- tool
@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
 				for _, tool_name in ipairs(ensure_installed) do
 					if registry.has_package(tool_name) then
 						local pkg = registry.get_package(tool_name)
-						if not pkg:is_installed() then
+						if not pkg:is_installed() and not pkg:is_installing() then
 							pkg:install()
 							vim.notify("Mason installing formatter: " .. tool_name, vim.log.levels.INFO)
 						end
@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
 			---------------------------------------------------------------------------------
 			require("conform").setup({
 				format_on_save = {
-					timeout_ms = 500,
+					timeout_ms = 5000,
 					lsp_format = "fallback",
 				},
 				formatters_by_ft = {

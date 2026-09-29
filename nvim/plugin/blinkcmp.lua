@@ -1,3 +1,15 @@
+vim.api.nvim_create_autocmd("PackChanged", {
+	callback = function(ev)
+		local name, kind = ev.data.spec.name, ev.data.kind
+		if name == "blink.cmp" and (kind == "install" or kind == "update") then
+			if not ev.data.active then
+				vim.cmd.packadd("blink.cmp")
+			end
+			require("blink.cmp").build():pwait()
+		end
+	end,
+})
+
 vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
 	once = true,
 	callback = function()
@@ -6,7 +18,11 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
 			"https://github.com/saghen/blink.lib",
 			"https://github.com/saghen/blink.cmp",
 		})
-		require("blink.cmp").setup({
+		local cmp = require("blink.cmp")
+		if not cmp.library_available() then
+			cmp.build():pwait()
+		end
+		cmp.setup({
 			cmdline = {
 				completion = {
 					list = { selection = { preselect = false, auto_insert = true } },
