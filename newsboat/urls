@@ -25,7 +25,7 @@ https://martinalderson.com/feed.xml "~A2_AI_KOL:Martin Alderson"
 # -------------------------
 # ------A3_REPO_UTILITY----
 # -------------------------
-# https://mshibanami.github.io/GitHubTrendingRSS/weekly/all.xml "~A3_REPO_UTILITY:repo_GitHub All Languages Weekly Trending"
+https://mshibanami.github.io/GitHubTrendingRSS/weekly/all.xml "~A3_REPO_UTILITY:repo_GitHub All Languages Weekly Trending"
 https://rssh-ub-opal-eight.vercel.app/hellogithub/home "~A3_REPO_UTILITY:repo_HelloGitHub Featured"
 https://hellogithub.com/rss "~A3_REPO_UTILITY:repo_HelloGitHub Monthly"
 https://www.johndcook.com/blog/feed/ "~A3_REPO_UTILITY:math-John Cook"
@@ -45,9 +45,9 @@ https://rss.diffbot.com/atom?url=https://stepanovpapers.com/ "~B1_LANG_CPP:Colle
 https://cppcon.org/feed/ "~B1_LANG_CPP:CppCon"
 https://functionalcpp.wordpress.com/feed/ "~B1_LANG_CPP:Functional C++"
 https://www.justsoftwaresolutions.co.uk/index.rss "~B1_LANG_CPP:Just Software Solutions"
-# https://rss.diffbot.com/atom?url=https://lafstern.org/matt/ "~B1_LANG_CPP:Matt Austern"
+https://rss.diffbot.com/atom?url=https://lafstern.org/matt/ "~B1_LANG_CPP:Matt Austern"
 https://preshing.com/feed "~B1_LANG_CPP:Preshing on Programming"
-# https://isocpp.org/blog/rss/category/events "~B1_LANG_CPP:Standard C++ | Events"
+https://isocpp.org/blog/rss/category/events "~B1_LANG_CPP:Standard C++ | Events"
 https://herbsutter.com/feed/ "~B1_LANG_CPP:Sutter’s Mill"
 https://rss.diffbot.com/atom?url=https://www.blogger.com/profile/05280964633768289328 "~B1_LANG_CPP:Scott Meyers"
 https://www.fluentcpp.com/feed/ "~B1_LANG_CPP:Fluent C++"
@@ -120,11 +120,11 @@ https://easyperf.net/feed.xml "~C3_OS_PERFORMANCE:Denis Bakhvalov"
 https://bernsteinbear.com/feed.xml "~C3_OS_PERFORMANCE:Maxwell Bernstein"
 https://berthub.eu/articles/index.xml "~C3_OS_PERFORMANCE:Bert Hubert"
 https://rss.diffbot.com/atom?url=https://www.brendangregg.com/blog/index.html "~C3_OS_PERFORMANCE:Brendan Gregg"
-# https://utcc.utoronto.ca/~cks/space/blog/?atom "~C3_OS_PERFORMANCE:Chris Siebenmann"
+https://utcc.utoronto.ca/~cks/space/blog/?atom "~C3_OS_PERFORMANCE:Chris Siebenmann"
 https://lemire.me/blog/feed/ "~C3_OS_PERFORMANCE:Daniel Lemire"
 https://it-notes.dragas.net/feed/ "~C3_OS_PERFORMANCE:Stefano Marinelli"
 https://travisdowns.github.io/feed.xml "~C3_OS_PERFORMANCE:Travis Downs (Performance Matters)"
-# https://maurycyz.com/index.xml "~C3_OS_PERFORMANCE:Maurycy Zarzycki"
+https://maurycyz.com/index.xml "~C3_OS_PERFORMANCE:Maurycy Zarzycki"
 https://www.bwplotka.dev/posts/index.xml "~C3_OS_PERFORMANCE:go-Bartłomiej Płotka"
 https://eli.thegreenplace.net/feeds/all.atom.xml "~C3_OS_PERFORMANCE:go-Eli Bendersky"
 https://danielchasehooper.com/feed.xml "~C3_OS_PERFORMANCE:cpp-Daniel Chase Hooper"
@@ -133,7 +133,7 @@ https://www.chiark.greenend.org.uk/~sgtatham/quasiblog/feed.xml "~C3_OS_PERFORMA
 # -------------------------
 # ------C4_SECURITY_PRIVACY
 # -------------------------
-# https://mjg59.dreamwidth.org/data/rss "~C4_SECURITY_PRIVACY:Matthew Garrett"
+https://mjg59.dreamwidth.org/data/rss "~C4_SECURITY_PRIVACY:Matthew Garrett"
 https://brutecat.com/rss.xml "~C4_SECURITY_PRIVACY:Arvin Shivram"
 https://krebsonsecurity.com/feed/ "~C4_SECURITY_PRIVACY:Brian Krebs"
 https://lcamtuf.substack.com/feed "~C4_SECURITY_PRIVACY:Michal Zalewski"
