@@ -4,7 +4,7 @@ vim.g.maplocalleader = " "
 vim.keymap.set("n", "<leader>rr", "<cmd>silent! OutlineClose<CR><cmd>restart<CR>")
 -- gx to open url in browser
 vim.ui.open = function(url)
-	vim.system({ "/home/alex/alexmak/dotfiles/scripts/browser-in-host.sh", url })
+	vim.system({ "/home/alex/.config/scripts/browser-in-host.sh", url })
 end
 
 -- =============================================================================
