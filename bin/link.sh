@@ -33,9 +33,9 @@ mkdir -p "$HOME/.config/tmux"
 ln -sf "$DOTFILES/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
 # lazygit-lazydocker
 mkdir -p "$HOME/.config/lazygit"
-ln -sf "$DOTFILES/lazygit/config.yml" "$HOME/.config/lazygit/config.yml"
+ln -sf "$DOTFILES/lazygit/config-lazygit.yml" "$HOME/.config/lazygit/config.yml"
 mkdir -p "$HOME/.config/lazydocker"
-ln -sf "$DOTFILES/lazydocker/config.yml" "$HOME/.config/lazydocker/config.yml"
+ln -sf "$DOTFILES/lazygit/config-lazydocker.yml" "$HOME/.config/lazydocker/config.yml"
 
 ## =============================== ##
 ## ========  llm configs  ======== ##
