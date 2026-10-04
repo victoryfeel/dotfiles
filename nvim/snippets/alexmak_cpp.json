@@ -1,0 +1,71 @@
+{
+  "Doxygen Function Comment": {
+    "prefix": "addinfo",
+    "body": [
+      "/**",
+      " * ${1:A one-line summary.}",
+      " *",
+      " * ${2:Description.}$0",
+      " *",
+      " * @param ${4:name} ${5:Type and description of the parameter.}",
+      " * @return ${3:Type and description of the returned value.}",
+      " *",
+      " * @example",
+      " * // ${6:Description of my example.}",
+      " * ${7:Write me later}",
+      " */"
+    ],
+    "description": "A C++ comment block for functions, including description, param, return, and example."
+  },
+  "Disallow Copy and Assign": {
+    "prefix": "nocopy",
+    "body": [
+      "${1:ClassName}(const ${1:ClassName}&) = delete;",
+      "${1:ClassName}& operator=(const ${1:ClassName}&) = delete;",
+      "${1:ClassName}(${1:ClassName}&&) = delete;",
+      "${1:ClassName}& operator=(${1:ClassName}&&) = delete;"
+    ],
+    "description": "Disable copy/move constructors and assignment operators"
+  },
+  "Thread-Safe Singleton (Meyers)": {
+    "prefix": "singleton",
+    "body": [
+      "class ${1:Singleton} {",
+      "public:",
+      "    static ${1:Singleton}& GetInstance() {",
+      "        static ${1:Singleton} instance;",
+      "        return instance;",
+      "    }",
+      "",
+      "    ${1:Singleton}(const ${1:Singleton}&) = delete;",
+      "    ${1:Singleton}& operator=(const ${1:Singleton}&) = delete;",
+      "    ${1:Singleton}(${1:Singleton}&&) = delete;",
+      "    ${1:Singleton}& operator=(${1:Singleton}&&) = delete;",
+      "",
+      "private:",
+      "    ${1:Singleton}() = default;",
+      "    ~${1:Singleton}() = default;",
+      "};"
+    ],
+    "description": "Thread-safe Meyers Singleton pattern"
+  },
+  "Pimpl Pattern": {
+    "prefix": "pimpl",
+    "body": [
+      "class ${1:MyClass} {",
+      "public:",
+      "    ${1:MyClass}();",
+      "    ~${1:MyClass}();",
+      "    ${1:MyClass}(${1:MyClass}&&) noexcept;",
+      "    ${1:MyClass}& operator=(${1:MyClass}&&) noexcept;",
+      "",
+      "    void ${2:DoWork}();",
+      "",
+      "private:",
+      "    struct Impl;",
+      "    std::unique_ptr<Impl> impl_;",
+      "};"
+    ],
+    "description": "Pimpl (Pointer to Implementation) pattern header"
+  }
+}

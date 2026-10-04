@@ -1,0 +1,19 @@
+{
+  "name": "personal-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "cpp",
+        "path": "./alexmak_cpp.json"
+      },
+      {
+        "language": "markdown",
+        "path": "./alexmak_md.json"
+      },
+      {
+        "language": "yaml",
+        "path": "./alexmak_clang_format.json"
+      }
+    ]
+  }
+}
