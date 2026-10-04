@@ -70,7 +70,16 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
 					buffer = { score_offset = 5 },
 					path = { score_offset = 3 },
 					lsp = { score_offset = 2 },
-					snippets = { score_offset = 1 },
+					snippets = {
+						score_offset = 1,
+						opts = {
+							extended_filetypes = {
+								c = { "cdoc" },
+								cpp = { "cppdoc" },
+								rust = { "rustdoc" },
+							},
+						},
+					},
 				},
 			},
 		})
