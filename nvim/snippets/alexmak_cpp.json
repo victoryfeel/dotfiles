@@ -3,19 +3,20 @@
     "prefix": "addinfo",
     "body": [
       "/**",
-      " * ${1:A one-line summary.}",
+      " * @brief",
+      " *   ${1:Brief description.}",
+      " * @details",
+      " *   ${2:Detailed description.}",
       " *",
-      " * ${2:Description.}$0",
-      " *",
-      " * @param ${4:name} ${5:Type and description of the parameter.}",
-      " * @return ${3:Type and description of the returned value.}",
-      " *",
-      " * @example",
-      " * // ${6:Description of my example.}",
-      " * ${7:Write me later}",
-      " */"
+      " * @usage",
+      " *   ${3:Usage description.}",
+      " * @return",
+      " *   ${4:Type and description of the returned value.}",
+      " * @author Alex Mak (aliasgmail@duck.com)",
+      " */",
+      "$0"
     ],
-    "description": "A C++ comment block for functions, including description, param, return, and example."
+    "description": "A C++ comment block for functions, including brief, details, usage, return, and author."
   },
   "Disallow Copy and Assign": {
     "prefix": "nocopy",
