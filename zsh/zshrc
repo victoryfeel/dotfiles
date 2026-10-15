@@ -279,4 +279,4 @@ zle -N zle-keymap-select
 [[ -z "$NVIM" ]] && echo -ne '\e[6 q'
 
 #-- multi-key timeout
-KEYTIMEOUT=1
+KEYTIMEOUT=10

@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd({
 				line_numbers = true,
 				multiline_threshold = 20,
 				trim_scope = "outer",
-				mode = "cursor",
+				mode = "topline",
 				separator = "─",
 				zindex = 20,
 			})
