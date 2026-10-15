@@ -9,6 +9,15 @@ vim.api.nvim_create_autocmd("PackChanged", {
 		end
 	end,
 })
+vim.api.nvim_create_user_command("TSInstall", function(opts)
+	vim.cmd.packadd("nvim-treesitter")
+	require("nvim-treesitter.install").install(opts.fargs, { force = opts.bang, summary = true })
+end, { nargs = "+", bang = true, desc = "Install treesitter parsers" })
+
+vim.api.nvim_create_user_command("TSUpdate", function(opts)
+	vim.cmd.packadd("nvim-treesitter")
+	require("nvim-treesitter.install").update(opts.fargs, { summary = true })
+end, { nargs = "*", bang = true, desc = "Update treesitter parsers" })
 
 -- OPTIMIZATION: Defer Treesitter start to vim.schedule.
 -- This moves C parser initialization (~240ms) out of the synchronous buffer opening phase,
