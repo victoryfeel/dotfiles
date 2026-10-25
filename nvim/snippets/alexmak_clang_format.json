@@ -63,7 +63,7 @@
       "",
       "# Function parameters & Continuation",
       "AlignAfterOpenBracket: BlockIndent",
-      "ContinuationIndentWidth: 4",
+      "ContinuationIndentWidth: 2",
       "AllowAllArgumentsOnNextLine: true",
       "AllowAllParametersOfDeclarationOnNextLine: true",
       "",
