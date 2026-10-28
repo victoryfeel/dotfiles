@@ -38,7 +38,7 @@ vim.schedule(function()
 			code = {
 				-- general
 				width = "block",
-				min_width = 80,
+				min_width = 100,
 				sign = false,
 				-- borders
 				border = "thin",
