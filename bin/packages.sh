@@ -11,13 +11,11 @@ if [ "$(uname -s)" = "Darwin" ]; then
 
   brew install git git-delta fzf fd ripgrep trash-cli
   brew install lazygit neovim yazi tmux
-  brew install imagemagick
+  brew install imagemagick neomutt newsboat
   brew install rust go node
-  brew install --cask antigravity-cli
-  brew install --cask kitty orbstack dbeaver-community
-  brew install --cask freefilesync google-drive cryptomator
-  brew install --cask anki calibre netnewswire
-  brew install --cask helium-browser
+  brew install --cask kitty orbstack dbeaver-community antigravity-cli
+  brew install --cask freefilesync google-drive cryptomator helium-browser
+  brew install --cask anki calibre
 
   echo "Manual install with following links:"
   echo "mpv player: https://github.com/mpv-player/mpv/releases"
