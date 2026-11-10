@@ -61,16 +61,16 @@ fi
 alias ll='ls -alh'
 alias md='mkdir -p'
 alias rm='echo "Use tp (trash-put) instead."; false'
-alias tp="trash-put"
-alias s='fastfetch'
-alias gg="git clone"
 alias cda="cd ~/alexmak && ls -alh ~/alexmak"
 alias cdd="cd ~/alexmak/dotfiles && ls -alh ~/alexmak/dotfiles"
-alias cdo="cd ~/alexmak/ongo && ls -alh ~/alexmak/ongo"
-alias cdl="cd ~/alexmak/learn && ls -alh ~/alexmak/learn"
+alias cdo="cd ~/alexmak/dev_ongo && ls -alh ~/alexmak/dev_ongo"
+alias cdl="cd ~/alexmak/dev_learn && ls -alh ~/alexmak/dev_learn"
 alias cdn="cd ~/alexmak/notes/core && ls -alh ~/alexmak/notes/core"
 alias cdt="cd ~/alexmak/tmp && ls -alh ~/alexmak/tmp"
-alias cdm="nvim /project/README.md"
+alias gg="git clone"
+alias tp="trash-put"
+alias s='fastfetch'
+alias rss='cd ~/alexmak/tmp && newsboat'
 
 function psg {
   local pat=$1
