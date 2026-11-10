@@ -6,8 +6,8 @@ echo "[configsys.sh] Config system..."
 if [ "$SHELL" != "$(which zsh)" ]; then
   sudo chsh -s "$(which zsh)" "$USER" || true
 fi
-mkdir -p "$HOME/alexmak/learn"
-mkdir -p "$HOME/alexmak/ongo"
+mkdir -p "$HOME/alexmak/dev_learn"
+mkdir -p "$HOME/alexmak/dev_ongo"
 mkdir -p "$HOME/alexmak/tmp"
 
 git config --global user.name "Alex Mak"

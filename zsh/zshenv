@@ -17,7 +17,6 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 #-- toolchain paths
 export HTOPRC="${HOME}/alexmak/dotfiles/htop/htoprc"
 export VCPKG_ROOT="${XDG_DATA_HOME}/vcpkg"
-export DOCKER_HOST="unix://${XDG_RUNTIME_DIR:-/run/user/$UID}/podman/podman.sock"
 
 ## ================= PATH Configuration =================
 #-- construct path with auto-deduplication

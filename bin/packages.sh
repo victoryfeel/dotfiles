@@ -9,10 +9,14 @@ if [ "$(uname -s)" = "Darwin" ]; then
   #========================
   eval "$(/opt/homebrew/bin/brew shellenv)"
 
-  brew install git git-delta fzf fd ripgrep trash-cli
-  brew install lazygit neovim yazi tmux
-  brew install imagemagick neomutt newsboat
-  brew install rust go node
+  xcode-select --install
+  brew install git git-delta tree trash-cli tree-sitter-cli
+  brew install fzf ripgrep fd the_silver_searcher
+  brew install mandoc fastfetch imagemagick newsboat neomutt
+  brew install tmux neovim lazygit yazi
+  brew install node python googletest htop
+  brew install go gopls golangci-lint
+  brew install rust && rustup-init
   brew install --cask kitty orbstack dbeaver-community antigravity-cli
   brew install --cask freefilesync google-drive cryptomator helium-browser
   brew install --cask anki calibre
@@ -30,13 +34,16 @@ else
   #=========================
   sudo pacman -Syu --noconfirm
 
-  sudo pacman -S --needed --noconfirm base-devel curl git zip unzip trash-cli tree less
-  sudo pacman -S --needed --noconfirm neovim tree-sitter-cli yazi tmux lazygit git-delta
-  sudo pacman -S --needed --noconfirm zsh fzf ripgrep fd the_silver_searcher fastfetch mandoc
-  sudo pacman -S --needed --noconfirm imagemagick
-  sudo pacman -S --needed --noconfirm htop podman
-  sudo pacman -S --needed --noconfirm rust go npm nodejs
-  sudo pacman -S --needed --noconfirm boost cmake make ninja gdb clang llvm lldb bear
+  sudo pacman -S --needed --noconfirm base-devel curl git git-delta zip unzip trash-cli tree tree-sitter-cli less
+  sudo pacman -S --needed --noconfirm zsh fzf ripgrep fd the_silver_searcher
+  sudo pacman -S --needed --noconfirm mandoc fastfetch imagemagick newsboat neomutt
+  sudo pacman -S --needed --noconfirm tmux neovim lazygit yazi
+  sudo pacman -S --needed --noconfirm npm nodejs python-pip gtest htop
+  sudo pacman -S --needed docker docker-compose docker-buildx
+  sudo systemctl enable --now docker && sudo usermod -aG docker $USER
+  sudo pacman -S --needed --noconfirm clang cmake make ninja gdb llvm lldb bear boost
+  sudo pacman -S --needed --noconfirm go gopls golangci-lint
+  sudo pacman -S --needed --noconfirm rustup
 
   command -v yay >/dev/null || (
     mkdir -p "${HOME}/tmp" &&
