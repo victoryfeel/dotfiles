@@ -18,4 +18,16 @@ git config --global core.fsyncMethod fsync
 
 # systemctl --user enable --now podman.socket
 
+## ============================== ##
+## ========  os_settings  ======= ##
+## ============================== ##
+if [ "$(uname -s)" = "Linux" ]; then
+  DOTFILES="$HOME/alexmak/dotfiles"
+
+  # keyd: copy (not symlink) so root-read config does not depend on $HOME
+  sudo install -Dm644 "$DOTFILES/os_settings/keyd-map.conf" /etc/keyd/default.conf
+  sudo systemctl enable --now keyd
+  sudo keyd reload || true
+fi
+
 echo "[configsys.sh] Finished."

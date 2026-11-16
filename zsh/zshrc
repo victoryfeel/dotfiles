@@ -43,18 +43,17 @@ else
   # alias yu='yay -Syu --noconfirm'
   alias xs='pacman -Ss'
   alias ys='yay -Ss'
+  alias xsi='pacman -Qi'
   alias xi='sudo pacman -S --needed'
   alias yi='yay -S --needed'
   # alias yi='yay -S --needed --noconfirm'
+  alias xl='pacman -Qe && echo "--- Installed Count ---" && pacman -Qe | wc -l'
   alias xr='sudo pacman -Rns'
   function xc {
     sudo find /var/cache/pacman/pkg/ -maxdepth 1 -name 'download-*' -delete
     sudo pacman -Sc
   }
   alias xca='sudo pacman -Rns $(pacman -Qdtq)'
-  alias qs='pacman -Qs'
-  alias qi='pacman -Qi'
-  alias qu='pacman -Qu'
 fi
 
 #-- file system
@@ -94,6 +93,9 @@ alias pdr="podman run"
 alias pdri="podman run -it"
 alias pde="podman exec -it"
 alias pdc="podman system prune"
+#-- llm
+alias agys="agy-auth switch"
+alias agyl="agy-auth list --all"
 
 #-- quick config & reload
 alias mz="nvim ~/alexmak/dotfiles/zsh/zshrc"
