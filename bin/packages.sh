@@ -18,6 +18,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
   brew install go gopls golangci-lint
   brew install rust && rustup-init
   brew install --cask kitty orbstack dbeaver-community antigravity-cli
+  npm install -g @fikrilal/agy-auth
   brew install --cask freefilesync google-drive cryptomator helium-browser
   brew install --cask anki calibre
 
@@ -44,6 +45,7 @@ else
   sudo pacman -S --needed --noconfirm clang cmake make ninja gdb llvm lldb bear boost
   sudo pacman -S --needed --noconfirm go gopls golangci-lint
   sudo pacman -S --needed --noconfirm rustup
+  sudo pacman -S --needed --noconfirm keyd
 
   command -v yay >/dev/null || (
     mkdir -p "${HOME}/tmp" &&
@@ -55,6 +57,8 @@ else
       cd "${HOME}" &&
       rm -rf "${HOME}/tmp/yay"
   )
+  yay -S --needed antigravity-cli
+  npm install -g @fikrilal/agy-auth
 fi
 
 echo "[packages.sh] Finished."
