@@ -37,16 +37,14 @@ if [[ "$OSTYPE" == darwin* ]]; then
   alias xr='brew uninstall'
   alias xc='brew cleanup'
 else
-  #-- pacman & yay
+  #-- pacman & paru
   alias xu='sudo pacman -Syu'
-  alias yu='yay -Syu'
-  # alias yu='yay -Syu --noconfirm'
+  alias yu='paru -Syu'
   alias xs='pacman -Ss'
-  alias ys='yay -Ss'
+  alias ys='paru -Ss'
   alias xsi='pacman -Qi'
   alias xi='sudo pacman -S --needed'
-  alias yi='yay -S --needed'
-  # alias yi='yay -S --needed --noconfirm'
+  alias yi='paru -S --needed'
   alias xl='pacman -Qe && echo "--- Installed Count ---" && pacman -Qe | wc -l'
   alias xr='sudo pacman -Rns'
   function xc {

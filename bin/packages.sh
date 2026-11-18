@@ -17,6 +17,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
   brew install node python googletest htop
   brew install go gopls golangci-lint
   brew install rust && rustup-init
+  brew install --cask clash-verge-rev
   brew install --cask kitty orbstack dbeaver-community antigravity-cli
   npm install -g @fikrilal/agy-auth
   brew install --cask freefilesync google-drive cryptomator helium-browser
@@ -24,7 +25,6 @@ if [ "$(uname -s)" = "Darwin" ]; then
 
   echo "Manual install with following links:"
   echo "mpv player: https://github.com/mpv-player/mpv/releases"
-  echo "v2rayn: https://github.com/2dust/v2rayN/releases"
   echo "qBittorent: https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases"
   echo "cracked app links:"
   echo "alfred: https://www.minorpatch.com/apps/alfred-powerpack.html"
@@ -47,17 +47,17 @@ else
   sudo pacman -S --needed --noconfirm rustup
   sudo pacman -S --needed --noconfirm keyd
 
-  command -v yay >/dev/null || (
+  command -v paru >/dev/null || (
     mkdir -p "${HOME}/tmp" &&
       cd "${HOME}/tmp" &&
-      rm -rf yay &&
-      git clone https://aur.archlinux.org/yay.git &&
-      cd yay &&
+      rm -rf paru-bin &&
+      git clone https://aur.archlinux.org/paru-bin.git &&
+      cd paru-bin &&
       makepkg -sic --noconfirm &&
       cd "${HOME}" &&
-      rm -rf "${HOME}/tmp/yay"
+      rm -rf "${HOME}/tmp/paru-bin"
   )
-  yay -S --needed antigravity-cli
+  paru -S --needed antigravity-cli clash-verge-rev-bin
   npm install -g @fikrilal/agy-auth
 fi
 
